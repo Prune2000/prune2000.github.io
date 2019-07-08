@@ -2,25 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
-    <title>Categories on theyknow</title>
-    <link>https://domain.example/categories/</link>
-    <description>Recent content in Categories on theyknow</description>
+    <title>Tor on theyknow</title>
+    <link>https://domain.example/tags/tor/</link>
+    <description>Recent content in Tor on theyknow</description>
     <image>
-      <title>Categories on theyknow</title>
-      <link>https://domain.example/categories/</link>
+      <title>Tor on theyknow</title>
+      <link>https://domain.example/tags/tor/</link>
       <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
     <lastBuildDate>Mon, 08 Jul 2019 20:40:43 UT</lastBuildDate>
-    <atom:link href="https://domain.example/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://domain.example/tags/tor/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Post</title>
-      <link>https://domain.example/categories/post/</link>
+      <title>Is Tor enough?</title>
+      <link>https://domain.example/post/test/</link>
+      <pubDate>Mon, 08 Jul 2019 14:08:35 UT</pubDate>
       <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/categories/post/</guid>
+      <guid>https://domain.example/post/test/</guid>
       <description></description>
+      <category domain="https://domain.example/categories/post">Post</category>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
   </channel>

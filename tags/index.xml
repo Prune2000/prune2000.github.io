@@ -8,12 +8,44 @@
     <image>
       <title>Tags on theyknow</title>
       <link>https://domain.example/tags/</link>
-      <url>https://source.unsplash.com/collection/983219/2000x1322</url>
+      <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 08 Jul 2019 16:57:50 UT</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 20:40:43 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Privacy</title>
+      <link>https://domain.example/tags/privacy/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/privacy/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Security</title>
+      <link>https://domain.example/tags/security/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/security/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Tor</title>
+      <link>https://domain.example/tags/tor/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/tor/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Vpn</title>
+      <link>https://domain.example/tags/vpn/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/vpn/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
   </channel>
 </rss>
