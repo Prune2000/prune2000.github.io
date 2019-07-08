@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://domain.example/post/test/</loc>
-    <lastmod>2019-07-08T14:08:35+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://domain.example/categories/</loc>
     <priority>0</priority>
   </url>
@@ -21,36 +16,11 @@
   </url>
   
   <url>
-    <loc>https://domain.example/categories/post/</loc>
-    <lastmod>2019-07-08T14:08:35+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/post/</loc>
-    <lastmod>2019-07-08T14:08:35+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/privacy/</loc>
-    <lastmod>2019-07-08T14:08:35+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://domain.example/tools/re/</loc>
   </url>
   
   <url>
-    <loc>https://domain.example/tags/security/</loc>
-    <lastmod>2019-07-08T14:08:35+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://domain.example/tags/</loc>
-    <lastmod>2019-07-08T14:08:35+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -60,20 +30,7 @@
   </url>
   
   <url>
-    <loc>https://domain.example/tags/tor/</loc>
-    <lastmod>2019-07-08T14:08:35+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/vpn/</loc>
-    <lastmod>2019-07-08T14:08:35+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://domain.example/</loc>
-    <lastmod>2019-07-08T14:08:35+00:00</lastmod>
     <priority>0</priority>
   </url>
   
