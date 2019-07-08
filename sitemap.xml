@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://domain.example/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tools/network/</loc>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tools/pentest/</loc>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tools/re/</loc>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tools/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
