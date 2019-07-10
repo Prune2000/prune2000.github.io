@@ -13,35 +13,12 @@
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 10 Jul 2019 10:37:50 UT</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jul 2019 10:41:45 UT</lastBuildDate>
     <atom:link href="https://domain.example/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Network Security</title>
-      <link>https://domain.example/tools/network/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tools/network/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Pentesting tools</title>
-      <link>https://domain.example/tools/pentest/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tools/pentest/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Reverse Engineering</title>
-      <link>https://domain.example/tools/re/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tools/re/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
     <item>
       <title>i18 Challenge - Part 1</title>
       <link>https://domain.example/post/i18-1/</link>
+      <pubDate>Wed, 10 Jul 2019 10:40:00 UT</pubDate>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/post/i18-1/</guid>
       <description>The i18 has 13 challenges that you can find at this address. This CTF is in Norwegian, but has avery small amount of text so google translate is more than enough, but I will translate the text and clues to english here. This is the first part of my writeup where I will do the first 4 challenges. It is very possible that I will make mistakes or take longer path to the flag, so if you have any recommandation or correction, feel free to contact me by email or twitter.</description>
@@ -70,6 +47,30 @@ A GPS position! Alright now we&amp;rsquo;re getting somewhere. I go straight to 
 Let&amp;rsquo;s finish the challenge now:
 echo -n eidsvoll | sha256sum e6b46a50991986097e4a309076cc0760be4c7a643f62e42b07adaf14a7fe30d4  Success! See you in part 2!
 ]]></content:encoded>
+    </item>
+    <item>
+      <title>Network Security</title>
+      <link>https://domain.example/tools/network/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tools/network/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Pentesting tools</title>
+      <link>https://domain.example/tools/pentest/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tools/pentest/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Reverse Engineering</title>
+      <link>https://domain.example/tools/re/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tools/re/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
     </item>
   </channel>
 </rss>
