@@ -13,7 +13,63 @@
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 08 Jul 2019 20:42:09 UT</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jul 2019 10:37:50 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crypto</title>
+      <link>https://domain.example/tags/crypto/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/crypto/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Ctf</title>
+      <link>https://domain.example/tags/ctf/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/ctf/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Forensic</title>
+      <link>https://domain.example/tags/forensic/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/forensic/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>I18</title>
+      <link>https://domain.example/tags/i18/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/i18/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>John</title>
+      <link>https://domain.example/tags/john/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/john/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Web</title>
+      <link>https://domain.example/tags/web/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/web/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Wireshark</title>
+      <link>https://domain.example/tags/wireshark/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/wireshark/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
   </channel>
 </rss>

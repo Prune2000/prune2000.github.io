@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <docs>https://blogs.law.harvard.edu/tech/rss</docs>
+    <title>Wireshark on theyknow</title>
+    <link>https://domain.example/tags/wireshark/</link>
+    <description>Recent content in Wireshark on theyknow</description>
+    <image>
+      <title>Wireshark on theyknow</title>
+      <link>https://domain.example/tags/wireshark/</link>
+      <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
+    </image>
+    <ttl>1440</ttl>
+    <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 10 Jul 2019 10:37:50 UT</lastBuildDate>
+    <atom:link href="https://domain.example/tags/wireshark/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>i18 Challenge - Part 1</title>
+      <link>https://domain.example/post/i18-1/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/post/i18-1/</guid>
+      <description>The i18 has 13 challenges that you can find at this address. This CTF is in Norwegian, but has avery small amount of text so google translate is more than enough, but I will translate the text and clues to english here. This is the first part of my writeup where I will do the first 4 challenges. It is very possible that I will make mistakes or take longer path to the flag, so if you have any recommandation or correction, feel free to contact me by email or twitter.</description>
+      <category domain="https://domain.example/categories/post">Post</category>
+      <content:encoded><![CDATA[ The i18 has 13 challenges that you can find at this address. This CTF is in Norwegian, but has avery small amount of text so google translate is more than enough, but I will translate the text and clues to english here. This is the first part of my writeup where I will do the first 4 challenges. It is very possible that I will make mistakes or take longer path to the flag, so if you have any recommandation or correction, feel free to contact me by email or twitter. And same if you have questions or things you would like to know more about! Alright let&amp;rsquo;s jump in!
+1: Ren rutine Task: First task and this is simple. The answer we are looking for is sha256 (&amp;lsquo;lett som en plett&amp;rsquo;).
+This one seems fairly easy: just generates the sha256 hash for the sentence ‘lett som en plett’. Just type this command: echo -n &#39;lett som en plett&#39; | sha256sum  It will give: b3df0e709c60b6c3790941a49d989dcd1911b1e25eba18afdb08f78820a1b8cf
+And it works! First flag!
+2: This Must Be The Place Task: We have put this on our head completely.
+No more info than that. But it says the &amp;ldquo;head&amp;rdquo; so I would imagine, so let&amp;rsquo;s look at the page header! A quick way to do that is to right click, inspect element, go to to the network tab and click on the first GET request which is for this specific page. In the header, we do find a strange parameter called X-Answer with the value: b8e63fba4504b3c29e582cc3d1f6cc56918998d50e55b1af3382080506f2f969
+And indeed it works! We could also have just pinged the page to get the header back: curl -I https://challenge.i18.no/level/fbmserjd3dwtvrspnk8ektmxsvdenwvp  3: I Skyggene Task: nsm:$1$asH66rpo$gkIQMSAA.QS/ah5VZvrYi0:16403:0:99999:7::: Clue one: Passwords that follow predictable patterns make them easier to crack.
+Clue two: An article explaining why Summerferie2014 is a bad password.
+The clues are completely essential for me because I have very little experience in crypto challenges. I can easily guess that it will follow the pattern of Summerferie2014 though. So one word and then one number (probably a year). As it is in Norwegian, we can&amp;rsquo;t use already premade wordlists I have in English.
+To find a list of words wasn&amp;rsquo;t easy but I found an old scrabble website that had one in their rules page by googling ordboka: https://www.ordspill.no/rules/ which redirects us in the end to this website with a downloadable list: http://www2.scrabbleforbundet.no/wp-content/uploads/2016/10/nsf2016.zip
+I wonder if they know their innocent scrabble list can be used to crack passwords. Anyway this probably took me almost an hour but we got it! Oh yes, the actual challenge now.
+We save the hash in a text file and after running a normal command with john (john hash.txt &amp;ndash;wordlist=nsf2016.txt), it doesn&amp;rsquo;t manage to crack the password. So we probably need to help it by adding a rule as we know the format of the possible password (common word &#43; number/year).
+According to this article: https://www.gracefulsecurity.com/custom-rules-for-john-the-ripper/ - we should be able to create that by adding to the john&amp;rsquo;s Config file (etc/john/john.conf) this rule: [List.Rules:wordDate]
+cAz&#34;201[0-9]&#34;  Basically it will try every word on the list with a first capital letter, then 201 and add 0 to 9 at the end, giving for example Stanley2012. The “c” at the beginning tells john to remove the rule of the initial capital letter if it doesn&amp;rsquo;t find anything. So after the right command: john hash.txt --wordlist=nsf2016.txt --rules=wordDate  It tells use that it cracked it with the result being “Demokrati2015”. For some reason, the CTF did not accept this answer and I couldn&amp;rsquo;t understand why. But then I remembered that the previous answers were hashed in sha256 so I did the same with Demokrati2015 and it worked. echo -n Demokrati2015 | sha256sum a4e3e09a00b0706add935ebdf627dc57bfb6e9d53b0be2c60754ad5865ce3c4f  4: Broen A file. What is hiding in this.
+Clue: sha256(lc())
+Ok so we get a file to download. Awesome! I love to do forensic challenges. The file is called data.bin. Let&amp;rsquo;s check what it could be with a simple command: file data.bin “data.bin: pcap capture file, microsecond ts (little-endian) - version 2.4 (Ethernet, capture length 65535)”  Great! A pcap file. I&amp;rsquo;m deep into a network security ebook so I recognise the extension directly. Basically for those that don&amp;rsquo;t know, pcap means Packet Capture Data. The file was generated through packet sniffing by the free software Wireshark. So let&amp;rsquo;s open the software and have a look at this capture. It&amp;rsquo;s a short packet capture and we see directly that there was a successful HTTP request and another request after that for an image:
+If we continue down through this image request, we see that it was also successful:
+Which means there is an image in this packet capture. To get the files transfered through HTTP, go to file -&amp;gt; Export Objects -&amp;gt; HTTP. Let&amp;rsquo;s have a look at this picture:
+Interesting&amp;hellip; It looks like a google map picture of a bridge (Broen, the title of the challenge means bridge in Norwegian). As the clue is about finding the name of a place, I can guess already that if we find where this bridge is, we should be good to go. Let&amp;rsquo;s start by checking the website that is written as Copyright. But we don&amp;rsquo;t find anything there, just an interactive map and I&amp;rsquo;m not going to visit all the places in Norway looking for this bridge. Let&amp;rsquo;s analyze the image then.
+I did not find anything interesting by checking the usual commands like identify, file, exiv2. So after some googling I found an article by Nullbyte about extracting hidden information in images through exiftool. I quickly installed it and after running it, we get an interesting information:
+A GPS position! Alright now we&amp;rsquo;re getting somewhere. I go straight to a GPS coordinate website, enter the coordinates and BOOM! We know that the bridge is in Eidsvoll. Fun fact: the Norwegian constitution was drafted and signed in Eisdvoll on the 17th of May 1814 by the constitutional assembly. And this is now the Norwegian national day.
+Let&amp;rsquo;s finish the challenge now:
+echo -n eidsvoll | sha256sum e6b46a50991986097e4a309076cc0760be4c7a643f62e42b07adaf14a7fe30d4  Success! See you in part 2!
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

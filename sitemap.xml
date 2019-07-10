@@ -8,11 +8,46 @@
   </url>
   
   <url>
+    <loc>https://domain.example/tags/crypto/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/ctf/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/forensic/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/i18/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/john/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://domain.example/tools/network/</loc>
   </url>
   
   <url>
     <loc>https://domain.example/tools/pentest/</loc>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/categories/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/post/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -27,6 +62,20 @@
   <url>
     <loc>https://domain.example/tools/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/web/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/wireshark/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/post/i18-1/</loc>
   </url>
   
   <url>
