@@ -13,7 +13,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 10 Jul 2019 20:20:23 UT</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jul 2019 17:54:45 UT</lastBuildDate>
     <atom:link href="https://domain.example/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>i18 Challenge - Part 1</title>
@@ -21,17 +21,17 @@
       <pubDate>Wed, 10 Jul 2019 10:40:00 UT</pubDate>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/post/i18-1/</guid>
-      <description>The i18 has 13 challenges that you can find at this address. This CTF is in Norwegian, but has avery small amount of text so google translate is more than enough, but I will translate the text and clues to english here. This is the first part of my writeup where I will do the first 4 challenges. It is very possible that I will make mistakes or take longer path to the flag, so if you have any recommandation or correction, feel free to contact me by email or twitter.</description>
+      <description>The i18 has 13 challenges that you can find at this address. This CTF is in Norwegian, but has a very small amount of text so google translate is more than enough, but I will translate the text and clues to english here. This is the first part of my writeup where I will do the first 4 challenges. It is very possible that I will make mistakes or take longer path to the flag, so if you have any recommandation or correction, feel free to contact me by email or twitter.</description>
       <category domain="https://domain.example/categories/post">Post</category>
-      <content:encoded><![CDATA[ The i18 has 13 challenges that you can find at this address. This CTF is in Norwegian, but has avery small amount of text so google translate is more than enough, but I will translate the text and clues to english here. This is the first part of my writeup where I will do the first 4 challenges. It is very possible that I will make mistakes or take longer path to the flag, so if you have any recommandation or correction, feel free to contact me by email or twitter. And same if you have questions or things you would like to know more about! Alright let&amp;rsquo;s jump in!
-1: Ren rutine Task: First task and this is simple. The answer we are looking for is sha256 (&amp;lsquo;lett som en plett&amp;rsquo;).
+      <content:encoded><![CDATA[ The i18 has 13 challenges that you can find at this address. This CTF is in Norwegian, but has a very small amount of text so google translate is more than enough, but I will translate the text and clues to english here. This is the first part of my writeup where I will do the first 4 challenges. It is very possible that I will make mistakes or take longer path to the flag, so if you have any recommandation or correction, feel free to contact me by email or twitter. And same if you have questions or things you would like to know more about! Alright let&amp;rsquo;s jump in!
+1: Ren rutine Task: First task and this is simple. The answer we are looking for is sha256(lett som en plett).
 This one seems fairly easy: just generates the sha256 hash for the sentence ‘lett som en plett’. Just type this command: echo -n &#39;lett som en plett&#39; | sha256sum  It will give: b3df0e709c60b6c3790941a49d989dcd1911b1e25eba18afdb08f78820a1b8cf
 And it works! First flag!
 2: This Must Be The Place Task: We have put this on our head completely.
-No more info than that. But it says the &amp;ldquo;head&amp;rdquo; so I would imagine, so let&amp;rsquo;s look at the page header! A quick way to do that is to right click, inspect element, go to to the network tab and click on the first GET request which is for this specific page. In the header, we do find a strange parameter called X-Answer with the value: b8e63fba4504b3c29e582cc3d1f6cc56918998d50e55b1af3382080506f2f969
+No more info than that. But it says the &amp;ldquo;head&amp;rdquo; so I would imagine it has something to do with the header, so let&amp;rsquo;s look at the page header! A quick way to do that is to right click, inspect element, go to to the network tab and click on the first GET request which is for this specific page. In the header, we do find a strange parameter called X-Answer with the value: b8e63fba4504b3c29e582cc3d1f6cc56918998d50e55b1af3382080506f2f969
 And indeed it works! We could also have just pinged the page to get the header back: curl -I https://challenge.i18.no/level/fbmserjd3dwtvrspnk8ektmxsvdenwvp  3: I Skyggene Task: nsm:$1$asH66rpo$gkIQMSAA.QS/ah5VZvrYi0:16403:0:99999:7::: Clue one: Passwords that follow predictable patterns make them easier to crack.
 Clue two: An article explaining why Summerferie2014 is a bad password.
-The clues are completely essential for me because I have very little experience in crypto challenges. I can easily guess that it will follow the pattern of Summerferie2014 though. So one word and then one number (probably a year). As it is in Norwegian, we can&amp;rsquo;t use already premade wordlists I have in English.
+The clues are completely essential for me here because I have very little experience in crypto challenges. I can easily guess that it will follow the pattern of Summerferie2014 though. So one word and then one number (probably a year). As it is in Norwegian, we can&amp;rsquo;t use already premade wordlists I have in English.
 To find a list of words wasn&amp;rsquo;t easy but I found an old scrabble website that had one in their rules page by googling ordboka: https://www.ordspill.no/rules/ which redirects us in the end to this website with a downloadable list: http://www2.scrabbleforbundet.no/wp-content/uploads/2016/10/nsf2016.zip
 I wonder if they know their innocent scrabble list can be used to crack passwords. Anyway this probably took me almost an hour but we got it! Oh yes, the actual challenge now.
 We save the hash in a text file and after running a normal command with john (john hash.txt &amp;ndash;wordlist=nsf2016.txt), it doesn&amp;rsquo;t manage to crack the password. So we probably need to help it by adding a rule as we know the format of the possible password (common word &#43; number/year).
