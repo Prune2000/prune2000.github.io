@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
-    <title>Tools on theyknow</title>
-    <link>https://domain.example/tools/</link>
-    <description>Recent content in Tools on theyknow</description>
+    <title>Enumaration on theyknow</title>
+    <link>https://domain.example/tags/enumaration/</link>
+    <description>Recent content in Enumaration on theyknow</description>
     <image>
-      <title>Tools on theyknow</title>
-      <link>https://domain.example/tools/</link>
+      <title>Enumaration on theyknow</title>
+      <link>https://domain.example/tags/enumaration/</link>
       <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
     </image>
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 17 Jul 2019 10:35:45 UT</lastBuildDate>
-    <atom:link href="https://domain.example/tools/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://domain.example/tags/enumaration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pentesting tools</title>
       <link>https://domain.example/tools/pentest/</link>

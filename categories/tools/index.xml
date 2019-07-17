@@ -13,7 +13,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 17 Jul 2019 10:28:19 UT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 10:35:45 UT</lastBuildDate>
     <atom:link href="https://domain.example/categories/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pentesting tools</title>
@@ -23,11 +23,15 @@
       <description>This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).</description>
       <category domain="https://domain.example/categories/tools">Tools</category>
       <content:encoded><![CDATA[This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).
+(last edited: 17/07/2019)
 Hydra
 hydra options $user/$passOptions $ip/$url serviceOptions
 Example I used during a CTF to find valid usernames:
 hydra -L usernames.txt -p password -f -s 5001 35.227.x.x http-post-form &#34;/hash/login:username=^USER^&amp;password=^PASS^:Invalid username&#34; -t 64  John the Ripper Another bruteforcing tool, for password hashes this time. I explain how to add a new rule in this post. john --wordlist=password.lst --rules mypasswd  SQLMap I use this tool a lot for SQL injections. For more information, check this tutorial. sqlmap -u $url options Very useful option:
---forms: Parse and test forms  Pentestmonkey Reverse Shell The PHP reverse shell I use the most, you&#39;ll find it on this page with a tutorial on how to use it. Explore the rest of the Pentestmonkey website, it&#39;s great.  SecLists SecLists is the security tester&#39;s companion. It&#39;s a collection of multiple types of lists used during security assessments, collected in one place. List types include usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, and many more.  NMAP No need to introduce this extremely useful tool, but here my usual command if it interests you:
+--forms: Parse and test forms  WPScan WPScan is a free, for non-commercial use, black box WordPress vulnerability scanner written for security professionals and blog maintainers to test the security of their sites.
+wpscan --url myblog.com
+If a more stealthy approach is required, then wpscan --stealthy --url myblog.com can be used.
+When using the --enumerate option, don&#39;t forget to set the --plugins-detection accordingly, as its default is &#39;passive&#39;.  Pentestmonkey Reverse Shell The PHP reverse shell I use the most, you&#39;ll find it on this page with a tutorial on how to use it. Explore the rest of the Pentestmonkey website, it&#39;s great.  SecLists SecLists is the security tester&#39;s companion. It&#39;s a collection of multiple types of lists used during security assessments, collected in one place. List types include usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, and many more.  NMAP No need to introduce this extremely useful tool, but here my usual command if it interests you:
 nmap -sV -sC -oA myscan.txt $ip  -sV: Version/Service info -sC: Run default scripts -oA: Normal output   Wfuzz Extremely useful for enumeration, Wfuzz is a tool designed for bruteforcing Web Applications, it can be used for finding resources not linked (directories, servlets, scripts, etc), bruteforce GET and POST parameters for checking different kind of injections (SQL, XSS, LDAP,etc), bruteforce Forms parameters (User/Password), Fuzzing, etc.
 wfuzz -c -z file,/usr/share/wfuzz/wordlist/general/common.txt --hc 404 http://192.168.1.202/FUZZ  Dirb Another enumeration tool I use a lot.
 dirb http://$ip/ /usr/share/wordlists/dirb/common.txt  DirBuster Never enough enumeration tools! One more. This one as a GUI, so just type the command &#39;dirbuster&#39; and it will launch the program.  Nikto Did I say enumeration again? Nikto is the last enumeration tool I use. Never underestimate an effective enumeration during the recon phase.

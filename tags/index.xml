@@ -13,8 +13,16 @@
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 17 Jul 2019 10:28:19 UT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 10:35:45 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bruteforce</title>
+      <link>https://domain.example/tags/bruteforce/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/bruteforce/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
     <item>
       <title>Crypto</title>
       <link>https://domain.example/tags/crypto/</link>
@@ -28,6 +36,14 @@
       <link>https://domain.example/tags/ctf/</link>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/tags/ctf/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Enumaration</title>
+      <link>https://domain.example/tags/enumaration/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/enumaration/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
@@ -56,10 +72,42 @@
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
+      <title>Linux</title>
+      <link>https://domain.example/tags/linux/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/linux/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Pentest</title>
+      <link>https://domain.example/tags/pentest/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/pentest/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Privesc</title>
+      <link>https://domain.example/tags/privesc/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/privesc/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
       <title>Web</title>
       <link>https://domain.example/tags/web/</link>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/tags/web/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>https://domain.example/tags/windows/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/windows/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>

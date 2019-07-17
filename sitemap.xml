@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://domain.example/tags/bruteforce/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://domain.example/categories/</loc>
     <priority>0</priority>
   </url>
@@ -21,6 +26,11 @@
   <url>
     <loc>https://domain.example/tags/ctf/</loc>
     <lastmod>2019-07-10T12:40:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/enumaration/</loc>
     <priority>0</priority>
   </url>
   
@@ -43,6 +53,16 @@
   </url>
   
   <url>
+    <loc>https://domain.example/tags/linux/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/pentest/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://domain.example/tools/pentest/</loc>
   </url>
   
@@ -55,6 +75,11 @@
   <url>
     <loc>https://domain.example/post/</loc>
     <lastmod>2019-07-10T12:40:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/privesc/</loc>
     <priority>0</priority>
   </url>
   
@@ -77,6 +102,11 @@
   <url>
     <loc>https://domain.example/tags/web/</loc>
     <lastmod>2019-07-10T12:40:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/windows/</loc>
     <priority>0</priority>
   </url>
   
