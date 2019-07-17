@@ -13,7 +13,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 17 Jul 2019 20:46:41 UT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 20:50:54 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>i18 Challenge - Part 2</title>
@@ -57,7 +57,7 @@ echo -n hacktheplanet | sha256sum 48f6018bc6898a5c9e61d549b174131c07ed70542ba1c3
 We just got this image. After doing a little bit of info recon on the file itself, not much comes up except the size of it for such a small image. So that and the clue tells me that something is up.
 After a little bit of research, I find this useful article about hidden files in images. One important information is that in the HEX, a jpg has the terminating byte of ffd9. If we search for it with: cat logo.jpg | grep &#39;ffd9&#39;  We see that there is still a lot going on after the ffd9 where it should have ended. We have “4944 3303” as the following bytes, and with a quick google search we find out that it is the initial bytes of an MP3 file. Still thanks to the previous article, we know that we can use the dd command to extract it. But first we need to find the offset in an hex editor. I used Bless Hex Editor which has a nice and simple GUI. I found the offset “0x3BD8” where the MP3 file starts:
 Still according to the article linked above: “dd only takes decimal values, so we convert the hexadecimal location from hex to decimal”. Which gives us the decimal 15320. Now we can run the dd command:
-dd if=logo.jpg bs=1 skip=15320 of=logo.mp3  At this point though, I have been lost for too long. I can&amp;rsquo;t find a way to make this MP3 work so I can give up for now, and we&amp;rsquo;ll probably come back to this challenge later. If anyone spots an obvious mistake I made, please contact me!
+dd if=logo.jpg bs=1 skip=15320 of=logo.mp3  The file is created but after that I have been lost for too long. I can&amp;rsquo;t find a way to make this MP3 work so I gave up for now, and we&amp;rsquo;ll probably come back to this challenge later. If anyone spots an obvious mistake I made, please contact me!
 See you for part 3!
 ]]></content:encoded>
     </item>
