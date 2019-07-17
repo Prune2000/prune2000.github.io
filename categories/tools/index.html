@@ -10,28 +10,32 @@
     <meta name="generator" content="Hugo">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pentesting tools | theyknow</title>
-    <meta name="description" content="This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).">
+    <title>Tools | theyknow</title>
+    <meta name="description" content="">
     <meta name="keywords" content="post, tools, ">
     
     
     
     
-    <meta property="og:title" content="Pentesting tools" />
-<meta property="og:description" content="This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above)." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://domain.example/tools/pentest/" />
+      <meta name="robots" content="noindex">
+    
+    <meta property="og:title" content="Tools" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://domain.example/categories/tools/" />
 
-<meta property="og:image" content="http://3.bp.blogspot.com/-vGEwwWY0yKU/T1YLYpBkZDI/AAAAAAAAAY8/aKJAvITV2kc/s1600/wpscan.png" />
+<meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg" />
 
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://3.bp.blogspot.com/-vGEwwWY0yKU/T1YLYpBkZDI/AAAAAAAAAY8/aKJAvITV2kc/s1600/wpscan.png"/>
+<meta name="twitter:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg"/>
 
-<meta name="twitter:title" content="Pentesting tools"/>
-<meta name="twitter:description" content="This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above)."/>
+<meta name="twitter:title" content="Tools"/>
+<meta name="twitter:description" content=""/>
 
     
+
+  <meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg">
 
 
 
@@ -88,7 +92,9 @@ fetchInject(["/js/lazysizes.min.js"]);
 
 
     
-    <link rel="canonical" href="https://domain.example/tools/pentest/">
+      <link rel="alternate" type="application/rss+xml" href="https://domain.example/categories/tools/index.xml" title="theyknow">
+    
+    <link rel="canonical" href="https://domain.example/categories/tools/">
     
     
     <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
@@ -200,7 +206,7 @@ a[itemprop="url"]:hover {
     
       
       
-        <a itemprop="url" class="active" href="/tools">Tools</a>
+        <a itemprop="url" href="/tools">Tools</a>
       
     
       
@@ -228,243 +234,44 @@ a[itemprop="url"]:hover {
 </header>
     <main>
   <header>
-    <h1>Pentesting tools</h1>
+    <h1>Tools</h1>
   </header>
-  <p>This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).</p>
-
-<p><a href="https://tools.kali.org/password-attacks/hydra">Hydra</a><br>
-
-
-
-
-<div class="alert alert-info">
   
-hydra options $user/$passOptions $ip/$url serviceOptions<br>
-Example I used during a CTF to find valid usernames:<br><br>
-hydra -L usernames.txt -p password -f -s 5001 35.227.x.x http-post-form "/hash/login:username=^USER^&password=^PASS^:Invalid username"
--t 64
-
-</div>
-
-</p>
-
-<p><a href="https://www.openwall.com/john/">John the Ripper</a>
-
-
-
-
-<div class="alert alert-info">
+    <article itemprop="citation" itemscope itemtype="https://schema.org/CreativeWork">
+  <header>
+    <h2 itemprop="name">
+      <a href="/tools/pentest/" rel="bookmark">Pentesting tools</a>
+    </h2>
+    
+  </header>
   
-Another bruteforcing tool, for password hashes this time. I explain how to add a new rule in <a href="/post/i18-1">this post</a>. <br><br>
-john --wordlist=password.lst --rules mypasswd
-
-</div>
-
-</p>
-
-<p><a href="http://sqlmap.org/">SQLMap</a>
-
-
-
-
-<div class="alert alert-info">
+  <div itemprop="description">
+    This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).
+  </div>
   
-I use this tool a lot for SQL injections. For more information, check <a href="https://www.binarytides.com/sqlmap-hacking-tutorial/">this tutorial</a>. <br><br>
-sqlmap -u $url options <br><br>
-Very useful option:<br>
---forms: Parse and test forms <br>
-
-</div>
-
-</p>
-
-<p><a href="http://pentestmonkey.net/tools/web-shells/php-reverse-shell">Pentestmonkey Reverse Shell</a>
-
-
-
-
-<div class="alert alert-info">
+    <nav class="readmore"><p>
+      <a itemprop="url" href="/tools/pentest/" rel="bookmark">Read More&nbsp;&raquo;</a>
+    </p></nav>
   
-The PHP reverse shell I use the most, you'll find it on <a href="http://pentestmonkey.net/tools/web-shells/php-reverse-shell">this page</a> with a tutorial on how to use it. Explore the rest of the Pentestmonkey website, it's great.
-
-</div>
-
-</p>
-
-<p><a href="https://github.com/danielmiessler/SecLists">SecLists</a>
-
-
-
-
-<div class="alert alert-info">
+  <meta itemprop="inLanguage" content="en-US">
+  <meta itemprop="datePublished" content="0001-01-01T00:00:00&#43;00:00">
+  <meta itemprop="dateModified" content="0001-01-01T00:00:00&#43;00:00">
   
-SecLists is the security tester's companion. It's a collection of multiple types of lists used during security assessments, collected in one place. List types include usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, and many more.
-
-</div>
-
-</p>
-
-<p><a href="https://nmap.org/">NMAP</a>
-
-
-
-
-<div class="alert alert-info">
+    <meta itemprop="image" content="http://3.bp.blogspot.com/-vGEwwWY0yKU/T1YLYpBkZDI/AAAAAAAAAY8/aKJAvITV2kc/s1600/wpscan.png">
   
-No need to introduce this extremely useful tool, but here my usual command if it interests you:<br><br>
-nmap -sV -sC -oA myscan.txt $ip <br>
+</article>
 
-<ul>
-<li>-sV: Version/Service info</li>
-<li>-sC: Run default scripts</li>
-<li>-oA: Normal output</li>
-</ul>
-
-
-</div>
-
-</p>
-
-<p><a href="https://tools.kali.org/web-applications/wfuzz">Wfuzz</a>
-
-
-
-
-<div class="alert alert-info">
   
-Extremely useful for enumeration, Wfuzz is a tool designed for bruteforcing Web Applications, it can be used for finding resources not linked (directories, servlets, scripts, etc), bruteforce GET and POST parameters for checking different kind of injections (SQL, XSS, LDAP,etc), bruteforce Forms parameters (User/Password), Fuzzing, etc.<br><br>
-wfuzz -c -z file,/usr/share/wfuzz/wordlist/general/common.txt --hc 404 http://192.168.1.202/FUZZ
-
-</div>
-
-</p>
-
-<p><a href="https://tools.kali.org/web-applications/dirb">Dirb</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Another enumeration tool I use a lot.<br><br>
-dirb http://$ip/ /usr/share/wordlists/dirb/common.txt
-
-</div>
-
-</p>
-
-<p><a href="https://tools.kali.org/web-applications/dirbuster">DirBuster</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Never enough enumeration tools! One more. This one as a GUI, so just type the command 'dirbuster' and it will launch the program.
-
-</div>
-
-</p>
-
-<p><a href="https://cirt.net/nikto2">Nikto</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Did I say enumeration again? Nikto is the last enumeration tool I use. Never underestimate an effective enumeration during the recon phase.<br><br>
-nikto -Display 1234EP -o report.html -Format htm -Tuning 123bde -host $ip
-
-</div>
-
-</p>
-
-<p><a href="https://github.com/aboul3la/Sublist3r">Sublist3r</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Sublist3r is a python tool designed to enumerate subdomains of websites using OSINT. Sublist3r enumerates subdomains using many search engines such as Google, Yahoo, Bing, Baidu, and Ask. Sublist3r also enumerates subdomains using Netcraft, Virustotal, ThreatCrowd, DNSdumpster, and ReverseDNS.<br><br>
-python sublist3r.py -d example.com
-
-</div>
-
-</p>
-
-<p><a href="https://github.com/yeyintminthuhtut/Awesome-Red-Teaming">The Awesome Red Teaming</a>
-
-
-
-
-<div class="alert alert-info">
-  
-List of Awesome Red Team / Red Teaming Resources. This list is for anyone wishing to learn about Red Teaming but do not have a starting point.
-
-</div>
-
-</p>
-
-<p><a href="https://github.com/j3ssie/Osmedeus">Osmedeus</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Osmedeus allows you automated run the collection of awesome tools to reconnaissance and vulnerability scanning against the target. Even has a slack bot to send notifications!<br>
-<p style="text-align:center;"><img src="https://raw.githubusercontent.com/j3ssie/Osmedeus/master/imgs/Osmedeus-architecture.png" width=400px></p>
-./osmedeus.py -t example.com
-
-</div>
-
-</p>
-
-<p><a href="https://xsshunter.com/features">XSS Hunter</a>
-
-
-
-
-<div class="alert alert-info">
-  
-XSS Hunter allows you to find all kinds of cross-site scripting vulnerabilities, including the often-missed blind XSS. The service works by hosting specialized XSS probes which, upon firing, scan the page and send information about the vulnerable page to the XSS Hunter service.<br>
-<p style="text-align:center;"><img src="https://xsshunter.com/static/img/manage_all_your_injections.png" width=600px></p>
-Upon signing up you will create a special xss.ht short domain such as yoursubdomain.xss.ht which identifies your XSS vulnerabilities and hosts your payload. You then use this subdomain in your XSS testing and XSS Hunter will automatically serve up XSS probes and collect the resulting information when they fire.
-
-</div>
-
-</p>
-
-<p><a href="https://github.com/DominicBreuker/pspy">pspy</a>
-
-
-
-
-<div class="alert alert-info">
-  
-pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.
-
-</div>
-
-</p>
-
-<p><a href="https://github.com/rebootuser/LinEnum">LinEnum</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Scripted Local Linux Enumeration & Privilege Escalation Checks.
-
-</div>
-
-</p>
-
 </main>
     <footer>
+  <p><nav>
+  
+  
+    <span>Page 1 of 1</span>
+  
+  
+</nav>
+</p>
   <small class="muted">
     
 

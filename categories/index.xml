@@ -13,13 +13,21 @@
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 14 Jul 2019 17:56:14 UT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 10:24:30 UT</lastBuildDate>
     <atom:link href="https://domain.example/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Post</title>
       <link>https://domain.example/categories/post/</link>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/categories/post/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Tools</title>
+      <link>https://domain.example/categories/tools/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/categories/tools/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>

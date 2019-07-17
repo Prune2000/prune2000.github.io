@@ -43,10 +43,6 @@
   </url>
   
   <url>
-    <loc>https://domain.example/tools/network/</loc>
-  </url>
-  
-  <url>
     <loc>https://domain.example/tools/pentest/</loc>
   </url>
   
@@ -63,10 +59,6 @@
   </url>
   
   <url>
-    <loc>https://domain.example/tools/re/</loc>
-  </url>
-  
-  <url>
     <loc>https://domain.example/tags/</loc>
     <lastmod>2019-07-10T12:40:00+02:00</lastmod>
     <priority>0</priority>
@@ -74,6 +66,11 @@
   
   <url>
     <loc>https://domain.example/tools/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/categories/tools/</loc>
     <priority>0</priority>
   </url>
   
