@@ -13,7 +13,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 17 Jul 2019 10:24:30 UT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 10:28:19 UT</lastBuildDate>
     <atom:link href="https://domain.example/categories/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pentesting tools</title>
@@ -34,7 +34,7 @@ dirb http://$ip/ /usr/share/wordlists/dirb/common.txt  DirBuster Never enough en
 nikto -Display 1234EP -o report.html -Format htm -Tuning 123bde -host $ip  Sublist3r Sublist3r is a python tool designed to enumerate subdomains of websites using OSINT. Sublist3r enumerates subdomains using many search engines such as Google, Yahoo, Bing, Baidu, and Ask. Sublist3r also enumerates subdomains using Netcraft, Virustotal, ThreatCrowd, DNSdumpster, and ReverseDNS.
 python sublist3r.py -d example.com  The Awesome Red Teaming List of Awesome Red Team / Red Teaming Resources. This list is for anyone wishing to learn about Red Teaming but do not have a starting point.  Osmedeus Osmedeus allows you automated run the collection of awesome tools to reconnaissance and vulnerability scanning against the target. Even has a slack bot to send notifications!
 ./osmedeus.py -t example.com  XSS Hunter XSS Hunter allows you to find all kinds of cross-site scripting vulnerabilities, including the often-missed blind XSS. The service works by hosting specialized XSS probes which, upon firing, scan the page and send information about the vulnerable page to the XSS Hunter service.
-Upon signing up you will create a special xss.ht short domain such as yoursubdomain.xss.ht which identifies your XSS vulnerabilities and hosts your payload. You then use this subdomain in your XSS testing and XSS Hunter will automatically serve up XSS probes and collect the resulting information when they fire.  pspy pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.  LinEnum Scripted Local Linux Enumeration &amp; Privilege Escalation Checks.  ]]></content:encoded>
+Upon signing up you will create a special xss.ht short domain such as yoursubdomain.xss.ht which identifies your XSS vulnerabilities and hosts your payload. You then use this subdomain in your XSS testing and XSS Hunter will automatically serve up XSS probes and collect the resulting information when they fire.  pspy pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.  LinEnum Scripted Local Linux Enumeration &amp; Privilege Escalation Checks.  GTFOBins GTFOBins is a curated list of Unix binaries that can be exploited by an attacker to bypass local security restrictions.  LOLBAS The goal of the LOLBAS project is to document every binary, script, and library that can be used for Living Off The Land techniques.  ]]></content:encoded>
     </item>
   </channel>
 </rss>
