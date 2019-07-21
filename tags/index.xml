@@ -13,7 +13,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 21 Jul 2019 10:52:52 UT</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jul 2019 12:05:19 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bruteforce</title>
@@ -48,6 +48,14 @@
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
+      <title>Enumeration</title>
+      <link>https://domain.example/tags/enumeration/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/enumeration/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
       <title>Forensic</title>
       <link>https://domain.example/tags/forensic/</link>
       <dc:creator>theyknow</dc:creator>
@@ -68,6 +76,14 @@
       <link>https://domain.example/tags/john/</link>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/tags/john/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Linenum</title>
+      <link>https://domain.example/tags/linenum/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/linenum/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
@@ -100,6 +116,14 @@
       <link>https://domain.example/tags/privesc/</link>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/tags/privesc/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Pspy</title>
+      <link>https://domain.example/tags/pspy/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/pspy/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>

