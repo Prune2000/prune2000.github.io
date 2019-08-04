@@ -395,7 +395,7 @@ echo -n hacktheplanet | sha256sum<br>
 
 <p>We just got this image. After doing a little bit of info recon on the file itself, not much comes up except the size of it for such a small image. So that and the clue tells me that something is up.</p>
 
-<p>After a little bit of research, I find <a href="https://ctfs.github.io/resources/topics/steganography/file-in-image/README.html">this useful article</a> about hidden files in images. One important information is that in the HEX, a jpg has the terminating byte of ffd9. If we search for it with:
+<p>After a little bit of research, I find <a href="https://ctfs.github.io/resources/topics/steganography/file-in-image/README.html" target="_blank">this useful article</a> about hidden files in images. One important information is that in the HEX, a jpg has the terminating byte of ffd9. If we search for it with:
 
 
 
@@ -409,11 +409,11 @@ cat logo.jpg | grep 'ffd9'
 
 <img src="/i18/initial-hex.png" alt="command line hex grep" /></p>
 
-<p>We see that there is still a lot going on after the ffd9 where it should have ended. We have “4944 3303” as the following bytes, and with a quick google search we find out that it is the initial bytes of an MP3 file. Still thanks to the previous article, we know that we can use the dd command to extract it. But first we need to find the offset in an hex editor. I used <a href="http://elinuxbook.com/install-bless-hex-editor-hexadecimal-editor-in-ubuntu-16-04-a-best-hex-editor-for-linux/">Bless Hex Editor</a> which has a nice and simple GUI. I found the offset “0x3BD8” where the MP3 file starts:</p>
+<p>We see that there is still a lot going on after the ffd9 where it should have ended. We have “4944 3303” as the following bytes, and with a quick google search we find out that it is the initial bytes of an MP3 file. Still thanks to the previous article, we know that we can use the dd command to extract it. But first we need to find the offset in an hex editor. I used <a href="http://elinuxbook.com/install-bless-hex-editor-hexadecimal-editor-in-ubuntu-16-04-a-best-hex-editor-for-linux/" target="_blank">Bless Hex Editor</a> which has a nice and simple GUI. I found the offset “0x3BD8” where the MP3 file starts:</p>
 
 <p><img src="/i18/hex.png" alt="bless hex screenshot" /></p>
 
-<p>Still according to the article linked above: “dd only takes decimal values, so we convert the hexadecimal location from <a href="https://www.binaryhexconverter.com/hex-to-decimal-converter">hex to decimal</a>”. Which gives us the decimal 15320. Now we can run the dd command:</p>
+<p>Still according to the article linked above: “dd only takes decimal values, so we convert the hexadecimal location from <a href="https://www.binaryhexconverter.com/hex-to-decimal-converter" target="_blank">hex to decimal</a>”. Which gives us the decimal 15320. Now we can run the dd command:</p>
 
 
 
