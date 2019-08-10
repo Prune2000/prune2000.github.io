@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://domain.example/post/malware-traffic-analysis/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://domain.example/post/upload-tools/</loc>
     <lastmod>2019-07-21T01:00:00+02:00</lastmod>
   </url>
@@ -52,7 +57,7 @@
   
   <url>
     <loc>https://domain.example/tags/forensic/</loc>
-    <lastmod>2019-07-17T10:40:00+02:00</lastmod>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -80,6 +85,12 @@
   </url>
   
   <url>
+    <loc>https://domain.example/tags/malware/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://domain.example/tags/nslookup/</loc>
     <lastmod>2019-07-17T10:40:00+02:00</lastmod>
     <priority>0</priority>
@@ -96,13 +107,13 @@
   
   <url>
     <loc>https://domain.example/categories/post/</loc>
-    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://domain.example/post/</loc>
-    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -147,6 +158,12 @@
   </url>
   
   <url>
+    <loc>https://domain.example/tags/traffic-analysis/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://domain.example/tags/web/</loc>
     <lastmod>2019-07-17T10:40:00+02:00</lastmod>
     <priority>0</priority>
@@ -159,13 +176,13 @@
   
   <url>
     <loc>https://domain.example/tags/wireshark/</loc>
-    <lastmod>2019-07-10T12:40:00+02:00</lastmod>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://domain.example/</loc>
-    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -13,7 +13,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 08 Aug 2019 20:21:18 UT</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2019 13:16:36 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bruteforce</title>
@@ -96,6 +96,14 @@
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
+      <title>Malware</title>
+      <link>https://domain.example/tags/malware/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/malware/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
       <title>Nslookup</title>
       <link>https://domain.example/tags/nslookup/</link>
       <dc:creator>theyknow</dc:creator>
@@ -140,6 +148,14 @@
       <link>https://domain.example/tags/reverse/</link>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/tags/reverse/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Traffic Analysis</title>
+      <link>https://domain.example/tags/traffic-analysis/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/traffic-analysis/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
