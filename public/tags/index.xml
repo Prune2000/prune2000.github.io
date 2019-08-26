@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
@@ -11,52 +10,12 @@
       <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
     </image>
     <ttl>1440</ttl>
-    <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
+    <generator>After Dark 8.0.2 (Hugo 0.57.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 22 Aug 2019 18:28:43 UT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2019 19:23:04 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Bruteforce</title>
-      <link>https://domain.example/tags/bruteforce/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/bruteforce/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Crypto</title>
-      <link>https://domain.example/tags/crypto/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/crypto/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Ctf</title>
-      <link>https://domain.example/tags/ctf/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/ctf/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Enumaration</title>
-      <link>https://domain.example/tags/enumaration/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/enumaration/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Enumeration</title>
-      <link>https://domain.example/tags/enumeration/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/enumeration/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Forensic</title>
+      <title>forensic</title>
       <link>https://domain.example/tags/forensic/</link>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/tags/forensic/</guid>
@@ -64,39 +23,7 @@
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
-      <title>I18</title>
-      <link>https://domain.example/tags/i18/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/i18/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>John</title>
-      <link>https://domain.example/tags/john/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/john/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Linenum</title>
-      <link>https://domain.example/tags/linenum/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/linenum/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>https://domain.example/tags/linux/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/linux/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Malware</title>
+      <title>malware</title>
       <link>https://domain.example/tags/malware/</link>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/tags/malware/</guid>
@@ -104,55 +31,7 @@
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
-      <title>Nslookup</title>
-      <link>https://domain.example/tags/nslookup/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/nslookup/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Pentest</title>
-      <link>https://domain.example/tags/pentest/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/pentest/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Privesc</title>
-      <link>https://domain.example/tags/privesc/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/privesc/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Pspy</title>
-      <link>https://domain.example/tags/pspy/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/pspy/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Re</title>
-      <link>https://domain.example/tags/re/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/re/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Reverse</title>
-      <link>https://domain.example/tags/reverse/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/reverse/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>Traffic Analysis</title>
+      <title>traffic analysis</title>
       <link>https://domain.example/tags/traffic-analysis/</link>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/tags/traffic-analysis/</guid>
@@ -160,7 +39,87 @@
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
-      <title>Web</title>
+      <title>wireshark</title>
+      <link>https://domain.example/tags/wireshark/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/wireshark/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>ctf</title>
+      <link>https://domain.example/tags/ctf/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/ctf/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>enumeration</title>
+      <link>https://domain.example/tags/enumeration/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/enumeration/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>linenum</title>
+      <link>https://domain.example/tags/linenum/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/linenum/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>privesc</title>
+      <link>https://domain.example/tags/privesc/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/privesc/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>pspy</title>
+      <link>https://domain.example/tags/pspy/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/pspy/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>i18</title>
+      <link>https://domain.example/tags/i18/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/i18/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>nslookup</title>
+      <link>https://domain.example/tags/nslookup/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/nslookup/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>re</title>
+      <link>https://domain.example/tags/re/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/re/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>reverse</title>
+      <link>https://domain.example/tags/reverse/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/reverse/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>web</title>
       <link>https://domain.example/tags/web/</link>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/tags/web/</guid>
@@ -168,18 +127,58 @@
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
-      <title>Windows</title>
-      <link>https://domain.example/tags/windows/</link>
+      <title>crypto</title>
+      <link>https://domain.example/tags/crypto/</link>
       <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/windows/</guid>
+      <guid>https://domain.example/tags/crypto/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
     <item>
-      <title>Wireshark</title>
-      <link>https://domain.example/tags/wireshark/</link>
+      <title>john</title>
+      <link>https://domain.example/tags/john/</link>
       <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/wireshark/</guid>
+      <guid>https://domain.example/tags/john/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>bruteforce</title>
+      <link>https://domain.example/tags/bruteforce/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/bruteforce/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>enumaration</title>
+      <link>https://domain.example/tags/enumaration/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/enumaration/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>linux</title>
+      <link>https://domain.example/tags/linux/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/linux/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>pentest</title>
+      <link>https://domain.example/tags/pentest/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/pentest/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>windows</title>
+      <link>https://domain.example/tags/windows/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tags/windows/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>

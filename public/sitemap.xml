@@ -3,8 +3,78 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://domain.example/categories/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/forensic/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/malware/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/categories/post/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/post/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/traffic-analysis/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/wireshark/</loc>
+    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://domain.example/post/malware-traffic-analysis/</loc>
     <lastmod>2019-08-10T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/ctf/</loc>
+    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/enumeration/</loc>
+    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/linenum/</loc>
+    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/privesc/</loc>
+    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/pspy/</loc>
+    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
   </url>
   
   <url>
@@ -13,8 +83,38 @@
   </url>
   
   <url>
+    <loc>https://domain.example/tags/i18/</loc>
+    <lastmod>2019-07-17T10:40:00+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://domain.example/post/i18-2/</loc>
     <lastmod>2019-07-17T10:40:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/nslookup/</loc>
+    <lastmod>2019-07-17T10:40:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/re/</loc>
+    <lastmod>2019-07-17T10:40:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/reverse/</loc>
+    <lastmod>2019-07-17T10:40:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/web/</loc>
+    <lastmod>2019-07-17T10:40:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/crypto/</loc>
+    <lastmod>2019-07-10T12:40:00+02:00</lastmod>
   </url>
   
   <url>
@@ -23,82 +123,24 @@
   </url>
   
   <url>
-    <loc>https://domain.example/tags/bruteforce/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/crypto/</loc>
+    <loc>https://domain.example/tags/john/</loc>
     <lastmod>2019-07-10T12:40:00+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://domain.example/tags/ctf/</loc>
-    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
-    <priority>0</priority>
+    <loc>https://domain.example/tags/bruteforce/</loc>
   </url>
   
   <url>
     <loc>https://domain.example/tags/enumaration/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/enumeration/</loc>
-    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/forensic/</loc>
-    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/i18/</loc>
-    <lastmod>2019-07-17T10:40:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/john/</loc>
-    <lastmod>2019-07-10T12:40:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/linenum/</loc>
-    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://domain.example/tags/linux/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/malware/</loc>
-    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/nslookup/</loc>
-    <lastmod>2019-07-17T10:40:00+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://domain.example/tags/pentest/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -106,84 +148,15 @@
   </url>
   
   <url>
-    <loc>https://domain.example/categories/post/</loc>
-    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/post/</loc>
-    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/privesc/</loc>
-    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/pspy/</loc>
-    <lastmod>2019-07-21T01:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/re/</loc>
-    <lastmod>2019-07-17T10:40:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/reverse/</loc>
-    <lastmod>2019-07-17T10:40:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/</loc>
-    <lastmod>2019-07-10T12:40:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://domain.example/tools/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://domain.example/categories/tools/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/traffic-analysis/</loc>
-    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/web/</loc>
-    <lastmod>2019-07-17T10:40:00+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://domain.example/tags/windows/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/wireshark/</loc>
-    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/</loc>
-    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>
