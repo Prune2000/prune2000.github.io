@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <docs>https://blogs.law.harvard.edu/tech/rss</docs>
-    <title>Post on theyknow</title>
+    <title>post on theyknow</title>
     <link>https://domain.example/categories/post/</link>
-    <description>Recent content in Post on theyknow</description>
+    <description>Recent content in post on theyknow</description>
     <image>
-      <title>Post on theyknow</title>
+      <title>post on theyknow</title>
       <link>https://domain.example/categories/post/</link>
       <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
     </image>
     <ttl>1440</ttl>
-    <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
+    <generator>After Dark 8.0.2 (Hugo 0.57.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 22 Aug 2019 18:28:43 UT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2019 20:39:47 UT</lastBuildDate>
     <atom:link href="https://domain.example/categories/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Writeup: 2014-11-16 - TRAFFIC ANALYSIS EXERCISE</title>
