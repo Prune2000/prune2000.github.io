@@ -12,7 +12,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 9.1.0 (Hugo 0.57.0)</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 27 Aug 2019 19:49:08 UT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2019 20:07:10 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/privesc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Upload enumeration tools to a linux server</title>
@@ -43,7 +43,7 @@ Have fun uploading files now!
       <description>This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).</description>
       <category domain="https://domain.example/categories/tools">Tools</category>
       <content:encoded><![CDATA[This page will be a completely chaotic list of tools, articles, and ressources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).
-(last edited: 22/08/2019)
+(last edited: 03/09/2019)
 Was pinned on /r/hacking (even more tools suggested there): 
 Hydra
 hydra options $user/$passOptions $ip/$url serviceOptions
@@ -61,7 +61,11 @@ nmap -A -T5 -oN myscan.txt $ip
 Useful one-liner to look all the scripts that nmap can provide:
 locate -r &#39;\.nse$&#39; | xargs grep categories | grep &#39;default\|version&#39;
 Let&#39;s say you&#39;re looking for SMB scripts:
-locate -r &#39;\.nse$&#39; | xargs grep categories | grep &#39;default\|version&#39; | grep smb  Wfuzz Extremely useful for enumeration, Wfuzz is a tool designed for bruteforcing Web Applications, it can be used for finding resources not linked (directories, servlets, scripts, etc), bruteforce GET and POST parameters for checking different kind of injections (SQL, XSS, LDAP,etc), bruteforce Forms parameters (User/Password), Fuzzing, etc.
+locate -r &#39;\.nse$&#39; | xargs grep categories | grep &#39;default\|version&#39; | grep smb  Masscan I started using this tool as an addition to NMAP. It is a great port scanner and effective to grab banner information, but it can also scan the entire Internet in under 6 minutes!!
+Command example for a simple port scan:
+masscan -p80,8000-8100 10.0.0.0/8
+And for banner checking:
+masscan 10.0.0.0/8 -p80 --banners --source-ip 192.168.1.200  Wfuzz Extremely useful for enumeration, Wfuzz is a tool designed for bruteforcing Web Applications, it can be used for finding resources not linked (directories, servlets, scripts, etc), bruteforce GET and POST parameters for checking different kind of injections (SQL, XSS, LDAP,etc), bruteforce Forms parameters (User/Password), Fuzzing, etc.
 wfuzz -c -z file,/usr/share/wfuzz/wordlist/general/common.txt --hc 404 http://192.168.1.202/FUZZ  Dirb Another enumeration tool I use a lot.
 dirb http://$ip/ /usr/share/wordlists/dirb/common.txt  DirBuster Never enough enumeration tools! One more. This one as a GUI, so just type the command &#39;dirbuster&#39; and it will launch the program.  Nikto Did I say enumeration again? Nikto is the last enumeration tool I use. Never underestimate an effective enumeration during the recon phase.
 nikto -Display 1234EP -o report.html -Format htm -Tuning 123bde -host $ip  Gobuster I know, I know: more enumeration. But trust me having different tools to enumerate directories often helped me during CTFs in the recon phase. Just choose the ones that will do the job.
