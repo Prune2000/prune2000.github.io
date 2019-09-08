@@ -10,7 +10,7 @@
     <meta name="generator" content="After Dark Hugo">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tags | theyknow</title>
+    <title>smb | theyknow</title>
     <meta name="description" content="">
     <meta name="keywords" content="post, tools, ">
     
@@ -19,10 +19,10 @@
     
       <meta name="robots" content="noindex">
     
-    <meta property="og:title" content="Tags" />
+    <meta property="og:title" content="smb" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://domain.example/tags/" />
+<meta property="og:url" content="https://domain.example/tags/smb/" />
 
 <meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg" />
 
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg"/>
 
-<meta name="twitter:title" content="Tags"/>
+<meta name="twitter:title" content="smb"/>
 <meta name="twitter:description" content=""/>
 
     
@@ -93,9 +93,9 @@ fetchInject(["/js/lazysizes.min.js"]);
 
 
     
-      <link rel="alternate" type="application/rss+xml" href="https://domain.example/tags/index.xml" title="theyknow">
+      <link rel="alternate" type="application/rss+xml" href="https://domain.example/tags/smb/index.xml" title="theyknow">
     
-    <link rel="canonical" href="https://domain.example/tags/">
+    <link rel="canonical" href="https://domain.example/tags/smb/">
     
     
     <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
@@ -235,63 +235,66 @@ a[itemprop="url"]:hover {
 </header>
     <main>
   <header>
-    <h1>Tags</h1>
+    <h1>smb</h1>
   </header>
-  <ul>
+  
     
-      <li><a href="bruteforce">bruteforce</a> (1)
+
+
+
+
+<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="htb-write-up-bastion">
+  <header>
+    <h1 itemprop="name">
+      <a href="/post/bastion/">HTB Write-up: Bastion</a>
+    </h1>
     
-      <li><a href="crypto">crypto</a> (2)
+      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>4 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2019-09-08T12:40:00&#43;02:00">8 Sep, 2019</time>
+
+</p>
     
-      <li><a href="ctf">ctf</a> (5)
     
-      <li><a href="enumaration">enumaration</a> (1)
+      <blockquote itemprop="headline">Bastion just retired this weekend on HackTheBox.eu so I thought I would do a short write-up of what I learned during this Windows box.</blockquote>
     
-      <li><a href="enumeration">enumeration</a> (1)
-    
-      <li><a href="forensic">forensic</a> (4)
-    
-      <li><a href="htb">htb</a> (1)
-    
-      <li><a href="i18">i18</a> (2)
-    
-      <li><a href="john">john</a> (2)
-    
-      <li><a href="linenum">linenum</a> (1)
-    
-      <li><a href="linux">linux</a> (1)
-    
-      <li><a href="malware">malware</a> (1)
-    
-      <li><a href="nremoteng">nremoteng</a> (1)
-    
-      <li><a href="nslookup">nslookup</a> (1)
-    
-      <li><a href="pentest">pentest</a> (1)
-    
-      <li><a href="privesc">privesc</a> (2)
-    
-      <li><a href="pspy">pspy</a> (1)
-    
-      <li><a href="re">re</a> (1)
-    
-      <li><a href="reverse">reverse</a> (1)
-    
-      <li><a href="smb">smb</a> (1)
-    
-      <li><a href="traffic-analysis">traffic-analysis</a> (1)
-    
-      <li><a href="web">web</a> (3)
-    
-      <li><a href="windows">windows</a> (2)
-    
-      <li><a href="wireshark">wireshark</a> (2)
-    
-  </ul>
+  </header>
+  <div itemprop="">The Bastion Windows box retired this weekend on HackTheBox. It was a Windows box, quite easy to solve but learned a lot along the way. It&rsquo;s my first write-up of a HTB box so it might not be the best but hopefully it will be a nice summary! We learn about SMB, mounting VHD in Linux, stealing Windows hashes, cracking them with John, and exploiting a program for Privesc.</div>
+  <meta itemprop="inLanguage" content="en-US">
+  <meta itemprop="datePublished" content="2019-09-08T12:40:00&#43;02:00">
+  <meta itemprop="dateModified" content="2019-09-08T12:40:00&#43;02:00">
+  
+    <meta itemprop="image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png">
+  
+</article>
+
+  <nav class="readmore">
+    <a itemprop="url" href="/post/bastion/">Read More&nbsp;&raquo;</a>
+  </nav>
+
+
+  
 </main>
     <footer>
+  <p><nav>
   
+  
+    <span>Page 1 of 1</span>
+  
+  
+</nav>
+</p>
+  <small class="muted">
+    
 
+  </small>
 </footer>
     
     
