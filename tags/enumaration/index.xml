@@ -12,7 +12,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 9.1.0 (Hugo 0.57.2)</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 29 Sep 2019 14:47:31 UT</lastBuildDate>
+    <lastBuildDate>Sun, 29 Sep 2019 17:32:13 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/enumaration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pentesting tools</title>
@@ -22,7 +22,7 @@
       <description>This page will be a completely chaotic list of tools, articles, and resources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).</description>
       <category domain="https://domain.example/categories/tools">Tools</category>
       <content:encoded><![CDATA[This page will be a completely chaotic list of tools, articles, and resources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).
-(last edited: 22nd of September 2019)
+(last edited: 29th of September 2019)
 Was pinned on /r/hacking (even more tools suggested there): 
 
 Hydra
@@ -64,7 +64,8 @@ For example, this could result in {&#34;user&#34;:&#34;test&#34;,&#34;role&#34;:
 So now, we can encrypt a new cookie with a different role:
 padbuster http://url.com/profile.php 4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D 8 -cookies &#34;Cookie: PHPSESSID=bn22u9fe085pkut4nsnrrckm96; auth=4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D&#34; -plaintext &#34;{\&#34;user\&#34;:\&#34;test\&#34;,\&#34;role\&#34;:\&#34;admin\&#34;}&#34;
 Which will give us a new encrypted cookie.  Malware Traffic Analysis If you&#39;re interested in forensic and malware traffic analysis, this is THE website. It contains a lot of great articles, but also a very long list of exercises to practice your Wireshark skills! And of course following @malware_traffic on twitter is a must.
-Check out my write-up of the first exercise. Planning to do many more in the future.  ]]></content:encoded>
+Check out my write-up of the first exercise. Planning to do many more in the future.  Discover Just started using Discover recently and I love it. It is used to automate various penetration testing tasks including recon, scanning, parsing, and creating malicious payloads and listeners with Metasploit. It will create a webpage for the report, really well done.
+Give it a try with the passive recon!  CTF Time CTF Time has all the past, present, and future CTF competitions. You can create an account, join a team, and start participating to competitions to climb the world ranks! Really useful to be motivated and never miss a good CTF to sharpen your skills.  ]]></content:encoded>
     </item>
   </channel>
 </rss>
