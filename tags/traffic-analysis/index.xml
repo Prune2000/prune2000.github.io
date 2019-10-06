@@ -12,14 +12,14 @@
     <ttl>1440</ttl>
     <generator>After Dark 9.1.0 (Hugo 0.57.2)</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 06 Oct 2019 14:49:26 UT</lastBuildDate>
+    <lastBuildDate>Sun, 06 Oct 2019 14:52:41 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/traffic-analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sunday honeypot analysis</title>
-      <link>https://domain.example/post/malware-traffic-analysis/</link>
+      <link>https://domain.example/post/honeypot-analysis/</link>
       <pubDate>Sat, 05 Oct 2019 23:00:00 UT</pubDate>
       <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/post/malware-traffic-analysis/</guid>
+      <guid>https://domain.example/post/honeypot-analysis/</guid>
       <description>About the Internet Strom Center and Dshield The Internet Storm Center (ISC) was created in 2001 and has been analyzing threats and problems since then with the help of volunteers around the world. In their own words: &amp;ldquo;The ISC uses the DShield distributed intrusion detection system for data collection and analysis. DShield collects data about malicious activity from across the Internet. This data is cataloged and summarized and can be used to discover trends in activity, confirm widespread attacks, or assist in preparing better firewall rules.</description>
       <category domain="https://domain.example/categories/post">Post</category>
       <content:encoded><![CDATA[ About the Internet Strom Center and Dshield The Internet Storm Center (ISC) was created in 2001 and has been analyzing threats and problems since then with the help of volunteers around the world. In their own words: &amp;ldquo;The ISC uses the DShield distributed intrusion detection system for data collection and analysis. DShield collects data about malicious activity from across the Internet. This data is cataloged and summarized and can be used to discover trends in activity, confirm widespread attacks, or assist in preparing better firewall rules.&amp;rdquo;
@@ -53,10 +53,10 @@ And the top 10 offensive IPs where I added the country of origin: There is a lot
     </item>
     <item>
       <title>Writeup: TRAFFIC ANALYSIS EXERCISE</title>
-      <link>https://domain.example/post/honey-pot-analysis/</link>
+      <link>https://domain.example/post/malware-traffic-analysis/</link>
       <pubDate>Fri, 09 Aug 2019 23:00:00 UT</pubDate>
       <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/post/honey-pot-analysis/</guid>
+      <guid>https://domain.example/post/malware-traffic-analysis/</guid>
       <description>Malware Traffic Analysis @malware_traffic&amp;rsquo;s blog has a lot of knowledge so I highly recommend to bookmark it somewhere. The real treasure is of course the amazing exercises page. Depending on the exercise, you get a pcap and other files. The pcap file is a traffic capture which we can analyse in Wireshark and find out where things went wrong!
 Being able to effectively analyse traffic is a very important skill for the security for any organisation.</description>
       <category domain="https://domain.example/categories/post">Post</category>

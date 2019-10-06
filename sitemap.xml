@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://domain.example/post/malware-traffic-analysis/</loc>
+    <loc>https://domain.example/post/honeypot-analysis/</loc>
     <lastmod>2019-10-06T01:00:00+02:00</lastmod>
   </url>
   
@@ -103,7 +103,7 @@
   </url>
   
   <url>
-    <loc>https://domain.example/post/honey-pot-analysis/</loc>
+    <loc>https://domain.example/post/malware-traffic-analysis/</loc>
     <lastmod>2019-08-10T01:00:00+02:00</lastmod>
   </url>
   

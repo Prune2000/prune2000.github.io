@@ -10,33 +10,29 @@
     <meta name="generator" content="After Dark Hugo">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wireshark | theyknow</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="post, tools, ">
+    <title>Sunday honeypot analysis | theyknow</title>
+    <meta name="description" content="Last month, I started participating to the Internet Storm Center by setting up a VPS on DigitalOcean with a honeypot called DShield. I get reports every day so I thought it would be fun to check out the reports from this Sunday and see if we could find something cool!">
+    <meta name="keywords" content="dshield, ISC, traffic analysis, honeypot, malware">
     
     
     
     
-      <meta name="robots" content="noindex">
-    
-    <meta property="og:title" content="wireshark" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://domain.example/tags/wireshark/" />
+    <meta property="og:title" content="Sunday honeypot analysis" />
+<meta property="og:description" content="Last month, I started participating to the Internet Storm Center by setting up a VPS on DigitalOcean with a honeypot called DShield. I get reports every day so I thought it would be fun to check out the reports from this Sunday and see if we could find something cool!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://domain.example/post/honeypot-analysis/" />
 
-<meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg" />
-
-<meta property="og:updated_time" content="2019-08-10T01:00:00+02:00" />
+<meta property="og:image" content="https://i.imgur.com/EqrmlFe.jpg" />
+<meta property="article:published_time" content="2019-10-06T01:00:00+02:00" />
+<meta property="article:modified_time" content="2019-10-06T01:00:00+02:00" />
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg"/>
+<meta name="twitter:image" content="https://i.imgur.com/EqrmlFe.jpg"/>
 
-<meta name="twitter:title" content="wireshark"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Sunday honeypot analysis"/>
+<meta name="twitter:description" content="Last month, I started participating to the Internet Storm Center by setting up a VPS on DigitalOcean with a honeypot called DShield. I get reports every day so I thought it would be fun to check out the reports from this Sunday and see if we could find something cool!"/>
 
     
-
-  <meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg">
 
 
 
@@ -93,9 +89,7 @@ fetchInject(["/js/lazysizes.min.js"]);
 
 
     
-      <link rel="alternate" type="application/rss+xml" href="https://domain.example/tags/wireshark/index.xml" title="theyknow">
-    
-    <link rel="canonical" href="https://domain.example/tags/wireshark/">
+    <link rel="canonical" href="https://domain.example/post/honeypot-analysis/">
     
     
     <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
@@ -202,7 +196,7 @@ a[itemprop="url"]:hover {
     
       
       
-        <a itemprop="url" href="/post">Posts</a>
+        <a itemprop="url" class="active" href="/post">Posts</a>
       
     
       
@@ -234,66 +228,30 @@ a[itemprop="url"]:hover {
 
 </header>
     <main>
-  <header>
-    <h1>wireshark</h1>
-  </header>
   
     
-
-
-
-
-<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="writeup-traffic-analysis-exercise">
-  <header>
-    <h1 itemprop="name">
-      <a href="/post/malware-traffic-analysis/">Writeup: TRAFFIC ANALYSIS EXERCISE</a>
-    </h1>
+      <style>{{ -}}.hack header figure[itemtype*=ImageObject]{position:relative}.hack header figure[itemtype*=ImageObject] figcaption{position:absolute;bottom:0;right:0;text-align:right;padding:15px;font-style:oblique;font-size:smaller;mix-blend-mode:soft-light}.hack header figure[itemtype*=ImageObject] [itemprop=headline]{font-weight:700}</style>
     
-      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-  <circle cx="16" cy="16" r="14" />
-  <path d="M16 8 L16 16 20 20" />
-</svg>
-<span>4 minute read</span>
-<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
-</svg>
-
-  Published: <time datetime="2019-08-10T01:00:00&#43;02:00">10 Aug, 2019</time>
-
-</p>
-    
-    
-      <blockquote itemprop="headline">Found the great website of @malware_traffic about network traffic related to malware infections. This is a subject that interests me a lot so I thought I would give the exercises a try and see if I can find something!</blockquote>
-    
-  </header>
-  <div itemprop="">Malware Traffic Analysis @malware_traffic&rsquo;s blog has a lot of knowledge so I highly recommend to bookmark it somewhere. The real treasure is of course the amazing exercises page. Depending on the exercise, you get a pcap and other files. The pcap file is a traffic capture which we can analyse in Wireshark and find out where things went wrong!
-Being able to effectively analyse traffic is a very important skill for the security for any organisation.</div>
-  <meta itemprop="inLanguage" content="en-US">
-  <meta itemprop="datePublished" content="2019-08-10T01:00:00&#43;02:00">
-  <meta itemprop="dateModified" content="2019-08-10T01:00:00&#43;02:00">
   
-    <meta itemprop="image" content="https://4.bp.blogspot.com/-jaI1o07pees/WXJ9a9Si5vI/AAAAAAAAITs/b_-0lBPegHIFn3Fvkrqcg6AqhY7rt9fvQCLcBGAs/w1200-h630-p-k-no-nu/maltran_01_2%2B-%2Bmain%2Bmenu.png">
-  
-</article>
-
-  <nav class="readmore">
-    <a itemprop="url" href="/post/malware-traffic-analysis/">Read More&nbsp;&raquo;</a>
-  </nav>
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <meta itemprop="name" content="Sunday honeypot analysis">
+<meta itemprop="description" content="Last month, I started participating to the Internet Storm Center by setting up a VPS on DigitalOcean with a honeypot called DShield. I get reports every day so I thought it would be fun to check out the reports from this Sunday and see if we could find something cool!">
 
 
-  
-    
+<meta itemprop="datePublished" content="2019-10-06T01:00:00&#43;02:00" />
+<meta itemprop="dateModified" content="2019-10-06T01:00:00&#43;02:00" />
+<meta itemprop="wordCount" content="984">
 
+  <meta itemprop="image" content="https://i.imgur.com/EqrmlFe.jpg">
 
 
 
-<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="i18-challenge-part-1">
-  <header>
-    <h1 itemprop="name">
-      <a href="/post/i18-1/">i18 Challenge - Part 1</a>
-    </h1>
-    
-      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+<meta itemprop="keywords" content="dshield,ISC,traffic analysis,honeypot,malware," />
+
+    <header>
+      <h1 itemprop="headline name">Sunday honeypot analysis</h1>
+      <p class="muted">
+        <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
   <circle cx="16" cy="16" r="14" />
   <path d="M16 8 L16 16 20 20" />
 </svg>
@@ -302,39 +260,144 @@ Being able to effectively analyse traffic is a very important skill for the secu
   <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
 </svg>
 
-  Published: <time datetime="2019-07-10T12:40:00&#43;02:00">10 Jul, 2019</time>
+  Published: <time datetime="2019-10-06T01:00:00&#43;02:00">6 Oct, 2019</time>
 
+
+      </p>
+      
+        <blockquote itemprop="description">Last month, I started participating to the Internet Storm Center by setting up a VPS on DigitalOcean with a honeypot called DShield. I get reports every day so I thought it would be fun to check out the reports from this Sunday and see if we could find something cool!</blockquote>
+      
+      
+
+
+
+    </header>
+    
+
+    <div itemprop="articleBody">
+      
+
+<h2 id="about-the-internet-strom-center-and-dshield">About the Internet Strom Center and Dshield</h2>
+
+<p><a href="https://www.dshield.org/about.html">The Internet Storm Center</a> (ISC) was created in 2001 and has been analyzing threats and problems since then with the help of volunteers around the world. In their own words: &ldquo;The ISC uses the <a href="https://github.com/DShield-ISC/dshield">DShield</a> distributed intrusion detection system for data collection and analysis. DShield collects data about malicious activity from across the Internet. This data is cataloged and summarized and can be used to discover trends in activity, confirm widespread attacks, or assist in preparing better firewall rules.&rdquo;</p>
+
+<p>Pretty cool, right? Volunteers can set up DShield on a Raspberry Pi for example, or a VPS like I did, save in DShield their API key from their ISC account, and reports will be sent to ISC twice an hour! And you have a full overview of what and who has been targeting your honey pot as well as 404 reports. Here is how it looks:</p>
+
+<p><img src="/honeypot.png" alt="DShield report screenshot" /></p>
+
+<p>As you can see, today there has been already over 5.000 reported scans of my honeypot (and it&rsquo;s only 3pm here) and I can also see more info about the sources:</p>
+
+<p><img src="/source-info.png" alt="Example of a source scanning my honeypot" /></p>
+
+<p>Here is an example of a source that has been scanning my honeypot today a lot for port 22. Of course, these scans are rarely made by an actual hacker, but rather by bots that were created by different hacking organizations including state-sponsored groups and that are looking for vulnerable systems on the internet <sup>24</sup>&frasl;<sub>7</sub>. As you can see, this IP comes from China and ISC gives a lot more info on the page too.</p>
+
+<p>My long-term plan is to develop a python script that would take each reports available from a certain date range, and build a more interesting report out of this larger sample instead of presenting only one day. If you want to check a specific day in the past, you need to download an excel report and my excel skills are terrible so let&rsquo;s stick to Sunday as ISC provides use already with a nice report page for today. Alright, let&rsquo;s have a look!</p>
+
+<p><br></p>
+
+<h2 id="the-ports">The ports</h2>
+
+<p><img src="/target-ports.png" alt="Targeted ports" /></p>
+
+<p>The most important piece of information is the targeted ports. It gives us a better understanding of the threats currently out in the wild. If there is a clear spike in the scan of a particular port it indicates the beginning or return of a broad-based attacks, or some type of worm that uses vulnerable systems to scan for more victims after it infects them.</p>
+
+<p>Here we can see that my honeypot has been largely scanned for port 22, which is the standard port for the SSH remote login protocol. I have noticed that it stays as the top 3 most scanned port everyday, probably to try brute-forcing it (get access to the machine by ssh and you&rsquo;re in&hellip;) and also possibly to find a response from two old trojans that are possibly still active, like Shaft:</p>
+
+
+
+
+
+<div class="alert alert-info">
+  
+Name: Shaft<br>
+Ports: 22, 5002, 18753 (UDP), 20432, 20433 (UDP)<br>
+Files: idle - 28,969 bytes tcp.log - ??? bytes pp.pl - 2,795 bytes sniff.pid - 6 bytes s - 7,654 bytes chattr - 7,656 bytes vi - 437,428 bytes tcsh - 262,756 bytes ps - 31,312 bytes shaftmaster - 25,123 bytes shaftnode - 15,184 bytes shaftnode.c - 19,806 bytes hitlist - ??? bytes<br>
+Created: Oct 1998<br>
+Actions: Distributed DoS tool / Steals passwords. Is able to either send UDP, TCP or ICMP floods, or all three at the same time.<br>
+Lenguage: Written in C.
+
+</div>
+
+
+
+<p>The next most scanned is port 23. As I understand it, this one has always been a clear favorite and, as explained in <a href="https://www.dshield.org/diary/Increase+in+Port+23+%28telnet%29+scanning/21115">this ISC report</a>, the exploit compromises telnet servers following this procedure:</p>
+
+<p>1- brute force password (usually a well known default password)<br>
+2- Download additional malware via ftp/http or tftp (typically multiple binaries for various architectures)<br>
+3- run the malware, which will typically setup a client for a DDoS botnet.<br></p>
+
+<p>So if you&rsquo;re running a telnet server: change your default password!</p>
+
+<p>The 3rd most scanned was port 465 and there has been a lot going on since 1995 around this port! But realted to security, there was not much information about why this port should be scanned so much. I found the <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-4015">CVE-2011-4015</a> which &ldquo;allows remote attackers to cause a denial of service (interface queue wedge) via malformed UDP traffic on port 465, aka Bug ID CSCts48300&rdquo;. Not too exciting.</p>
+
+<p>Port 445 was also heavily scanned. This port can be used by hackers to remotely commandeer Windows machines, and the overall consensus is that you do NOT want this port to be exposed to the internet. Just have a look at this <a href="https://www.speedguide.net/port.php?port=445">terrible list of trojans and worms</a>.</p>
+
+<p>One port that has been scanned a lot more in the last couple of months is port 1443:</p>
+
+<p><img src="/port-1443.png" alt="Graph of port 1443" /></p>
+
+<p>As explained in <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-4684">CVE-2014-4684</a>, &ldquo;the database server in Siemens SIMATIC WinCC before 7.3, as used in PCS7 and other products, allows remote authenticated users to gain privileges via a request to TCP port 1433&rdquo;. Interesting that the port for this CVE from 2014 has been scanned for a lot in the last 2 months&hellip;</p>
+
+<p><br></p>
+
+<h2 id="the-sources">The sources</h2>
+
+<p><img src="/source-ip.png" alt="Graph of the source IPs" /></p>
+
+<p>Three main IP come out on top:</p>
+
+<ul>
+<li>218.92.0.208: China. Bruteforcing port 80 and 22.</li>
+<li>92.118.38.53: Romania. Fairly new, not much info about previous reports.</li>
+<li>112.85.42.72: China. Old IP used for Forum spamming, now an Asterisk VoIP and port 22 Scanner.</li>
+</ul>
+
+<p><br></p>
+
+<h2 id="the-rest-of-the-world">The rest of the world</h2>
+
+<p>Here is more details about all the info collected by the DShield honeypots around the world:</p>
+
+<p><img src="/top-10-ports.png" alt="Most scanned ports" /></p>
+
+<p>And the top 10 offensive IPs where I added the country of origin:
+<img src="/countries.png" alt="Most offensive countries" />
+<br>
+<img src="/Hacker.gif" alt="A gif of a map" /><br />
+<br>
+There is a lot more information but I thought it was already a good start! I had a lot of fun putting all this info together and hopefully I can do a similar one every Sunday. Please have a look at <a href="https://github.com/DShield-ISC/dshield">DShield</a> and consider contributing to the project. If you need help setting it up, feel free to contact me on <a href="https://twitter.com/victor_theyknow">Twitter</a>!</p>
+
+    </div>
+    <footer>
+      <hr>
+      <p>
+  Published
+  
+    
+      by <span itemprop="author">theyknow</span>
+    
+  
+  <time itemprop="datePublished" datetime="2019-10-06T01:00:00&#43;02:00">
+    6 Oct, 2019
+  </time>
+  
+    in <span itemprop="articleSection"><a href="/categories/post/">post</a></span>
+  
+  
+    and tagged <a rel="tag" href="/tags/dshield/">dshield</a>, <a rel="tag" href="/tags/honeypot/">honeypot</a>, <a rel="tag" href="/tags/isc/">ISC</a>, <a rel="tag" href="/tags/malware/">malware</a> and <a rel="tag" href="/tags/traffic-analysis/">traffic analysis</a>
+  
+  using <span itemprop="wordCount">984</span> words.
 </p>
-    
-    
-      <blockquote itemprop="headline">I was given the link to this CTF that ran back in 2015, and I thought I would take the opportunity to start writing about my thought process using these challenges. If you want to try for yourself, the link is at the beginning of the post.</blockquote>
-    
-  </header>
-  <div itemprop="">The i18 has 13 challenges that you can find at this address. This CTF is in Norwegian, but has a very small amount of text so google translate is more than enough, but I will translate the text and clues to english here. This is the first part of my writeup where I will do the first 4 challenges. It is very possible that I will make mistakes or take longer path to the flag, so if you have any recommandation or correction, feel free to contact me by email or twitter.</div>
-  <meta itemprop="inLanguage" content="en-US">
-  <meta itemprop="datePublished" content="2019-07-10T12:40:00&#43;02:00">
-  <meta itemprop="dateModified" content="2019-07-10T12:40:00&#43;02:00">
-  
-    <meta itemprop="image" content="https://d11wkw82a69pyn.cloudfront.net/siteassets/images/cyber%20security%20challenge/canvas_ctf.jpg">
-  
-</article>
 
-  <nav class="readmore">
-    <a itemprop="url" href="/post/i18-1/">Read More&nbsp;&raquo;</a>
-  </nav>
+      
 
 
-  
+
+
+    </footer>
+  </article>
 </main>
     <footer>
-  <p><nav>
-  
-  
-    <span>Page 1 of 1</span>
-  
-  
-</nav>
-</p>
   <small class="muted">
     
 
