@@ -4,7 +4,57 @@
   
   <url>
     <loc>https://domain.example/categories/</loc>
-    <lastmod>2019-09-08T12:40:00+02:00</lastmod>
+    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/dshield/</loc>
+    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/honeypot/</loc>
+    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/isc/</loc>
+    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/malware/</loc>
+    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/categories/post/</loc>
+    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/post/</loc>
+    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/post/malware-traffic-analysis/</loc>
+    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/</loc>
+    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/</loc>
+    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://domain.example/tags/traffic-analysis/</loc>
+    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
   </url>
   
   <url>
@@ -33,27 +83,7 @@
   </url>
   
   <url>
-    <loc>https://domain.example/categories/post/</loc>
-    <lastmod>2019-09-08T12:40:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/post/</loc>
-    <lastmod>2019-09-08T12:40:00+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://domain.example/tags/smb/</loc>
-    <lastmod>2019-09-08T12:40:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/</loc>
-    <lastmod>2019-09-08T12:40:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/</loc>
     <lastmod>2019-09-08T12:40:00+02:00</lastmod>
   </url>
   
@@ -68,22 +98,12 @@
   </url>
   
   <url>
-    <loc>https://domain.example/tags/malware/</loc>
-    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/traffic-analysis/</loc>
-    <lastmod>2019-08-10T01:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://domain.example/tags/wireshark/</loc>
     <lastmod>2019-08-10T01:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://domain.example/post/malware-traffic-analysis/</loc>
+    <loc>https://domain.example/post/honey-pot-analysis/</loc>
     <lastmod>2019-08-10T01:00:00+02:00</lastmod>
   </url>
   
