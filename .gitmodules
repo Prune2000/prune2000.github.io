@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = git@github.com:Prune2000/Prune2000.github.io.git
+	branch = master
