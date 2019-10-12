@@ -1,0 +1,54 @@
+{{/*
+Copyright (C) 2019  Josh Habdas <jhabdas@protonmail.com>
+
+This file is part of After Dark.
+
+After Dark is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+After Dark is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/}}
+
+{{ define "title" -}}
+  {{ .Site.Title }}
+{{- end }}
+{{ define "header" }}
+  {{ partial "masthead.html" . }}
+{{ end }}
+{{ define "main" }}
+  <header>
+    <h1>theyknow's blog & ressources</h1>
+    <br>
+    <img src="https://images.alphacoders.com/712/thumb-1920-712781.jpg" width="600px" position="center">
+
+  </header>
+  <p>How did you end up here? Through my shameless self-promotion probably. Let me welcome you: I'm a very curious security analyst and this is where I experiment. I do mostly CTFs and pentesting, but I'm a learning addict so Reverse Engineering, Python programming, network security, etc, they interest me all!</p>
+
+  <p>The blog posts I write will help me to explain what I discover, what I learn, and hopefully it will make me better at what I do. Who knows? It might even help someone some day.</p>
+
+  <p>Please do not use any of these articles I write as expert sources, nor am I responsible for the way the tools presented here can be used online. The real experts might even get angry sometimes at my mistakes but that's ok. Let's begin /../../../../</p>
+
+  <a href="https://www.hackthebox.eu/profile/127941" target="_blank"><img src="/badge.png" alt="Hack The Box"></a>
+<br>
+<br>
+
+  <h1>Latest blog posts:</h1>
+
+  {{ range .Paginator.Pages }}
+    {{ partial "page-summary.html" . }}
+  {{ end }}
+
+{{ end }}
+{{ define "footer" }}
+  <small class="muted">
+    {{ partial "copyright-notice.html" . }}
+  </small>
+{{ end }}
