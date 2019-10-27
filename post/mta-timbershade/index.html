@@ -10,42 +10,34 @@
     <meta name="generator" content="After Dark Hugo">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>theyknow</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="post, tools, ">
+    <title>Writeup: Timbershade - TRAFFIC ANALYSIS EXERCISE | theyknow</title>
+    <meta name="description" content="I had already solved one exercise from @malware_traffic&#39;s website about network traffic related to malware infections. I have been slow to pick a new exercise from the very long list but I chose Timbershade and it was a lot of fun! Short one, but learned a lot once again.">
+    <meta name="keywords" content="forensic, malware, traffic analysis, wireshark">
     
     
     
     
-    <meta property="og:title" content="theyknow" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://domain.example/" />
+    <meta property="og:title" content="Writeup: Timbershade - TRAFFIC ANALYSIS EXERCISE" />
+<meta property="og:description" content="I had already solved one exercise from @malware_traffic&#39;s website about network traffic related to malware infections. I have been slow to pick a new exercise from the very long list but I chose Timbershade and it was a lot of fun! Short one, but learned a lot once again." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://domain.example/post/mta-timbershade/" />
 
-<meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg" />
-
-<meta property="og:updated_time" content="2019-10-27T01:00:00+02:00" />
+<meta property="og:image" content="https://www.bleepstatic.com/content/posts/2018/05/28/Cobalt.png" />
+<meta property="article:published_time" content="2019-10-27T01:00:00+02:00" />
+<meta property="article:modified_time" content="2019-10-27T01:00:00+02:00" />
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg"/>
+<meta name="twitter:image" content="https://www.bleepstatic.com/content/posts/2018/05/28/Cobalt.png"/>
 
-<meta name="twitter:title" content="theyknow"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Writeup: Timbershade - TRAFFIC ANALYSIS EXERCISE"/>
+<meta name="twitter:description" content="I had already solved one exercise from @malware_traffic&#39;s website about network traffic related to malware infections. I have been slow to pick a new exercise from the very long list but I chose Timbershade and it was a lot of fun! Short one, but learned a lot once again."/>
 
     
-
-  <meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg">
 
 
 
 
     
-
-    
-      
-
-
-
 
     
     
@@ -97,9 +89,7 @@ fetchInject(["/js/lazysizes.min.js"]);
 
 
     
-      <link rel="alternate" type="application/rss+xml" href="https://domain.example/index.xml" title="theyknow">
-    
-    <link rel="canonical" href="https://domain.example/">
+    <link rel="canonical" href="https://domain.example/post/mta-timbershade/">
     
     
     <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
@@ -201,12 +191,12 @@ a[itemprop="url"]:hover {
     
       
       
-        <a itemprop="url" class="active" href="/">Home</a>
+        <a itemprop="url" href="/">Home</a>
       
     
       
       
-        <a itemprop="url" href="/post">Posts</a>
+        <a itemprop="url" class="active" href="/post">Posts</a>
       
     
       
@@ -238,37 +228,30 @@ a[itemprop="url"]:hover {
 
 </header>
     <main>
-  <header>
-    <h1>theyknow's blog & ressources</h1>
-    <br>
-    <img src="https://images.alphacoders.com/712/thumb-1920-712781.jpg" width="600px" position="center">
-
-  </header>
-  <p>How did you end up here? Through my shameless self-promotion probably. Let me welcome you: I'm a very curious security analyst and this is where I experiment. I do mostly CTFs and pentesting, but I'm a learning addict so Reverse Engineering, Python programming, network security, etc, they interest me all!</p>
-
-  <p>The blog posts I write will help me to explain what I discover, what I learn, and hopefully it will make me better at what I do. Who knows? It might even help someone some day.</p>
-
-  <p>Please do not use any of these articles I write as expert sources, nor am I responsible for the way the tools presented here can be used online. The real experts might even get angry sometimes at my mistakes but that's ok. Let's begin /../../../../</p>
-
-  <a href="https://www.hackthebox.eu/profile/127941" target="_blank"><img src="/badge.png" alt="Hack The Box"></a>
-<br>
-<br>
-
-  <h1>Latest blog posts:</h1>
-
   
     
-
-
-
-
-<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="writeup-timbershade-traffic-analysis-exercise">
-  <header>
-    <h1 itemprop="name">
-      <a href="/post/mta-timbershade/">Writeup: Timbershade - TRAFFIC ANALYSIS EXERCISE</a>
-    </h1>
+      <style>{{ -}}.hack header figure[itemtype*=ImageObject]{position:relative}.hack header figure[itemtype*=ImageObject] figcaption{position:absolute;bottom:0;right:0;text-align:right;padding:15px;font-style:oblique;font-size:smaller;mix-blend-mode:soft-light}.hack header figure[itemtype*=ImageObject] [itemprop=headline]{font-weight:700}</style>
     
-      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <meta itemprop="name" content="Writeup: Timbershade - TRAFFIC ANALYSIS EXERCISE">
+<meta itemprop="description" content="I had already solved one exercise from @malware_traffic&#39;s website about network traffic related to malware infections. I have been slow to pick a new exercise from the very long list but I chose Timbershade and it was a lot of fun! Short one, but learned a lot once again.">
+
+
+<meta itemprop="datePublished" content="2019-10-27T01:00:00&#43;02:00" />
+<meta itemprop="dateModified" content="2019-10-27T01:00:00&#43;02:00" />
+<meta itemprop="wordCount" content="541">
+
+  <meta itemprop="image" content="https://www.bleepstatic.com/content/posts/2018/05/28/Cobalt.png">
+
+
+
+<meta itemprop="keywords" content="forensic,malware,traffic analysis,wireshark," />
+
+    <header>
+      <h1 itemprop="headline name">Writeup: Timbershade - TRAFFIC ANALYSIS EXERCISE</h1>
+      <p class="muted">
+        <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
   <circle cx="16" cy="16" r="14" />
   <path d="M16 8 L16 16 20 20" />
 </svg>
@@ -279,202 +262,164 @@ a[itemprop="url"]:hover {
 
   Published: <time datetime="2019-10-27T01:00:00&#43;02:00">27 Oct, 2019</time>
 
-</p>
+
+      </p>
+      
+        <blockquote itemprop="description">I had already solved one exercise from @malware_traffic&#39;s website about network traffic related to malware infections. I have been slow to pick a new exercise from the very long list but I chose Timbershade and it was a lot of fun! Short one, but learned a lot once again.</blockquote>
+      
+      
+
+
+
+    </header>
     
-    
-      <blockquote itemprop="headline">I had already solved one exercise from @malware_traffic&#39;s website about network traffic related to malware infections. I have been slow to pick a new exercise from the very long list but I chose Timbershade and it was a lot of fun! Short one, but learned a lot once again.</blockquote>
-    
-  </header>
-  <div itemprop="">Malware Traffic Analysis @malware_traffic&rsquo;s blog has a lot of knowledge so I highly recommend to bookmark it somewhere. The real treasure is of course the amazing exercises page. Depending on the exercise, you get a pcap and other files. The pcap file is a traffic capture which we can analyse in Wireshark and find out where things went wrong!
-Being able to effectively analyse traffic is a very important skill for the security of any organisation.</div>
-  <meta itemprop="inLanguage" content="en-US">
-  <meta itemprop="datePublished" content="2019-10-27T01:00:00&#43;02:00">
-  <meta itemprop="dateModified" content="2019-10-27T01:00:00&#43;02:00">
+
+    <div itemprop="articleBody">
+      
+
+<h2 id="malware-traffic-analysis">Malware Traffic Analysis</h2>
+
+<p><a href="https://twitter.com/malware_traffic">@malware_traffic</a>&rsquo;s <a href="https://malware-traffic-analysis.net/" target="_blank">blog</a> has a lot of knowledge so I highly recommend to bookmark it somewhere. The real treasure is of course the amazing <a href="https://malware-traffic-analysis.net/training-exercises.html" target="_blank">exercises page</a>. Depending on the exercise, you get a pcap and other files. The pcap file is a traffic capture which we can analyse in Wireshark and find out where things went wrong!</p>
+
+<p>Being able to effectively analyse traffic is a very important skill for the security of any organisation. It helps the security team to find out where the problem happened and how to mitigate it. It is also super fun!</p>
+
+<p><br></p>
+
+<h2 id="timbershade">Timbershade</h2>
+
+<p>Today, I&rsquo;ll do one of the recent exercises <a href="https://malware-traffic-analysis.net/2019/01/28/index.html" target="_blank">&ldquo;2019-01-28 - TRAFFIC ANALYSIS EXERCISE - TIMBERSHADE&rdquo;</a>. This time we got two files: a pcap and a text file with Windows security alerts.</p>
+
+<p>QUESTIONS:</p>
+
+<p>• What is the IP address of the infected Windows host?<br>
+• What is the MAC address of the infected Windows host?<br>
+• What is the host name of the infected Windows host?<br>
+• What is the Windows user account name for the infected Windows host?<br>
+• What is the SHA256 file hash of the Windows executable file sent to the infected Windows host?<br>
+• Based on the IDS alerts, what type of infection is this?<br></p>
+
+<p><br></p>
+
+<h2 id="my-answers">My answers</h2>
+
+<p>1) What is the IP address of the infected Windows host?<br></p>
+
+<p><img src="/timbershade/source-ip.png" alt="IP infected" />
+The IP of the infected Windows host is 172.17.8.109</p>
+
+<p>2) What is the MAC address of the infected Windows host?<br>
+3) What is the host name of the infected Windows host?<br></p>
+
+<p>I&rsquo;ll answer both questions together because we can find the hostname and the MAC address quickly through different ways:
+<a href="https://unit42.paloaltonetworks.com/using-wireshark-identifying-hosts-and-users/">https://unit42.paloaltonetworks.com/using-wireshark-identifying-hosts-and-users/</a><br>
+In this case, we filter by “bootp” &gt; Go to Bootstrap Protocol and then in the options we find the hostname and MAC address:<br>
+<img src="/timbershade/mac-and-host.png" alt="Hostname and MAC address" /></p>
+
+<p>4) What is the Windows user account name for the infected Windows host?<br></p>
+
+<p>To find this information we can look at the Kerberos traffic. To do that, filter the traffic by “kerberos.CNameString” select one of the frame with the source being our infected Windows host, navigate the frame details sections:
+<img src="/timbershade/username.png" alt="Path to username" /></p>
+
+<p>This will add the CNameString to all the Kerberos request so we can find one of them with the username and not the hostname. CNameString values for hostnames always end with a $ (dollar sign), while user account names do not.
+<img src="/timbershade/username2.png" alt="Usernames" /></p>
+
+<p>The username is “margaret.dunn”.</p>
+
+<p>4) What is the SHA256 file hash of the Windows executable file sent to the infected Windows host?<br></p>
+
+<p>We can find the executable file in: File &gt; Export objects &gt; HTTP. I downloaded the .bin file and in my terminal, I checked its sha256:
+
+
+
+
+<div class="alert alert-info">
   
-    <meta itemprop="image" content="https://www.bleepstatic.com/content/posts/2018/05/28/Cobalt.png">
-  
-</article>
+root@kali:~# sha256sum actiV.bin <br>
+9f6e3e65aedca997c6445329663bd1d279392a34cfda7d1b56461eb41641fa08  actiV.bin
 
-  <nav class="readmore">
-    <a itemprop="url" href="/post/mta-timbershade/">Read More&nbsp;&raquo;</a>
-  </nav>
-
-
-  
-    
-
-
-
-
-<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="sunday-honeypot-analysis">
-  <header>
-    <h1 itemprop="name">
-      <a href="/post/honeypot-analysis/">Sunday honeypot analysis</a>
-    </h1>
-    
-      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-  <circle cx="16" cy="16" r="14" />
-  <path d="M16 8 L16 16 20 20" />
-</svg>
-<span>5 minute read</span>
-<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
-</svg>
-
-  Published: <time datetime="2019-10-06T01:00:00&#43;02:00">6 Oct, 2019</time>
-
-</p>
-    
-    
-      <blockquote itemprop="headline">Last month, I started participating to the Internet Storm Center by setting up a VPS on DigitalOcean with a honeypot called DShield. I get reports every day so I thought it would be fun to check out the reports from this Sunday and see if we could find something cool!</blockquote>
-    
-  </header>
-  <div itemprop="">About the Internet Storm Center and Dshield The Internet Storm Center (ISC) was created in 2001 and has been analyzing threats and problems since then with the help of volunteers around the world. In their own words: &ldquo;The ISC uses the DShield distributed intrusion detection system for data collection and analysis. DShield collects data about malicious activity from across the Internet. This data is cataloged and summarized and can be used to discover trends in activity, confirm widespread attacks, or assist in preparing better firewall rules&rdquo;.</div>
-  <meta itemprop="inLanguage" content="en-US">
-  <meta itemprop="datePublished" content="2019-10-06T01:00:00&#43;02:00">
-  <meta itemprop="dateModified" content="2019-10-06T01:00:00&#43;02:00">
-  
-    <meta itemprop="image" content="https://i.imgur.com/EqrmlFe.jpg">
-  
-</article>
-
-  <nav class="readmore">
-    <a itemprop="url" href="/post/honeypot-analysis/">Read More&nbsp;&raquo;</a>
-  </nav>
-
-
-  
-    
-
-
-
-
-<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="htb-write-up-bastion">
-  <header>
-    <h1 itemprop="name">
-      <a href="/post/bastion/">HTB Write-up: Bastion</a>
-    </h1>
-    
-      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-  <circle cx="16" cy="16" r="14" />
-  <path d="M16 8 L16 16 20 20" />
-</svg>
-<span>4 minute read</span>
-<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
-</svg>
-
-  Published: <time datetime="2019-09-08T12:40:00&#43;02:00">8 Sep, 2019</time>
+</div>
 
 </p>
-    
-    
-      <blockquote itemprop="headline">Bastion just retired this weekend on HackTheBox.eu so I thought I would do a short write-up of what I learned during this Windows box.</blockquote>
-    
-  </header>
-  <div itemprop="">The Bastion Windows box retired this weekend on HackTheBox. It was a Windows box, quite easy to solve but learned a lot along the way. It&rsquo;s my first write-up of a HTB box so it might not be the best but hopefully it will be a nice summary! We learn about SMB, mounting VHD in Linux, stealing Windows hashes, cracking them with John, and exploiting a program for Privesc.</div>
-  <meta itemprop="inLanguage" content="en-US">
-  <meta itemprop="datePublished" content="2019-09-08T12:40:00&#43;02:00">
-  <meta itemprop="dateModified" content="2019-09-08T12:40:00&#43;02:00">
+
+<p>5) Based on the IDS alerts, what type of infection is this?<br></p>
+
+<p>Looking at the text file with all the alerts, we easily find several lines showing:
+
+
+
+
+<div class="alert alert-info">
   
-    <meta itemprop="image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png">
-  
-</article>
+ET TROJAN ABUSE.CH SSL Blacklist Malicious SSL certificate detected (Dridex)<br>
+192.241.220.183 -> 172.17.8.109<br>
+IPVer=4 hlen=5 tos=0 dlen=1045 ID=0 flags=0 offset=0 ttl=0 chksum=25788<br>
+Protocol: 6 sport=3389 -> dport=49214
 
-  <nav class="readmore">
-    <a itemprop="url" href="/post/bastion/">Read More&nbsp;&raquo;</a>
-  </nav>
-
-
-  
-    
-
-
-
-
-<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="writeup-traffic-analysis-exercise">
-  <header>
-    <h1 itemprop="name">
-      <a href="/post/malware-traffic-analysis/">Writeup: TRAFFIC ANALYSIS EXERCISE</a>
-    </h1>
-    
-      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-  <circle cx="16" cy="16" r="14" />
-  <path d="M16 8 L16 16 20 20" />
-</svg>
-<span>4 minute read</span>
-<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
-</svg>
-
-  Published: <time datetime="2019-08-10T01:00:00&#43;02:00">10 Aug, 2019</time>
+</div>
 
 </p>
-    
-    
-      <blockquote itemprop="headline">Found the great website of @malware_traffic about network traffic related to malware infections. This is a subject that interests me a lot so I thought I would give the exercises a try and see if I can find something!</blockquote>
-    
-  </header>
-  <div itemprop="">Malware Traffic Analysis @malware_traffic&rsquo;s blog has a lot of knowledge so I highly recommend to bookmark it somewhere. The real treasure is of course the amazing exercises page. Depending on the exercise, you get a pcap and other files. The pcap file is a traffic capture which we can analyse in Wireshark and find out where things went wrong!
-Being able to effectively analyse traffic is a very important skill for the security for any organisation.</div>
-  <meta itemprop="inLanguage" content="en-US">
-  <meta itemprop="datePublished" content="2019-08-10T01:00:00&#43;02:00">
-  <meta itemprop="dateModified" content="2019-08-10T01:00:00&#43;02:00">
-  
-    <meta itemprop="image" content="https://4.bp.blogspot.com/-jaI1o07pees/WXJ9a9Si5vI/AAAAAAAAITs/b_-0lBPegHIFn3Fvkrqcg6AqhY7rt9fvQCLcBGAs/w1200-h630-p-k-no-nu/maltran_01_2%2B-%2Bmain%2Bmenu.png">
-  
-</article>
 
-  <nav class="readmore">
-    <a itemprop="url" href="/post/malware-traffic-analysis/">Read More&nbsp;&raquo;</a>
-  </nav>
+<p>We can easily conclude that it was a Trojan.Dridex infection which is a banking trojan and spyware trageting Windows systems. You can read more about it in <a href="https://blog.malwarebytes.com/detections/trojan-dridex/" target="_blank">this article</a>.</p>
 
+<p>That&rsquo;s all for today! Go try some of his exercices and contact me on <a href="https://twitter.com/victor_theyknow" target="_blank">twitter</a> if you need help!</p>
 
+<p><img src="/city.gif" alt="Final gif" /></p>
+
+    </div>
+    <footer>
+      <hr>
+      <p>
+  Published
   
     
-
-
-
-
-<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="upload-enumeration-tools-to-a-linux-server">
-  <header>
-    <h1 itemprop="name">
-      <a href="/post/upload-tools/">Upload enumeration tools to a linux server</a>
-    </h1>
+      by <span itemprop="author">theyknow</span>
     
-      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-  <circle cx="16" cy="16" r="14" />
-  <path d="M16 8 L16 16 20 20" />
-</svg>
-<span>3 minute read</span>
-<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
-</svg>
-
-  Published: <time datetime="2019-07-21T01:00:00&#43;02:00">21 Jul, 2019</time>
-
+  
+  <time itemprop="datePublished" datetime="2019-10-27T01:00:00&#43;02:00">
+    27 Oct, 2019
+  </time>
+  
+    in <span itemprop="articleSection"><a href="/categories/post/">post</a></span>
+  
+  
+    and tagged <a rel="tag" href="/tags/forensic/">forensic</a>, <a rel="tag" href="/tags/malware/">malware</a>, <a rel="tag" href="/tags/traffic-analysis/">traffic analysis</a> and <a rel="tag" href="/tags/wireshark/">wireshark</a>
+  
+  using <span itemprop="wordCount">541</span> words.
 </p>
-    
-    
-      <blockquote itemprop="headline">One of the first things I was asking myself when finally getting access to a linux server at my very beginning was &#39;How do I even upload the enumeration tools to do the privilege escalation?&#39;. I got the question from someone who was beginning on HTB recently so this short article might help.</blockquote>
-    
-  </header>
-  <div itemprop="">Privilege Escalation (privesc) When getting access to a server, either during a CTF or a pentesting assignment, you will probably have a limited access to the server itself. Probably because you accessed it through a compromised user. Your goal is to find a way to become root which would give you unlimited access to the server and the running programs. See, developers and sysadmins can make mistakes and have the programs running with the wrong settings.</div>
-  <meta itemprop="inLanguage" content="en-US">
-  <meta itemprop="datePublished" content="2019-07-21T01:00:00&#43;02:00">
-  <meta itemprop="dateModified" content="2019-07-21T01:00:00&#43;02:00">
-  
-    <meta itemprop="image" content="https://i.imgur.com/t7YRxYU.png">
-  
-</article>
 
-  <nav class="readmore">
-    <a itemprop="url" href="/post/upload-tools/">Read More&nbsp;&raquo;</a>
-  </nav>
+      
+
 
 
   
+    <aside>
+      <header>Related Content</header>
+      
+        <ul>
+          
+            <li><a href="/post/malware-traffic-analysis/">Writeup: TRAFFIC ANALYSIS EXERCISE</a>
+            <time class="muted" datetime="4M">4 minutes</time>
+          
+            <li><a href="/post/honeypot-analysis/">Sunday honeypot analysis</a>
+            <time class="muted" datetime="5M">5 minutes</time>
+          
+            <li><a href="/post/i18-1/">i18 Challenge - Part 1</a>
+            <time class="muted" datetime="5M">5 minutes</time>
+          
+            <li><a href="/post/i18-2/">i18 Challenge - Part 2</a>
+            <time class="muted" datetime="4M">4 minutes</time>
+          
+            <li><a href="/tools/pentest/">Pentesting tools</a>
+            <time class="muted" datetime="8M">8 minutes</time>
+          
+        </ul>
+      
+    </aside>
+  
 
+
+    </footer>
+  </article>
 </main>
     <footer>
   <small class="muted">

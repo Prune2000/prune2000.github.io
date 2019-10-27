@@ -10,9 +10,9 @@
       <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
     </image>
     <ttl>1440</ttl>
-    <generator>After Dark 9.1.0 (Hugo 0.57.2)</generator>
+    <generator>After Dark 9.1.0 (Hugo 0.58.3)</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 12 Oct 2019 10:05:59 UT</lastBuildDate>
+    <lastBuildDate>Sun, 27 Oct 2019 16:55:45 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/isc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sunday honeypot analysis</title>
