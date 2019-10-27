@@ -1,0 +1,34 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <docs>https://blogs.law.harvard.edu/tech/rss</docs>
+    <title>theyknow</title>
+    <link>https://domain.example/</link>
+    <description>Recent content on theyknow</description>
+    <image>
+      <title>theyknow</title>
+      <link>https://domain.example/</link>
+      <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
+    </image>
+    <ttl>1440</ttl>
+    <generator>After Dark 9.1.0 (Hugo 0.58.3)</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 27 Oct 2019 18:40:04 UT</lastBuildDate>
+    <atom:link href="https://domain.example/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Posts</title>
+      <link>https://domain.example/post/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/post/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    <item>
+      <title>Tools</title>
+      <link>https://domain.example/tools/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tools/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+  </channel>
+</rss>
