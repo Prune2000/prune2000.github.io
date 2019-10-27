@@ -12,7 +12,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 9.1.0 (Hugo 0.58.3)</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 27 Oct 2019 16:55:45 UT</lastBuildDate>
+    <lastBuildDate>Sun, 27 Oct 2019 17:05:19 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/smb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTB Write-up: Bastion</title>
