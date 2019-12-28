@@ -1,0 +1,67 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <docs>https://blogs.law.harvard.edu/tech/rss</docs>
+    <title>traffic analysis on theyknow</title>
+    <link>https://domain.example/tags/traffic-analysis/</link>
+    <description>Recent content in traffic analysis on theyknow</description>
+    <image>
+      <title>traffic analysis on theyknow</title>
+      <link>https://domain.example/tags/traffic-analysis/</link>
+      <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
+    </image>
+    <ttl>1440</ttl>
+    <generator>After Dark 8.0.2 (Hugo 0.58.3)</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 28 Dec 2019 16:44:09 UT</lastBuildDate>
+    <atom:link href="https://domain.example/tags/traffic-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writeup: 2014-11-16 - TRAFFIC ANALYSIS EXERCISE</title>
+      <link>https://domain.example/post/malware-traffic-analysis/</link>
+      <pubDate>Fri, 09 Aug 2019 23:00:00 UT</pubDate>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/post/malware-traffic-analysis/</guid>
+      <description>Malware Traffic Analysis @malware_traffic&amp;rsquo;s blog has a lot of knowledge so I highly recommend to bookmark it somewhere. The real treasure is of course the amazing exercises page. Depending on the exercise, you get a pcap and other files. The pcap file is a traffic capture which we can analyse in Wireshark and find out where things went wrong!
+Being able to effectively analyse traffic is a very important skill for the security for any organisation.</description>
+      <category domain="https://domain.example/categories/post">Post</category>
+      <content:encoded><![CDATA[ Malware Traffic Analysis @malware_traffic&amp;rsquo;s blog has a lot of knowledge so I highly recommend to bookmark it somewhere. The real treasure is of course the amazing exercises page. Depending on the exercise, you get a pcap and other files. The pcap file is a traffic capture which we can analyse in Wireshark and find out where things went wrong!
+Being able to effectively analyse traffic is a very important skill for the security for any organisation. It helps the security team to find out where the problem happened and how to mitigate it. It is also super fun!
+
+The first exercise Today, I&amp;rsquo;ll start with the exercise &amp;ldquo;2014-11-16 - TRAFFIC ANALYSIS EXERCISE&amp;rdquo;. The writeup will be about the level 1 and level 2 questions this time:
+LEVEL 1 QUESTIONS:
+1) What is the IP address of the Windows VM that gets infected?
+2) What is the host name of the Windows VM that gets infected?
+3) What is the MAC address of the infected VM?
+4) What is the IP address of the compromised web site?
+5) What is the domain name of the compromised web site?
+6) What is the IP address and domain name that delivered the exploit kit and malware?
+LEVEL 2 QUESTIONS:
+1) What is the redirect URL that points to the exploit kit (EK) landing page?
+2) Besides the landing page (which contains the CVE-2013-2551 IE exploit), what other exploit(s) sent by the EK?
+3) How many times was the payload delivered?
+4) Submit the pcap to VirusTotal and find out what snort alerts triggered. What are the EK names are shown in the Suricata alerts?
+
+Level 1 questions 1) What is the IP address of the Windows VM that gets infected?
+The source of all traffic is 172.16.165.165, so I can assume that this is the infected VM.
+2) What is the host name of the Windows VM that gets infected?
+There are many ways to check that as demonstrated in this article. I chose to filter the traffic on bootp to reveal the DHCP traffic. I selected one of the frames, and in the frame details, I went to Bootstrap Protocol and then in the options we find the hostname and MAC address: 3) What is the MAC address of the infected VM?
+We got the MAC address in the 2nd question, but alternatively, we can see it in all the frames&amp;rsquo; details: 4) What is the IP address of the compromised web site?
+If we filter the GET requests (http.request.method == GET), we can follow the referers. The user visited &amp;ldquo;ciniholland&amp;rdquo; and through the referers of each GET requests, we see that it leads to a very suspicious website which initiates downloads on the machine.
+So I assume ciniholland.nl/ is the compromised website and its IP is 82.150.140.30
+5) What is the domain name of the compromised web site?
+Answered above: ciniholland.nl/
+6) What is the IP address and domain name that delivered the exploit kit and malware?
+If we follow the GET requests, we can clearly see that the final website initiates downloads on the now compromised machine: And its IP address is 37.200.69.143
+
+Level 2 questions 1) What is the redirect URL that points to the exploit kit (EK) landing page?
+As I checked the different GET requests in the first level, I found out that the referer to the first EK landing page (stand.trustandprobaterealty.com) was: 24corp-shop.com
+I can also export the HTML object (File &amp;ndash;&amp;gt; Export Object &amp;ndash;&amp;gt; HTTP), then download the 24corp-shop.com html file. Open it in a text editor and I find: 2) Besides the landing page (which contains the CVE-2013-2551 IE exploit), what other exploit(s) sent by the EK?
+By checking the the HTML object (File &amp;ndash;&amp;gt; Export Object &amp;ndash;&amp;gt; HTTP), I can see two other exploits: a Flash and a Java. Alternatively, I had found them during my first recon in the list of HTTP GET requests by following the HTTP stream: 3) How many times was the payload delivered?
+I&amp;rsquo;m not 100% sure, but I can&amp;rsquo;t see any other name for the payload than x-msdownload, and a quick filtering give us 3 deliveries: 4) Submit the pcap to VirusTotal and find out what snort alerts triggered. What are the EK names are shown in the Suricata alerts?
+I didn&amp;rsquo;t know about VirusTotal, so it was a nice question to introduce it. Here is what I found there: ET CURRENT_EVENTS GoonEK ET CURRENT_EVENTS Goon/Infinity URI Struct EK ET CURRENT_EVENTS RIG EK
+
+This is all for today! I learned a lot through each question. It&amp;rsquo;s a quick writeup, but I spend a lot of time digging for the answers. I won&amp;rsquo;t do a writeup for all the exercises, but I will make one for the most interesting exercises.
+Thank you for reading this and get in contact if you have any question, recommendation, spotted mistakes, etc.
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
