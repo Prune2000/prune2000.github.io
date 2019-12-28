@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
   <head>
     
@@ -7,7 +7,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; worker-src 'self' blob:; connect-src 'self' wss: data:; font-src 'self' https: data:; img-src 'self' https: data:; object-src 'none'">
 
 
-    <meta name="generator" content="Hugo">
+    <meta name="generator" content="After Dark Hugo">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>theyknow</title>
@@ -24,7 +24,7 @@
 
 <meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg" />
 
-<meta property="og:updated_time" content="2019-08-10T01:00:00+02:00" />
+<meta property="og:updated_time" content="2019-10-27T01:00:00+02:00" />
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg"/>
@@ -130,7 +130,7 @@ fetchInject(["/js/lazysizes.min.js"]);
 * GNU Affero General Public License for more details.
 *
 * You should have received a copy of the GNU Affero General Public License
-* along with this program. If not, see <https://www.gnu.org/licenses/>.*/:root{scroll-behavior:smooth;--screen-size-small: 30em}@keyframes intro{0%{opacity:0}100%{opacity:1}}.blur-up{-webkit-filter:blur(5px);filter:blur(5px);transition:filter 400ms,-webkit-filter 400ms}.blur-up.lazyloaded{-webkit-filter:blur(0);filter:blur(0)}.hack .readmore{margin-bottom:2.2em}.responsive-iframe{position:relative;padding-bottom:56.25%;padding-top:25px;height:0}.responsive-iframe iframe{position:absolute;top:0;left:0;width:100%;height:100%}iframe{border:0}main,footer{animation:intro .3s both;animation-delay:.15s}header:first-of-type+details{margin-top:1rem}footer time[datetime$=M]:before{content:"\2013\0020"}body>footer p.muted{margin-bottom:0}@media only screen and (max-width:768px){footer time[datetime$=M]{display:none}}blockquote cite{display:block}blockquote cite::before{content:"\2014\00A0"}:target{filter:brightness(1.2)}:disabled{cursor:not-allowed}#search-app [v-cloak]{display:none}.hack li ul{margin:0}.hack ol li{padding-left:27px}.main{padding:20px 10px}input.form-control{border-radius:0;background-color:transparent;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none}input.form-control,textarea.form-control,select.form-control,.help-block{font-size:initial}@media only screen and (max-width:768px){.help-block{font-size:unset}}html{font-size:13px}.hack .form input,.hack .form textarea,.hack .form button,.hack .form label{font-size:1rem}.hack .alert .highlight:first-of-type .chroma,.hack .card .highlight:first-of-type .chroma{margin-top:unset}.hack .alert .highlight:last-of-type .chroma,.hack .card .highlight:last-of-type .chroma{margin-bottom:unset}.hack blockquote,.hack blockquote:after{line-height:1.5}.hack figure{margin:unset}.hack figure a{border-bottom:none}.hack figure a:hover{background-color:inherit}article [itemprop=description]{margin-bottom:20px;margin-top:20px}article header img{width:100%;border-radius:3px}table td,table th{line-height:inherit}table a{border-bottom:unset}img{max-width:100%}@media only screen and (min-width:768px){html{font-size:16px}.container{max-width:50rem}}/*!
+* along with this program. If not, see <https://www.gnu.org/licenses/>.*/:root{scroll-behavior:smooth;--screen-size-small: 30em}@keyframes intro{0%{opacity:0}100%{opacity:1}}.blur-up.lazyloading{filter:blur(5px);opacity:1;transition:opacity 1s,filter 1.5s}.blur-up.lazyload{opacity:0;filter:blur(10px)}.blur-up.lazyloaded{filter:blur(0);transition:filter 1s}.hack .readmore{margin-bottom:2.2em}.responsive-iframe,.ratio-container{position:relative;padding-bottom:56.25%;padding-top:25px;height:0}.responsive-iframe iframe,.ratio-container>*:not([itemprop=caption]){position:absolute;top:0;left:0;width:100%;height:100%}iframe{border:0}main,footer{animation:intro .3s both;animation-delay:.15s}header:first-of-type+details{margin:20px 0}footer time[datetime$=M]:before{content:"\2013\0020"}body>footer p.muted{margin-bottom:0}@media only screen and (max-width:768px){footer time[datetime$=M]{display:none}}blockquote cite{display:block}blockquote cite::before{content:"\2014\00A0"}:target{filter:brightness(1.2)}:disabled{cursor:not-allowed}.hack li ul{margin:0}.hack ol li{padding-left:27px}.main{padding:20px 10px}input.form-control{border-radius:0;background-color:transparent;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none}input.form-control,textarea.form-control,select.form-control,.help-block{font-size:initial}@media only screen and (max-width:768px){.help-block{font-size:unset}}html{font-size:13px}.hack .form input,.hack .form textarea,.hack .form button,.hack .form label{font-size:1rem}.hack .alert .highlight:first-of-type .chroma,.hack .card .highlight:first-of-type .chroma{margin-top:unset}.hack .alert .highlight:last-of-type .chroma,.hack .card .highlight:last-of-type .chroma{margin-bottom:unset}.hack blockquote,.hack blockquote:after{line-height:1.5}.hack figure,.standard figure{margin:unset}.hack figure a{border-bottom:none}.hack figure a:hover{background-color:inherit}article header img{width:100%;border-radius:3px}table td,table th{line-height:inherit}table a{border-bottom:unset}img{max-width:100%}@media only screen and (min-width:768px){html{font-size:16px}.container{max-width:50rem}}@media only screen and (min-width:768px),(-ms-high-contrast:active),(-ms-high-contrast:none){html{margin-left:calc(100vw - 100%)}}/*!
  * Copyright (C) 2019  Josh Habdas <jhabdas@protonmail.com>
  *
  * This file is part of After Dark.
@@ -241,30 +241,120 @@ a[itemprop="url"]:hover {
   <header>
     <h1>theyknow's blog & ressources</h1>
     <br>
-    <img src="https://images.alphacoders.com/712/thumb-1920-712781.jpg" width="600px" position="center">
-    
-  </header>
-  <p>How did you end up here? Through my shameless self-promotion probably. Let me welcome you: I'm a very curious analyst and this is where I experiment. I do mostly CTFs and pentesting, but I'm a beginner in infosec so Reverse Engineering, Python programming, network security, etc, they interest me all!</p>
-  
-  <p>The blog posts I write will help me to explain what I discover, what I learn, and hopefully it will make me better at what I do. Who knows? It might even help someone some day.</p>
+    <img src="https://media1.tenor.com/images/9dc27bb33caf14633038a61949a68e6a/tenor.gif?itemid=12490517" position="center">
 
-  <p>Please do not use any of these articles I write as expert sources. The real experts might even get angry sometimes at my mistakes but that's ok. Let's begin. /../../../../</p>
+  </header>
 
   <a href="https://www.hackthebox.eu/profile/127941" target="_blank"><img src="/badge.png" alt="Hack The Box"></a>
+<br>
+<br>
 
   <h1>Latest blog posts:</h1>
+
   
-    <article itemprop="citation" itemscope itemtype="https://schema.org/CreativeWork">
+    
+
+
+
+
+<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="writeup-timbershade-traffic-analysis-exercise">
   <header>
-    <h2 itemprop="name">
-      <a href="/post/" rel="bookmark">Posts</a>
-    </h2>
+    <h1 itemprop="name">
+      <a href="/post/mta-timbershade/">Writeup: Timbershade - TRAFFIC ANALYSIS EXERCISE</a>
+    </h1>
     
       <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
   <circle cx="16" cy="16" r="14" />
   <path d="M16 8 L16 16 20 20" />
 </svg>
-<span>0 minute read</span>
+<span>3 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2019-10-27T01:00:00&#43;02:00">27 Oct, 2019</time>
+
+</p>
+    
+    
+      <blockquote itemprop="headline">I had already solved one exercise from @malware_traffic&#39;s website about network traffic related to malware infections. I have been slow to pick a new exercise from the very long list but I chose Timbershade and it was a lot of fun! Short one, but learned a lot once again.</blockquote>
+    
+  </header>
+  <div itemprop="">Malware Traffic Analysis @malware_traffic blog has a lot of knowledge so I highly recommend to bookmark it somewhere. The real treasure is of course the amazing exercises page. Depending on the exercise, you get a pcap and other files. The pcap file is a traffic capture which we can analyse in Wireshark and find out where things went wrong!
+Being able to effectively analyse traffic is a very important skill for the security of any organisation.</div>
+  <meta itemprop="inLanguage" content="en-US">
+  <meta itemprop="datePublished" content="2019-10-27T01:00:00&#43;02:00">
+  <meta itemprop="dateModified" content="2019-10-27T01:00:00&#43;02:00">
+  
+    <meta itemprop="image" content="https://research.checkpoint.com/wp-content/uploads/2019/07/russia_1021x580.jpg">
+  
+</article>
+
+  <nav class="readmore">
+    <a itemprop="url" href="/post/mta-timbershade/">Read More&nbsp;&raquo;</a>
+  </nav>
+
+
+  
+    
+
+
+
+
+<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="htb-write-up-bastion">
+  <header>
+    <h1 itemprop="name">
+      <a href="/post/bastion/">HTB Write-up: Bastion</a>
+    </h1>
+    
+      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>4 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2019-09-08T12:40:00&#43;02:00">8 Sep, 2019</time>
+
+</p>
+    
+    
+      <blockquote itemprop="headline">Bastion just retired this weekend on HackTheBox.eu so I thought I would do a short write-up of what I learned during this Windows box.</blockquote>
+    
+  </header>
+  <div itemprop="">The Bastion Windows box retired this weekend on HackTheBox. It was a Windows box, quite easy to solve but learned a lot along the way. It&rsquo;s my first write-up of a HTB box so it might not be the best but hopefully it will be a nice summary! We learn about SMB, mounting VHD in Linux, stealing Windows hashes, cracking them with John, and exploiting a program for Privesc.</div>
+  <meta itemprop="inLanguage" content="en-US">
+  <meta itemprop="datePublished" content="2019-09-08T12:40:00&#43;02:00">
+  <meta itemprop="dateModified" content="2019-09-08T12:40:00&#43;02:00">
+  
+    <meta itemprop="image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png">
+  
+</article>
+
+  <nav class="readmore">
+    <a itemprop="url" href="/post/bastion/">Read More&nbsp;&raquo;</a>
+  </nav>
+
+
+  
+    
+
+
+
+
+<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="writeup-traffic-analysis-exercise">
+  <header>
+    <h1 itemprop="name">
+      <a href="/post/malware-traffic-analysis/">Writeup: TRAFFIC ANALYSIS EXERCISE</a>
+    </h1>
+    
+      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>4 minute read</span>
 <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
   <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
 </svg>
@@ -273,19 +363,117 @@ a[itemprop="url"]:hover {
 
 </p>
     
-  </header>
-  
-  <div itemprop="description">
     
-  </div>
-  
+      <blockquote itemprop="headline">Found the great website of @malware_traffic about network traffic related to malware infections. This is a subject that interests me a lot so I thought I would give the exercises a try and see if I can find something!</blockquote>
+    
+  </header>
+  <div itemprop="">Malware Traffic Analysis @malware_traffic&rsquo;s blog has a lot of knowledge so I highly recommend to bookmark it somewhere. The real treasure is of course the amazing exercises page. Depending on the exercise, you get a pcap and other files. The pcap file is a traffic capture which we can analyse in Wireshark and find out where things went wrong!
+Being able to effectively analyse traffic is a very important skill for the security for any organisation.</div>
   <meta itemprop="inLanguage" content="en-US">
   <meta itemprop="datePublished" content="2019-08-10T01:00:00&#43;02:00">
   <meta itemprop="dateModified" content="2019-08-10T01:00:00&#43;02:00">
   
+    <meta itemprop="image" content="https://4.bp.blogspot.com/-jaI1o07pees/WXJ9a9Si5vI/AAAAAAAAITs/b_-0lBPegHIFn3Fvkrqcg6AqhY7rt9fvQCLcBGAs/w1200-h630-p-k-no-nu/maltran_01_2%2B-%2Bmain%2Bmenu.png">
+  
 </article>
 
+  <nav class="readmore">
+    <a itemprop="url" href="/post/malware-traffic-analysis/">Read More&nbsp;&raquo;</a>
+  </nav>
+
+
   
+    
+
+
+
+
+<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="upload-enumeration-tools-to-a-linux-server">
+  <header>
+    <h1 itemprop="name">
+      <a href="/post/upload-tools/">Upload enumeration tools to a linux server</a>
+    </h1>
+    
+      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>3 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2019-07-21T01:00:00&#43;02:00">21 Jul, 2019</time>
+
+</p>
+    
+    
+      <blockquote itemprop="headline">One of the first things I was asking myself when finally getting access to a linux server at my very beginning was &#39;How do I even upload the enumeration tools to do the privilege escalation?&#39;. I got the question from someone who was beginning on HTB recently so this short article might help.</blockquote>
+    
+  </header>
+  <div itemprop="">Privilege Escalation (privesc) When getting access to a server, either during a CTF or a pentesting assignment, you will probably have a limited access to the server itself. Probably because you accessed it through a compromised user. Your goal is to find a way to become root which would give you unlimited access to the server and the running programs. See, developers and sysadmins can make mistakes and have the programs running with the wrong settings.</div>
+  <meta itemprop="inLanguage" content="en-US">
+  <meta itemprop="datePublished" content="2019-07-21T01:00:00&#43;02:00">
+  <meta itemprop="dateModified" content="2019-07-21T01:00:00&#43;02:00">
+  
+    <meta itemprop="image" content="https://i.imgur.com/t7YRxYU.png">
+  
+</article>
+
+  <nav class="readmore">
+    <a itemprop="url" href="/post/upload-tools/">Read More&nbsp;&raquo;</a>
+  </nav>
+
+
+  
+    
+
+
+
+
+<article itemprop="citation" itemscope itemtype="https://schema.org/Thing" id="i18-challenge-part-2">
+  <header>
+    <h1 itemprop="name">
+      <a href="/post/i18-2/">i18 Challenge - Part 2</a>
+    </h1>
+    
+      <p class="muted"><svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>4 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2019-07-17T10:40:00&#43;02:00">17 Jul, 2019</time>
+
+</p>
+    
+    
+      <blockquote itemprop="headline">Here is the second part of the i18 CTF with 4 more challenges. This time I learned about Reverse Engineering, DNS lookup, more RE, and finally some steganography that ended up not working.</blockquote>
+    
+  </header>
+  <div itemprop="">5: Lett fluidmekanikk An executable file.
+Clue one: The program also accepts the password as an argument.
+Clue two: The password exists (perhaps) in a dictionary.
+We get an executable file asking for a password. Enter the wrong one and it quits. I&rsquo;m a complete beginner in Reverse Engineering but I have enjoyed a few tutorial videos so let&rsquo;s jump right in with Immunity.
+When you open the file, right click  View  module ‘crackme’.</div>
+  <meta itemprop="inLanguage" content="en-US">
+  <meta itemprop="datePublished" content="2019-07-17T10:40:00&#43;02:00">
+  <meta itemprop="dateModified" content="2019-07-17T10:40:00&#43;02:00">
+  
+    <meta itemprop="image" content="https://brundlelab.files.wordpress.com/2010/09/searchcrypt.png">
+  
+</article>
+
+  <nav class="readmore">
+    <a itemprop="url" href="/post/i18-2/">Read More&nbsp;&raquo;</a>
+  </nav>
+
+
+  
+
 </main>
     <footer>
   <small class="muted">
