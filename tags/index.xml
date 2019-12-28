@@ -12,7 +12,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 9.1.0 (Hugo 0.58.3)</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 27 Oct 2019 18:21:29 UT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Dec 2019 16:50:31 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>forensic</title>
@@ -43,30 +43,6 @@
       <link>https://domain.example/tags/wireshark/</link>
       <dc:creator>theyknow</dc:creator>
       <guid>https://domain.example/tags/wireshark/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>dshield</title>
-      <link>https://domain.example/tags/dshield/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/dshield/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>honeypot</title>
-      <link>https://domain.example/tags/honeypot/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/honeypot/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    <item>
-      <title>ISC</title>
-      <link>https://domain.example/tags/isc/</link>
-      <dc:creator>theyknow</dc:creator>
-      <guid>https://domain.example/tags/isc/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>

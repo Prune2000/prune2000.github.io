@@ -12,7 +12,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 9.1.0 (Hugo 0.58.3)</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 27 Oct 2019 18:21:29 UT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Dec 2019 16:50:31 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pentesting tools</title>
@@ -22,7 +22,7 @@
       <description>This page will be a completely chaotic list of tools, articles, and resources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).</description>
       <category domain="https://domain.example/categories/tools">Tools</category>
       <content:encoded><![CDATA[This page will be a completely chaotic list of tools, articles, and resources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).
-(last edited: 22nd of September 2019)
+(last edited: 28th of December 2019)
 Was pinned on /r/hacking (even more tools suggested there): 
 
 Hydra
@@ -64,7 +64,16 @@ For example, this could result in {&#34;user&#34;:&#34;test&#34;,&#34;role&#34;:
 So now, we can encrypt a new cookie with a different role:
 padbuster http://url.com/profile.php 4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D 8 -cookies &#34;Cookie: PHPSESSID=bn22u9fe085pkut4nsnrrckm96; auth=4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D&#34; -plaintext &#34;{\&#34;user\&#34;:\&#34;test\&#34;,\&#34;role\&#34;:\&#34;admin\&#34;}&#34;
 Which will give us a new encrypted cookie.  Malware Traffic Analysis If you&#39;re interested in forensic and malware traffic analysis, this is THE website. It contains a lot of great articles, but also a very long list of exercises to practice your Wireshark skills! And of course following @malware_traffic on twitter is a must.
-Check out my write-up of the first exercise. Planning to do many more in the future.  ]]></content:encoded>
+Check out my write-up of the first exercise. Planning to do many more in the future.  enum4linux Enum4linux is a tool for enumerating information from Windows and Samba systems. Very useful during CTF if you&#39;re facing a Windows machine, it can help you find the initial foothold.
+enum4linux should be already installed on kali linux.
+enum4linux -a 10.10.10.169  Evil-WinRM Evil-WinRM can be used on any Microsoft Windows Servers with Win-RM enabled (usually at port 5985), of course only if you have credentials and permissions to use it. So we can say that it could be used in a post-exploitation hacking/pentesting phase.
+Lot of features, give it a try next time you&#39;re trying to get a shell on a Windows machine and escalate your privileges!  BloodHound I have worked a lot with BloodHound lately and I completely love it!
+&#34;BloodHound uses graph theory to reveal the hidden and often unintended relationships within an Active Directory environment. Attacks can use BloodHound to easily identify highly complex attack paths that would otherwise be impossible to quickly identify. Defenders can use BloodHound to identify and eliminate those same attack paths. Both blue and red teams can use BloodHound to easily gain a deeper understanding of privilege relationships in an Active Directory environment.&#34;
+Here are two great links about BloodHound:
+- BloodHound wiki
+- The Dog Whisperer&#39;s Handbook
+if you need help when setting up BloodHound and using it, contact me on twitter!  Active Directory Kill Chain Attack &amp;amp; Defense A complete bible! Go check it out! A lot less chaotic than this page...
+&#34;This document was designed to be a useful, informational asset for those looking to understand the specific tactics, techniques, and procedures (TTPs) attackers are leveraging to compromise active directory and guidance to mitigation, detection, and prevention. And understand Active Directory Kill Chain Attack and Modern Post Exploitation Adversary Tradecraft Activity.&#34;  ]]></content:encoded>
     </item>
   </channel>
 </rss>

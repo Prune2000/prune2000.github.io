@@ -53,26 +53,6 @@
   </url>
   
   <url>
-    <loc>https://domain.example/tags/dshield/</loc>
-    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/honeypot/</loc>
-    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/tags/isc/</loc>
-    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://domain.example/post/honeypot-analysis/</loc>
-    <lastmod>2019-10-06T01:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://domain.example/tags/ctf/</loc>
     <lastmod>2019-09-08T12:40:00+02:00</lastmod>
   </url>
