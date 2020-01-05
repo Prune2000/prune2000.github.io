@@ -12,7 +12,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 9.1.0 (Hugo 0.58.3)</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 28 Dec 2019 16:50:31 UT</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2020 19:05:43 UT</lastBuildDate>
     <atom:link href="https://domain.example/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pentesting tools</title>
@@ -22,7 +22,8 @@
       <description>This page will be a completely chaotic list of tools, articles, and resources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).</description>
       <category domain="https://domain.example/categories/tools">Tools</category>
       <content:encoded><![CDATA[This page will be a completely chaotic list of tools, articles, and resources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).
-(last edited: 28th of December 2019)
+Contributors: @redjill_foxx
+(last edited: 5th of January 2020)
 Was pinned on /r/hacking (even more tools suggested there): 
 
 Hydra
@@ -33,7 +34,9 @@ Important note: a VM won&#39;t have access to your hardware so you&#39;ll need t
 --forms: Parse and test forms  WPScan WPScan is a free, for non-commercial use, black box WordPress vulnerability scanner written for security professionals and blog maintainers to test the security of their sites.
 wpscan --url myblog.com
 If a more stealthy approach is required, then wpscan --stealthy --url myblog.com can be used.
-When using the --enumerate option, don&#39;t forget to set the --plugins-detection accordingly, as its default is &#39;passive&#39;.  Pentestmonkey Reverse Shell The PHP reverse shell I use the most, you&#39;ll find it on this page with a tutorial on how to use it. Explore the rest of the Pentestmonkey website, it&#39;s great.  SecLists SecLists is the security tester&#39;s companion. It&#39;s a collection of multiple types of lists used during security assessments, collected in one place. List types include usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, and many more.  NMAP No need to introduce this extremely useful tool, but here my usual command if it interests you:
+When using the --enumerate option, don&#39;t forget to set the --plugins-detection accordingly, as its default is &#39;passive&#39;.  Pentestmonkey Reverse Shell The PHP reverse shell I use the most, you&#39;ll find it on this page with a tutorial on how to use it. Explore the rest of the Pentestmonkey website, it&#39;s great.
+They also have a Shell script to check for simple privilege escalation vectors on Unix systems:
+https://github.com/pentestmonkey/unix-privesc-check  SecLists SecLists is the security tester&#39;s companion. It&#39;s a collection of multiple types of lists used during security assessments, collected in one place. List types include usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, and many more.  NMAP No need to introduce this extremely useful tool, but here my usual command if it interests you:
 nmap -sV -sC -oN myscan.txt $ip  -sV: Version/Service info -sC: Run default scripts -oN: Normal output  Or the shorter version which combines sV and sC:
 nmap -A -oN myscan.txt $ip
 And if you do not need to be discreet (for certain CTFs without firewall f.ex.), you can add T5 which is the insane mode. T0 being the paranoid mode and will be a very slow scan.
@@ -73,7 +76,8 @@ Here are two great links about BloodHound:
 - BloodHound wiki
 - The Dog Whisperer&#39;s Handbook
 if you need help when setting up BloodHound and using it, contact me on twitter!  Active Directory Kill Chain Attack &amp;amp; Defense A complete bible! Go check it out! A lot less chaotic than this page...
-&#34;This document was designed to be a useful, informational asset for those looking to understand the specific tactics, techniques, and procedures (TTPs) attackers are leveraging to compromise active directory and guidance to mitigation, detection, and prevention. And understand Active Directory Kill Chain Attack and Modern Post Exploitation Adversary Tradecraft Activity.&#34;  ]]></content:encoded>
+&#34;This document was designed to be a useful, informational asset for those looking to understand the specific tactics, techniques, and procedures (TTPs) attackers are leveraging to compromise active directory and guidance to mitigation, detection, and prevention. And understand Active Directory Kill Chain Attack and Modern Post Exploitation Adversary Tradecraft Activity.&#34;  Hacking Articles An extensive list of useful pentest guides, tips and CTF write-ups.  PrivEsc A collection of Windows, Linux and MySQL privilege escalation scripts and exploits. Very useful to enumerate a target for priviledge escalation. If you got a foothold on a Windows machine for example, and got a shell with evil-winrm, upload the windows script and run:
+.\windows-privesc-check.exe -a -u username -p Password -d domain.local  report.txt  ]]></content:encoded>
     </item>
   </channel>
 </rss>
