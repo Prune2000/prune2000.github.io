@@ -1,0 +1,164 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <docs>https://blogs.law.harvard.edu/tech/rss</docs>
+    <title>web on theyknow</title>
+    <link>https://domain.example/tags/web/</link>
+    <description>Recent content in web on theyknow</description>
+    <image>
+      <title>web on theyknow</title>
+      <link>https://domain.example/tags/web/</link>
+      <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
+    </image>
+    <ttl>1440</ttl>
+    <generator>After Dark 9.1.0 (Hugo 0.58.3)</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 05 Jan 2020 19:04:29 UT</lastBuildDate>
+    <atom:link href="https://domain.example/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>i18 Challenge - Part 2</title>
+      <link>https://domain.example/post/i18-2/</link>
+      <pubDate>Wed, 17 Jul 2019 08:40:00 UT</pubDate>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/post/i18-2/</guid>
+      <description>5: Lett fluidmekanikk An executable file.
+Clue one: The program also accepts the password as an argument.
+Clue two: The password exists (perhaps) in a dictionary.
+We get an executable file asking for a password. Enter the wrong one and it quits. I&amp;rsquo;m a complete beginner in Reverse Engineering but I have enjoyed a few tutorial videos so let&amp;rsquo;s jump right in with Immunity.
+When you open the file, right click  View  module ‘crackme’.</description>
+      <category domain="https://domain.example/categories/post">Post</category>
+      <content:encoded><![CDATA[ 5: Lett fluidmekanikk An executable file.
+Clue one: The program also accepts the password as an argument.
+Clue two: The password exists (perhaps) in a dictionary.
+We get an executable file asking for a password. Enter the wrong one and it quits. I&amp;rsquo;m a complete beginner in Reverse Engineering but I have enjoyed a few tutorial videos so let&amp;rsquo;s jump right in with Immunity.
+When you open the file, right click  View  module ‘crackme’. Then right click  Search for  All reference text strings. It will show you the lines of text that the software shows us, for example &#34;ASCII &#34;Please enter your password: “”. Double click on this one.  Now the goal is to find a way to bypass the login system. If we check the other strings we can see a password!
+008B161B . C785 6CFDFFFF 78428C00 MOV DWORD PTR SS:[EBP-294],crackme.008C4; ASCII &#34;pAss0rd1337&#34;  If we try it though, the program just trolls us and shows &amp;ldquo;Good job! Incorrect password, though.&amp;rdquo; before exiting.
+The important part to look for now are the JNZ: JNZ - The jump WILL take place if the Z Flag is NOT zero (1)
+CMP - If the two values are equal, the Z Flag is set (1) otherwise it is not set (0)  We see several JNZ, and if we check the one right after the fake password trolling, it goes to 008B172B. So this is the exit of the program. What about the correct answer though?
+In this screenshot, we can see that right before the Correct line, we have a jump happening that goes to 008B171E which is the Incorrect option and then the program exit. So by simply replacing the assembly of this jump with JZ, we bypass the verification system as now it will avoid the jump if the password is NOT the right one and give us the Correct answer!
+6: For the record&amp;hellip; This is just to look up.
+Clue one: For example, in a distributed, hierarchical directory service.
+Clue two: challenge.i18.no. CLASS1 TYPE16
+The look up part gave it up kind of for me. I started directly looking for a DNS recon using nslookup: nslookup challenge.i18.no
+Server:	10.11.0.1
+Address:	10.11.0.1#53
+Non-authoritative answer:
+Name:	challenge.i18.no
+Address: 185.56.186.11
+ Now I checked all the possible record types: A, MX, and TXT.
+In the TXT records we find the answer!
+7: Not quite a 0day Another executable file. Apparently vulnerable, by the file name to judge. Hmm.
+Clue one: The task can be solved in several ways.
+Clue two: Some features of C can make your program vulnerable if you use them incorrectly.
+Clue three: Look for square brackets and align in ascending order.
+I spent a long time on this one. I thought it would be another Reverse Engineering job so started to look at the program in Immunity, but for almost 2hrs I couldn&amp;rsquo;t find anything. I checked the first two clues which confused me even more so after another half an hour of googling about C vulnerabilities, I checked the last clue. It said to look for square brackets, so I did just that in Immunity.
+Found 13 lines of them and after ordering them, the letters contained in each bracket make up the line “hacktheplanet”.
+echo -n hacktheplanet | sha256sum
+48f6018bc6898a5c9e61d549b174131c07ed70542ba1c326289b9cc35af22f84  Probably the weirdest challenge so far, very puzzle / CTF-like.
+8: På riktig bølgelengde Clue: Things are not always as they appear.
+We just got this image. After doing a little bit of info recon on the file itself, not much comes up except the size of it for such a small image. So that and the clue tells me that something is up.
+After a little bit of research, I find this useful article about hidden files in images. One important information is that in the HEX, a jpg has the terminating byte of ffd9. If we search for it with: cat logo.jpg | grep &#39;ffd9&#39;  We see that there is still a lot going on after the ffd9 where it should have ended. We have “4944 3303” as the following bytes, and with a quick google search we find out that it is the initial bytes of an MP3 file. Still thanks to the previous article, we know that we can use the dd command to extract it. But first we need to find the offset in an hex editor. I used Bless Hex Editor which has a nice and simple GUI. I found the offset “0x3BD8” where the MP3 file starts:
+Still according to the article linked above: “dd only takes decimal values, so we convert the hexadecimal location from hex to decimal”. Which gives us the decimal 15320. Now we can run the dd command:
+dd if=logo.jpg bs=1 skip=15320 of=logo.mp3  The file is created but after that I have been lost for too long. I can&amp;rsquo;t find a way to make this MP3 work so I gave up for now, and I&amp;rsquo;ll probably come back to this challenge later. If anyone spots an obvious mistake I made, please contact me!
+See you for part 3!
+]]></content:encoded>
+    </item>
+    <item>
+      <title>i18 Challenge - Part 1</title>
+      <link>https://domain.example/post/i18-1/</link>
+      <pubDate>Wed, 10 Jul 2019 10:40:00 UT</pubDate>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/post/i18-1/</guid>
+      <description>The i18 has 13 challenges that you can find at this address. This CTF is in Norwegian, but has a very small amount of text so google translate is more than enough, but I will translate the text and clues to english here. This is the first part of my writeup where I will do the first 4 challenges. It is very possible that I will make mistakes or take longer path to the flag, so if you have any recommandation or correction, feel free to contact me by email or twitter.</description>
+      <category domain="https://domain.example/categories/post">Post</category>
+      <content:encoded><![CDATA[ The i18 has 13 challenges that you can find at this address. This CTF is in Norwegian, but has a very small amount of text so google translate is more than enough, but I will translate the text and clues to english here. This is the first part of my writeup where I will do the first 4 challenges. It is very possible that I will make mistakes or take longer path to the flag, so if you have any recommandation or correction, feel free to contact me by email or twitter. And same if you have questions or things you would like to know more about! Alright let&amp;rsquo;s jump in!
+1: Ren rutine Task: First task and this is simple. The answer we are looking for is sha256(lett som en plett).
+This one seems fairly easy: just generates the sha256 hash for the sentence ‘lett som en plett’. Just type this command: echo -n &#39;lett som en plett&#39; | sha256sum  It will give: b3df0e709c60b6c3790941a49d989dcd1911b1e25eba18afdb08f78820a1b8cf
+And it works! First flag!
+2: This Must Be The Place Task: We have put this on our head completely.
+No more info than that. But it says the &amp;ldquo;head&amp;rdquo; so I would imagine it has something to do with the header, so let&amp;rsquo;s look at the page header! A quick way to do that is to right click, inspect element, go to to the network tab and click on the first GET request which is for this specific page. In the header, we do find a strange parameter called X-Answer with the value: b8e63fba4504b3c29e582cc3d1f6cc56918998d50e55b1af3382080506f2f969
+And indeed it works! We could also have just pinged the page to get the header back: curl -I https://challenge.i18.no/level/fbmserjd3dwtvrspnk8ektmxsvdenwvp  3: I Skyggene Task: nsm:$1$asH66rpo$gkIQMSAA.QS/ah5VZvrYi0:16403:0:99999:7::: Clue one: Passwords that follow predictable patterns make them easier to crack.
+Clue two: An article explaining why Summerferie2014 is a bad password.
+The clues are completely essential for me here because I have very little experience in crypto challenges. I can easily guess that it will follow the pattern of Summerferie2014 though. So one word and then one number (probably a year). As it is in Norwegian, we can&amp;rsquo;t use already premade wordlists I have in English.
+To find a list of words wasn&amp;rsquo;t easy but I found an old scrabble website that had one in their rules page by googling ordboka: https://www.ordspill.no/rules/ which redirects us in the end to this website with a downloadable list: http://www2.scrabbleforbundet.no/wp-content/uploads/2016/10/nsf2016.zip
+I wonder if they know their innocent scrabble list can be used to crack passwords. Anyway this probably took me almost an hour but we got it! Oh yes, the actual challenge now.
+We save the hash in a text file and after running a normal command with john (john hash.txt &amp;ndash;wordlist=nsf2016.txt), it doesn&amp;rsquo;t manage to crack the password. So we probably need to help it by adding a rule as we know the format of the possible password (common word &#43; number/year).
+According to this article: https://www.gracefulsecurity.com/custom-rules-for-john-the-ripper/ - we should be able to create that by adding to the john&amp;rsquo;s Config file (etc/john/john.conf) this rule: [List.Rules:wordDate]
+cAz&#34;201[0-9]&#34;  Basically it will try every word on the list with a first capital letter, then 201 and add 0 to 9 at the end, giving for example Stanley2012. The “c” at the beginning tells john to remove the rule of the initial capital letter if it doesn&amp;rsquo;t find anything. So after the right command: john hash.txt --wordlist=nsf2016.txt --rules=wordDate  It tells me that it cracked it with the result being “Demokrati2015”. For some reason, the CTF did not accept this answer and I couldn&amp;rsquo;t understand why. But then I remembered that the previous answers were hashed in sha256 so I did the same with Demokrati2015 and it worked. echo -n Demokrati2015 | sha256sum a4e3e09a00b0706add935ebdf627dc57bfb6e9d53b0be2c60754ad5865ce3c4f  4: Broen A file. What is hiding in this.
+Clue: sha256(lc(nameofaplace))
+Ok so we get a file to download. Awesome! I love to do forensic challenges. The file is called data.bin. Let&amp;rsquo;s check what it could be with a simple command: file data.bin “data.bin: pcap capture file, microsecond ts (little-endian) - version 2.4 (Ethernet, capture length 65535)”  Great! A pcap file. I&amp;rsquo;m deep into a network security ebook so I recognise the extension directly. Basically for those that don&amp;rsquo;t know, pcap means Packet Capture Data. The file was generated through packet sniffing by the free software Wireshark. So let&amp;rsquo;s open the software and have a look at this capture. It&amp;rsquo;s a short packet capture and we see directly that there was a successful HTTP request and another request after that for an image:
+If we continue down through this image request, we see that it was also successful:
+Which means there is an image in this packet capture. To get the files transfered through HTTP, go to file -&amp;gt; Export Objects -&amp;gt; HTTP. Let&amp;rsquo;s have a look at this picture:
+Interesting&amp;hellip; It looks like a google map picture of a bridge (Broen, the title of the challenge means bridge in Norwegian). As the clue is about finding the name of a place, I can guess already that if we find where this bridge is, we should be good to go. Let&amp;rsquo;s start by checking the website that is written as Copyright. But we don&amp;rsquo;t find anything there, just an interactive map and I&amp;rsquo;m not going to visit all the places in Norway looking for this bridge. Let&amp;rsquo;s analyze the image then.
+I did not find anything interesting by checking the usual commands like identify, file, exiv2. So after some googling I found an article by Nullbyte about extracting hidden information in images through exiftool. I quickly installed it and after running it, we get an interesting information:
+A GPS position! Alright now we&amp;rsquo;re getting somewhere. I go straight to a GPS coordinate website, enter the coordinates and BOOM! We know that the bridge is in Eidsvoll. Fun fact: the Norwegian constitution was drafted and signed in Eisdvoll on the 17th of May 1814 by the constitutional assembly. And this is now the Norwegian national day.
+Let&amp;rsquo;s finish the challenge now:
+echo -n eidsvoll | sha256sum e6b46a50991986097e4a309076cc0760be4c7a643f62e42b07adaf14a7fe30d4  Success! See you in part 2!
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Pentesting tools</title>
+      <link>https://domain.example/tools/pentest/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tools/pentest/</guid>
+      <description>This page will be a completely chaotic list of tools, articles, and resources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).</description>
+      <category domain="https://domain.example/categories/tools">Tools</category>
+      <content:encoded><![CDATA[This page will be a completely chaotic list of tools, articles, and resources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).
+Contributors: @redjill_foxx
+(last edited: 5th of January 2020)
+Was pinned on /r/hacking (even more tools suggested there): 
+
+Hydra
+hydra options $user/$passOptions $ip/$url serviceOptions
+Example I used during a CTF to find valid usernames:
+hydra -L usernames.txt -p password -f -s 5001 35.227.x.x http-post-form &#34;/hash/login:username=^USER^&amp;password=^PASS^:Invalid username&#34; -t 64  John the Ripper Another bruteforcing tool, for password hashes this time. I explain how to add a new rule in this post. john --wordlist=password.lst --rules mypasswd  hashcat hashcat is the world&#39;s fastest and most advanced password recovery utility, supporting five unique modes of attack for over 200 highly-optimized hashing algorithms. hashcat currently supports CPUs, GPUs, and other hardware accelerators on Linux, Windows, and macOS, and has facilities to help enable distributed password cracking.
+Important note: a VM won&#39;t have access to your hardware so you&#39;ll need to do modifications to make it work as it will try to use GPU.  SQLMap I use this tool a lot for SQL injections. For more information, check this tutorial. sqlmap -u $url options Very useful option:
+--forms: Parse and test forms  WPScan WPScan is a free, for non-commercial use, black box WordPress vulnerability scanner written for security professionals and blog maintainers to test the security of their sites.
+wpscan --url myblog.com
+If a more stealthy approach is required, then wpscan --stealthy --url myblog.com can be used.
+When using the --enumerate option, don&#39;t forget to set the --plugins-detection accordingly, as its default is &#39;passive&#39;.  Pentestmonkey Reverse Shell The PHP reverse shell I use the most, you&#39;ll find it on this page with a tutorial on how to use it. Explore the rest of the Pentestmonkey website, it&#39;s great.
+They also have a Shell script to check for simple privilege escalation vectors on Unix systems:
+https://github.com/pentestmonkey/unix-privesc-check  SecLists SecLists is the security tester&#39;s companion. It&#39;s a collection of multiple types of lists used during security assessments, collected in one place. List types include usernames, passwords, URLs, sensitive data patterns, fuzzing payloads, web shells, and many more.  NMAP No need to introduce this extremely useful tool, but here my usual command if it interests you:
+nmap -sV -sC -oN myscan.txt $ip  -sV: Version/Service info -sC: Run default scripts -oN: Normal output  Or the shorter version which combines sV and sC:
+nmap -A -oN myscan.txt $ip
+And if you do not need to be discreet (for certain CTFs without firewall f.ex.), you can add T5 which is the insane mode. T0 being the paranoid mode and will be a very slow scan.
+nmap -A -T5 -oN myscan.txt $ip
+Useful one-liner to look all the scripts that nmap can provide:
+locate -r &#39;\.nse$&#39; | xargs grep categories | grep &#39;default\|version&#39;
+Let&#39;s say you&#39;re looking for SMB scripts:
+locate -r &#39;\.nse$&#39; | xargs grep categories | grep &#39;default\|version&#39; | grep smb  Masscan I started using this tool as an addition to NMAP. It is a great port scanner and effective to grab banner information, but it can also scan the entire Internet in under 6 minutes!!
+Command example for a simple port scan:
+masscan -p80,8000-8100 10.0.0.0/8
+And for banner checking:
+masscan 10.0.0.0/8 -p80 --banners --source-ip 192.168.1.200  Wfuzz Extremely useful for enumeration, Wfuzz is a tool designed for bruteforcing Web Applications, it can be used for finding resources not linked (directories, servlets, scripts, etc), bruteforce GET and POST parameters for checking different kind of injections (SQL, XSS, LDAP,etc), bruteforce Forms parameters (User/Password), Fuzzing, etc.
+wfuzz -c -z file,/usr/share/wfuzz/wordlist/general/common.txt --hc 404 http://192.168.1.202/FUZZ  Dirb Another enumeration tool I use a lot.
+dirb http://$ip/ /usr/share/wordlists/dirb/common.txt  DirBuster Never enough enumeration tools! One more. This one as a GUI, so just type the command &#39;dirbuster&#39; and it will launch the program.  Nikto Did I say enumeration again? Nikto is the last enumeration tool I use. Never underestimate an effective enumeration during the recon phase.
+nikto -Display 1234EP -o report.html -Format htm -Tuning 123bde -host $ip  Gobuster I know, I know: more enumeration. But trust me having different tools to enumerate directories often helped me during CTFs in the recon phase. Just choose the ones that will do the job.
+gobuster dir -u $url -w $wordlist  Sublist3r Sublist3r is a python tool designed to enumerate subdomains of websites using OSINT. Sublist3r enumerates subdomains using many search engines such as Google, Yahoo, Bing, Baidu, and Ask. Sublist3r also enumerates subdomains using Netcraft, Virustotal, ThreatCrowd, DNSdumpster, and ReverseDNS.
+python sublist3r.py -d example.com  The Awesome Red Teaming List of Awesome Red Team / Red Teaming Resources. This list is for anyone wishing to learn about Red Teaming but do not have a starting point.  Osmedeus Osmedeus allows you automated run the collection of awesome tools to reconnaissance and vulnerability scanning against the target. Even has a slack bot to send notifications!
+./osmedeus.py -t example.com  XSS Hunter XSS Hunter allows you to find all kinds of cross-site scripting vulnerabilities, including the often-missed blind XSS. The service works by hosting specialized XSS probes which, upon firing, scan the page and send information about the vulnerable page to the XSS Hunter service.
+Upon signing up you will create a special xss.ht short domain such as yoursubdomain.xss.ht which identifies your XSS vulnerabilities and hosts your payload. You then use this subdomain in your XSS testing and XSS Hunter will automatically serve up XSS probes and collect the resulting information when they fire.  pspy pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.
+I explain in this post how to upload enumeration tools to a server.  LinEnum Scripted Local Linux Enumeration &amp; Privilege Escalation Checks.
+I explain in this post how to upload enumeration tools to a server.  GTFOBins GTFOBins is a curated list of Unix binaries that can be exploited by an attacker to bypass local security restrictions.  LOLBAS The goal of the LOLBAS project is to document every binary, script, and library that can be used for Living Off The Land techniques.  TCM Security Sample Pentest Report This is a template for a pentest report kindly given by the Cyber Mentor (subscribe to his channel, awesome content), and in his own words: &#34;I am frequently asked what an actual pentest report looks like. I am providing a barebones demo report for &#34;demo company&#34; that consisted of an external penetration test. The report only includes one finding and is meant to be a starter template for others to use. Please feel free to download and make this your own.&#34;  Cyber Chef A simple, intuitive web app for analysing and decoding data without having to deal with complex tools or programming languages. CyberChef encourages both technical and non-technical people to explore data formats, encryption and compression.
+Extremely usefull to quickly decrypt simple hashes. Highly recommend.  exiftool ExifTool is a platform-independent Perl library plus a command-line application for reading, writing and editing meta information in a wide variety of files. For example, I explain how I extracted hidden information in images in this post.  Wireshark Wireshark is the world’s foremost and widely-used network protocol analyzer. It lets you see what’s happening on your network at a microscopic level and is the standard. In many forensic CTF challenges, you might have a pcap (Packet Capture Data) to analyze and Wireshark is more than often the best tool to do that. Check out my write-up of the first exercise from Malware Traffic Analysis&#39; exercise list. Planning to do many more in the future.  Rawsec&amp;rsquo;s CyberSecurity Inventory A much bigger inventory of tools and resources about CyberSecurity than mine here. Highly recommend if you want to scroll around and look at all the awesome tools that we have to play with.  explainshell explainshell is a tool (with a web interface) capable of parsing man pages, extracting options and explain a given command-line by matching each argument to the relevant help text in the man page.
+Tool recommended for this list by @n1cfury  PayloadsAllTheThings A list of useful payloads and bypasses for Web Application Security.
+You can contribute through pull requests, beers IRL or with buymeacoffee.com  PadBuster PadBuster is a Perl script for automating Padding Oracle Attacks. PadBuster provides the capability to decrypt arbitrary ciphertext, encrypt arbitrary plaintext, and perform automated response analysis to determine whether a request is vulnerable to padding oracle attacks.
+If you find a website that uses only cookies for authentification, it&#39;s a good idea to give PadBuster a try. Command example to decrypt:
+padbuster http://url.com/profile.php 4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D 8 -cookies &#34;Cookie: PHPSESSID=bn22u9fe085pkut4nsnrrckm96; auth=4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D&#34;
+For example, this could result in {&#34;user&#34;:&#34;test&#34;,&#34;role&#34;:&#34;user&#34;}
+So now, we can encrypt a new cookie with a different role:
+padbuster http://url.com/profile.php 4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D 8 -cookies &#34;Cookie: PHPSESSID=bn22u9fe085pkut4nsnrrckm96; auth=4Ax3gr6sdNiBYo7LIkJUavx89eauhgqdrMICdOvdWmDMM6Oo%2BHiXmg%3D%3D&#34; -plaintext &#34;{\&#34;user\&#34;:\&#34;test\&#34;,\&#34;role\&#34;:\&#34;admin\&#34;}&#34;
+Which will give us a new encrypted cookie.  Malware Traffic Analysis If you&#39;re interested in forensic and malware traffic analysis, this is THE website. It contains a lot of great articles, but also a very long list of exercises to practice your Wireshark skills! And of course following @malware_traffic on twitter is a must.
+Check out my write-up of the first exercise. Planning to do many more in the future.  enum4linux Enum4linux is a tool for enumerating information from Windows and Samba systems. Very useful during CTF if you&#39;re facing a Windows machine, it can help you find the initial foothold.
+enum4linux should be already installed on kali linux.
+enum4linux -a 10.10.10.169  Evil-WinRM Evil-WinRM can be used on any Microsoft Windows Servers with Win-RM enabled (usually at port 5985), of course only if you have credentials and permissions to use it. So we can say that it could be used in a post-exploitation hacking/pentesting phase.
+Lot of features, give it a try next time you&#39;re trying to get a shell on a Windows machine and escalate your privileges!  BloodHound I have worked a lot with BloodHound lately and I completely love it!
+&#34;BloodHound uses graph theory to reveal the hidden and often unintended relationships within an Active Directory environment. Attacks can use BloodHound to easily identify highly complex attack paths that would otherwise be impossible to quickly identify. Defenders can use BloodHound to identify and eliminate those same attack paths. Both blue and red teams can use BloodHound to easily gain a deeper understanding of privilege relationships in an Active Directory environment.&#34;
+Here are two great links about BloodHound:
+- BloodHound wiki
+- The Dog Whisperer&#39;s Handbook
+if you need help when setting up BloodHound and using it, contact me on twitter!  Active Directory Kill Chain Attack &amp;amp; Defense A complete bible! Go check it out! A lot less chaotic than this page...
+&#34;This document was designed to be a useful, informational asset for those looking to understand the specific tactics, techniques, and procedures (TTPs) attackers are leveraging to compromise active directory and guidance to mitigation, detection, and prevention. And understand Active Directory Kill Chain Attack and Modern Post Exploitation Adversary Tradecraft Activity.&#34;  Hacking Articles An extensive list of useful pentest guides, tips and CTF write-ups.  PrivEsc A collection of Windows, Linux and MySQL privilege escalation scripts and exploits. Very useful to enumerate a target for priviledge escalation. If you got a foothold on a Windows machine for example, and got a shell with evil-winrm, upload the windows script and run:
+.\windows-privesc-check.exe -a -u username -p Password -d domain.local  report.txt  ]]></content:encoded>
+    </item>
+  </channel>
+</rss>
