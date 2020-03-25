@@ -12,7 +12,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 9.1.0 (Hugo 0.59.1)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 25 Mar 2020 14:07:42 UT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 14:15:08 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/htb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTB Write-up: Forest</title>
