@@ -12,8 +12,16 @@
     <ttl>1440</ttl>
     <generator>After Dark 9.1.0 (Hugo 0.59.1)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 25 Mar 2020 12:48:58 UT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 14:07:42 UT</lastBuildDate>
     <atom:link href="https://domain.example/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Network Security</title>
+      <link>https://domain.example/tools/network/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tools/network/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
     <item>
       <title>Pentesting tools</title>
       <link>https://domain.example/tools/pentest/</link>
@@ -78,6 +86,14 @@ Here are two great links about BloodHound:
 if you need help when setting up BloodHound and using it, contact me on twitter!  Active Directory Kill Chain Attack &amp;amp; Defense A complete bible! Go check it out! A lot less chaotic than this page...
 &#34;This document was designed to be a useful, informational asset for those looking to understand the specific tactics, techniques, and procedures (TTPs) attackers are leveraging to compromise active directory and guidance to mitigation, detection, and prevention. And understand Active Directory Kill Chain Attack and Modern Post Exploitation Adversary Tradecraft Activity.&#34;  Hacking Articles An extensive list of useful pentest guides, tips and CTF write-ups.  PrivEsc A collection of Windows, Linux and MySQL privilege escalation scripts and exploits. Very useful to enumerate a target for priviledge escalation. If you got a foothold on a Windows machine for example, and got a shell with evil-winrm, upload the windows script and run:
 .\windows-privesc-check.exe -a -u username -p Password -d domain.local  report.txt  ]]></content:encoded>
+    </item>
+    <item>
+      <title>Reverse Engineering</title>
+      <link>https://domain.example/tools/re/</link>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/tools/re/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
     </item>
   </channel>
 </rss>

