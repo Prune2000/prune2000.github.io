@@ -237,7 +237,7 @@ a[itemprop="url"]:hover {
 <meta itemprop="description" content="Forest was retired on HackTheBox.eu so let&#39;s sum up what I learned while solving this Windows box.">
 <meta itemprop="datePublished" content="2020-03-25T12:40:00&#43;02:00" />
 <meta itemprop="dateModified" content="2020-03-25T12:40:00&#43;02:00" />
-<meta itemprop="wordCount" content="1289">
+<meta itemprop="wordCount" content="1298">
 <meta itemprop="image" content="https://prune2000.github.io/forest.png">
 
 
@@ -366,7 +366,8 @@ $krb5asrep$23$svc-alfresco@HTB.LOCAL:8fc61bd2945c40654201cce35f6702c7$cc2d0b8f0d
 
 </p>
 <p>As we expected, src-alfresco was misconfigured and did not require pre-authentication and we got the account&rsquo;s hash! Time to crack it!</p>
-<!-- raw HTML omitted -->
+<br>
+## 2: Getting a shell
 <p>Copy the hash to a text file called hash.txt, and run the following with john:
 
 
@@ -389,7 +390,8 @@ Session completed
 </p>
 <p>Great! It took only 3 seconds, but not surprising with how bad the password was: s3rvice. Now we can get our shell with my favourite evil-winrm and get the user flag:</p>
 <p><img src="/user_owned.png" alt="evil-winrm shell"></p>
-<!-- raw HTML omitted -->
+<br>
+## 3: Priviledge Escalation
 <p>In Active Directory, you can use <a  target="_blank" rel="external noopener" href="https://github.com/BloodHoundAD/BloodHound">BloodHound</a> to find relationships (between users, groups and computers) which can be used to escalate your privileges. It is very useful for the red team but also for the blue team in order to identify and mitigate the vulnerabilities and limit the paths to high value targets within your AD architecture.</p>
 <p>After downloading the lastest release of BloodHound, we can use our evil-winrm shell to upload it to the serve, run it there, and download back the results which will be in a zip format.</p>
 
@@ -535,7 +537,7 @@ nt authority\system
   
     and tagged <a rel="tag" href="/tags/bloodhound/">bloodhound</a>, <a rel="tag" href="/tags/ctf/">ctf</a>, <a rel="tag" href="/tags/htb/">htb</a>, <a rel="tag" href="/tags/john/">john</a>, <a rel="tag" href="/tags/smb/">smb</a> and <a rel="tag" href="/tags/windows/">windows</a>
   
-  using <span itemprop="wordCount">1289</span> words.
+  using <span itemprop="wordCount">1298</span> words.
 </p>
 
       

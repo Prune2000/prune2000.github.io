@@ -12,7 +12,7 @@
     <ttl>1440</ttl>
     <generator>After Dark 9.1.0 (Hugo 0.74.2)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 05 Aug 2020 09:09:08 UT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2020 09:12:30 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/enumaration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pentesting tools</title>
@@ -22,8 +22,11 @@
       <description>This page will be a completely chaotic list of tools, articles, and resources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).</description>
       <category domain="https://domain.example/categories/tools">Tools</category>
       <content:encoded><![CDATA[This page will be a completely chaotic list of tools, articles, and resources I use regularly in Pentesting and CTF situations. My goal is to update this list as often as possible with examples, articles, and useful tips. It will serve as a reference for myself when I forget things and hopefully help other to discover tools that they haven&amp;rsquo;t used. If you know of more tools or find a mistake, please contact me on Twitter or by email (links above).
-Contributors: @redjill_foxx(last edited: 5th of August 2020)
-Was pinned on /r/hacking (even more tools suggested there): Hydra
+Contributors: @redjill_foxx
+(last edited: 5th of August 2020)
+Was pinned on /r/hacking (even more tools suggested there): 
+
+Hydra
 hydra options $user/$passOptions $ip/$url serviceOptions
 Example I used during a CTF to find valid usernames:
 hydra -L usernames.txt -p password -f -s 5001 35.227.x.x http-post-form &#34;/hash/login:username=^USER^&amp;password=^PASS^:Invalid username&#34; -t 64  John the Ripper

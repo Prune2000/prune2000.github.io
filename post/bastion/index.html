@@ -237,7 +237,7 @@ a[itemprop="url"]:hover {
 <meta itemprop="description" content="Bastion just retired this weekend on HackTheBox.eu so I thought I would do a short write-up of what I learned during this Windows box.">
 <meta itemprop="datePublished" content="2019-09-08T12:40:00&#43;02:00" />
 <meta itemprop="dateModified" content="2019-09-08T12:40:00&#43;02:00" />
-<meta itemprop="wordCount" content="838">
+<meta itemprop="wordCount" content="850">
 <meta itemprop="image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png">
 
 
@@ -366,7 +366,8 @@ smb: \> l<br>
 
 </p>
 <p>I found note.txt but nothing interesting there. But there is a directory called WindowsImageBackup!</p>
-<!-- raw HTML omitted -->
+<br>
+## 2: Mounting the VHD to get user
 <p>In the WindowsImageBackup we find 2 VHD files:
 
 
@@ -453,7 +454,8 @@ root@kali:~/Desktop/HTB/Bastion# ssh L4mpje@10.10.10.134
 
 </p>
 <p>And I find the user.txt on the Desktop of the machine!</p>
-<!-- raw HTML omitted -->
+<br>
+## 3: Priviledge Escalation
 <p>I did a lot of enumeration suggested on different Windows privesc guides, and finally found a weird program sitting in Program Files called nRemoteNG. A quick google search shows that it is vulnerable and can get us admin password: <a href="http://hackersvanguard.com/mremoteng-insecure-password-storage/">http://hackersvanguard.com/mremoteng-insecure-password-storage/</a></p>
 <p>I download nRemoteNG on my Windows VM. I used <a  target="_blank" rel="external noopener" href="https://winscp.net/eng/index.php">WinSCP</a> to access C:\Users\L4mpje\AppData\Roaming\mRemoteNG and download consConf.xml on my VM. Then I import it on nRemoteNG and to see the clear text of a given password, go to “Tools” &gt; “External Tools”. Then right-click in the white space and choose “New External Tool”. Next, in the External Tools Properties, fill in a “Display Name”, “Filename” and some “arguments”, with “Password lookup”, CMD and “/k echo %password%” respectively.</p>
 <p><img src="/nremoteng.png" alt="nRemoteNG screenshot"></p>
@@ -490,7 +492,7 @@ root@kali:~/Desktop/HTB/Bastion# ssh Administrator@10.10.10.134<br>
   
     and tagged <a rel="tag" href="/tags/ctf/">ctf</a>, <a rel="tag" href="/tags/htb/">htb</a>, <a rel="tag" href="/tags/john/">john</a>, <a rel="tag" href="/tags/nremoteng/">nRemoteNG</a>, <a rel="tag" href="/tags/smb/">smb</a> and <a rel="tag" href="/tags/windows/">windows</a>
   
-  using <span itemprop="wordCount">838</span> words.
+  using <span itemprop="wordCount">850</span> words.
 </p>
 
       

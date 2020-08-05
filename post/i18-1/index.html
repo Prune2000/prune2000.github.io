@@ -237,7 +237,7 @@ a[itemprop="url"]:hover {
 <meta itemprop="description" content="I was given the link to this CTF that ran back in 2015, and I thought I would take the opportunity to start writing about my thought process using these challenges. If you want to try for yourself, the link is at the beginning of the post.">
 <meta itemprop="datePublished" content="2019-07-10T12:40:00&#43;02:00" />
 <meta itemprop="dateModified" content="2019-07-10T12:40:00&#43;02:00" />
-<meta itemprop="wordCount" content="1009">
+<meta itemprop="wordCount" content="1016">
 <meta itemprop="image" content="https://d11wkw82a69pyn.cloudfront.net/siteassets/images/cyber%20security%20challenge/canvas_ctf.jpg">
 
 
@@ -272,7 +272,7 @@ a[itemprop="url"]:hover {
     <div itemprop="articleBody">
       <p>The i18 has 13 challenges that you can find at <a  target="_blank" rel="external noopener" href="https://challenge.i18.no/">this address</a>. This CTF is in Norwegian, but has a very small amount of text so google translate is more than enough, but I will translate the text and clues to english here. This is the first part of my writeup where I will do the first 4 challenges. It is very possible that I will make mistakes or take longer path to the flag, so if you have any recommandation or correction, feel free to contact me by email or twitter. And same if you have questions or things you would like to know more about! Alright let&rsquo;s jump in!</p>
 <h2 id="1-ren-rutine">1: Ren rutine</h2>
-<p><!-- raw HTML omitted -->Task: First task and this is simple. The answer we are looking for is sha256(lett som en plett).<!-- raw HTML omitted --></p>
+<p><strong>Task: First task and this is simple. The answer we are looking for is sha256(lett som en plett).</strong></p>
 <p>This one seems fairly easy: just generates the sha256 hash for the sentence ‘lett som en plett’. Just type this command:
 
 
@@ -288,7 +288,7 @@ echo -n 'lett som en plett' | sha256sum
 It will give: b3df0e709c60b6c3790941a49d989dcd1911b1e25eba18afdb08f78820a1b8cf</p>
 <p>And it works! First flag!</p>
 <h2 id="2-this-must-be-the-place">2: This Must Be The Place</h2>
-<p><!-- raw HTML omitted -->Task: We have put this on our head completely.<!-- raw HTML omitted --></p>
+<p><strong>Task: We have put this on our head completely.</strong></p>
 <p>No more info than that. But it says the &ldquo;head&rdquo; so I would imagine it has something to do with the header, so let&rsquo;s look at the page header!
 A quick way to do that is to right click, inspect element, go to to the network tab and click on the first GET request which is for this specific page. In the header, we do find a strange parameter called X-Answer with the value:
 b8e63fba4504b3c29e582cc3d1f6cc56918998d50e55b1af3382080506f2f969</p>
@@ -305,9 +305,9 @@ curl -I https://challenge.i18.no/level/fbmserjd3dwtvrspnk8ektmxsvdenwvp
 
 </p>
 <h2 id="3-i-skyggene">3: I Skyggene</h2>
-<p><!-- raw HTML omitted -->Task: nsm:$1$asH66rpo$gkIQMSAA.QS/ah5VZvrYi0:16403:0:99999:7:::<!-- raw HTML omitted --> <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->Clue one: Passwords that follow predictable patterns make them easier to crack.<!-- raw HTML omitted --><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->Clue two: An article explaining why Summerferie2014 is a bad password.<!-- raw HTML omitted --></p>
+<p><strong>Task: nsm:$1$asH66rpo$gkIQMSAA.QS/ah5VZvrYi0:16403:0:99999:7:::</strong> <br>
+<strong>Clue one: Passwords that follow predictable patterns make them easier to crack.</strong><br>
+<strong>Clue two: An article explaining why Summerferie2014 is a bad password.</strong></p>
 <p>The clues are completely essential for me here because I have very little experience in crypto challenges. I can easily guess that it will follow the pattern of Summerferie2014 though. So one word and then one number (probably a year). As it is in Norwegian, we can&rsquo;t use already premade wordlists I have in English.</p>
 <p>To find a list of words wasn&rsquo;t easy but I found an old scrabble website that had one in their rules page by googling ordboka: <a href="https://www.ordspill.no/rules/">https://www.ordspill.no/rules/</a> which redirects us in the end to this website with a downloadable list: <a href="http://www2.scrabbleforbundet.no/wp-content/uploads/2016/10/nsf2016.zip">http://www2.scrabbleforbundet.no/wp-content/uploads/2016/10/nsf2016.zip</a></p>
 <p>I wonder if they know their innocent scrabble list can be used to crack passwords. Anyway this probably took me almost an hour but we got it! Oh yes, the actual challenge now.</p>
@@ -351,8 +351,8 @@ a4e3e09a00b0706add935ebdf627dc57bfb6e9d53b0be2c60754ad5865ce3c4f
 
 </p>
 <h2 id="4-broen">4: Broen</h2>
-<p><!-- raw HTML omitted -->A file. What is hiding in this.<!-- raw HTML omitted --><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->Clue: sha256(lc(nameofaplace))<!-- raw HTML omitted --></p>
+<p><strong>A file. What is hiding in this.</strong><br>
+<strong>Clue: sha256(lc(nameofaplace))</strong></p>
 <p>Ok so we get a file to download. Awesome! I love to do forensic challenges. The file is called data.bin. Let&rsquo;s check what it could be with a simple command:
 
 
@@ -412,7 +412,7 @@ e6b46a50991986097e4a309076cc0760be4c7a643f62e42b07adaf14a7fe30d4
   
     and tagged <a rel="tag" href="/tags/crypto/">crypto</a>, <a rel="tag" href="/tags/ctf/">ctf</a>, <a rel="tag" href="/tags/forensic/">forensic</a>, <a rel="tag" href="/tags/i18/">i18</a>, <a rel="tag" href="/tags/john/">john</a>, <a rel="tag" href="/tags/web/">web</a> and <a rel="tag" href="/tags/wireshark/">wireshark</a>
   
-  using <span itemprop="wordCount">1009</span> words.
+  using <span itemprop="wordCount">1016</span> words.
 </p>
 
       
