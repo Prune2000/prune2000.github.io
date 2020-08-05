@@ -21,7 +21,6 @@
 <meta property="og:description" content="Bastion just retired this weekend on HackTheBox.eu so I thought I would do a short write-up of what I learned during this Windows box." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://domain.example/post/bastion/" />
-
 <meta property="og:image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png" />
 <meta property="article:published_time" content="2019-09-08T12:40:00+02:00" />
 <meta property="article:modified_time" content="2019-09-08T12:40:00+02:00" />
@@ -236,18 +235,14 @@ a[itemprop="url"]:hover {
   <article itemscope itemtype="https://schema.org/BlogPosting">
     <meta itemprop="name" content="HTB Write-up: Bastion">
 <meta itemprop="description" content="Bastion just retired this weekend on HackTheBox.eu so I thought I would do a short write-up of what I learned during this Windows box.">
-
-
 <meta itemprop="datePublished" content="2019-09-08T12:40:00&#43;02:00" />
 <meta itemprop="dateModified" content="2019-09-08T12:40:00&#43;02:00" />
-<meta itemprop="wordCount" content="848">
-
-  <meta itemprop="image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png">
+<meta itemprop="wordCount" content="838">
+<meta itemprop="image" content="https://0xrick.github.io/images/hackthebox/bastion/0.png">
 
 
 
 <meta itemprop="keywords" content="htb,ctf,windows,smb,nRemoteNG,john," />
-
     <header>
       <h1 itemprop="headline name">HTB Write-up: Bastion</h1>
       <p class="muted">
@@ -275,14 +270,9 @@ a[itemprop="url"]:hover {
     
 
     <div itemprop="articleBody">
-      
-
-<p>The Bastion Windows box retired this weekend on <a  target="_blank" rel="external noopener" href="https://www.hackthebox.eu/">HackTheBox</a>. It was a Windows box, quite easy to solve but learned a lot along the way. It&rsquo;s my first write-up of a HTB box so it might not be the best but hopefully it will be a nice summary! We learn about SMB, mounting VHD in Linux, stealing Windows hashes, cracking them with John, and exploiting a program for Privesc.</p>
-
-<p><img src="/bastion.png" alt="Bastion badge" /></p>
-
+      <p>The Bastion Windows box retired this weekend on <a  target="_blank" rel="external noopener" href="https://www.hackthebox.eu/">HackTheBox</a>. It was a Windows box, quite easy to solve but learned a lot along the way. It&rsquo;s my first write-up of a HTB box so it might not be the best but hopefully it will be a nice summary! We learn about SMB, mounting VHD in Linux, stealing Windows hashes, cracking them with John, and exploiting a program for Privesc.</p>
+<p><img src="/bastion.png" alt="Bastion badge"></p>
 <h2 id="1-recon">1: Recon</h2>
-
 <p>First, I do the usual nmap scan I start with on all boxes:
 
 
@@ -329,7 +319,6 @@ Host script results:<br>
 </div>
 
 </p>
-
 <p>The open ports are not too exciting but we&rsquo;ve got SMB, so let&rsquo;s see if we can exploit it.
 
 
@@ -353,7 +342,6 @@ Failed to connect with SMB1 -- no workgroup available
 </div>
 
 </p>
-
 <p>Alright, now we can access Backups by using Null session:
 
 
@@ -377,13 +365,8 @@ smb: \> l<br>
 </div>
 
 </p>
-
 <p>I found note.txt but nothing interesting there. But there is a directory called WindowsImageBackup!</p>
-
-<p><br></p>
-
-<h2 id="2-mounting-the-vhd-to-get-user">2: Mounting the VHD to get user</h2>
-
+<!-- raw HTML omitted -->
 <p>In the WindowsImageBackup we find 2 VHD files:
 
 
@@ -397,7 +380,6 @@ smb: \> l<br>
 </div>
 
 </p>
-
 <p>They are big files so we want to avoid downloading them. After a LOT of googling and every more failed attempts, I found the way to mount VHD files in linux. First I needed to install <a  target="_blank" rel="external noopener" href="https://www.varonis.com/blog/cifs-vs-smb/">CIFS</a>:
 
 
@@ -410,7 +392,6 @@ root@kali:~/Desktop/HTB/Bastion# sudo apt-get install cifs-utils<br>
 </div>
 
 </p>
-
 <p>The first and smaller VHD didn&rsquo;t contain anything of interest so let&rsquo;s go straight to the second one:
 
 
@@ -424,7 +405,6 @@ root@kali:~/Desktop/HTB/Bastion# guestmount --add 9b9cfbc4-369e-11e9-a17c-806e6f
 </div>
 
 </p>
-
 <p>Wait a few seconds and the VHD should appear as a mounted folder in your system now! I checked the Users folder but nothing there which means there is another step to getting user.txt. After getting back to more googling, I found some info about extracting the hashes in a Windows backup in /System32/config by using <a  target="_blank" rel="external noopener" href="https://linux.die.net/man/1/samdump2">samdump2</a>:
 
 
@@ -440,7 +420,6 @@ L4mpje:1000:aad3b435b51404eeaad3b435b51404ee:26112010952d963c8dc4217daec986d9:::
 </div>
 
 </p>
-
 <p>I saved the hash in a txt file to crack it with john:
 
 
@@ -461,7 +440,6 @@ Session completed
 </div>
 
 </p>
-
 <p>Awesome I got the password &ldquo;bureaulampje&rdquo;! I know SSH is available on this box from the nmap scan:
 
 
@@ -474,19 +452,11 @@ root@kali:~/Desktop/HTB/Bastion# ssh L4mpje@10.10.10.134
 </div>
 
 </p>
-
 <p>And I find the user.txt on the Desktop of the machine!</p>
-
-<p><br></p>
-
-<h2 id="3-priviledge-escalation">3: Priviledge Escalation</h2>
-
+<!-- raw HTML omitted -->
 <p>I did a lot of enumeration suggested on different Windows privesc guides, and finally found a weird program sitting in Program Files called nRemoteNG. A quick google search shows that it is vulnerable and can get us admin password: <a href="http://hackersvanguard.com/mremoteng-insecure-password-storage/">http://hackersvanguard.com/mremoteng-insecure-password-storage/</a></p>
-
 <p>I download nRemoteNG on my Windows VM. I used <a  target="_blank" rel="external noopener" href="https://winscp.net/eng/index.php">WinSCP</a> to access C:\Users\L4mpje\AppData\Roaming\mRemoteNG and download consConf.xml on my VM. Then I import it on nRemoteNG and to see the clear text of a given password, go to “Tools” &gt; “External Tools”. Then right-click in the white space and choose “New External Tool”. Next, in the External Tools Properties, fill in a “Display Name”, “Filename” and some “arguments”, with “Password lookup”, CMD and “/k echo %password%” respectively.</p>
-
-<p><img src="/nremoteng.png" alt="nRemoteNG screenshot" /></p>
-
+<p><img src="/nremoteng.png" alt="nRemoteNG screenshot"></p>
 <p>Then right click on the Bastion connection, external tool, Password Lookup, and we get the Admin password. We can now SSH with Administrator and get the root flag!
 
 
@@ -499,8 +469,7 @@ root@kali:~/Desktop/HTB/Bastion# ssh Administrator@10.10.10.134<br>
 </div>
 
 </p>
-
-<p><img src="/masterhack.gif" alt="Master hacker gif" /></p>
+<p><img src="/masterhack.gif" alt="Master hacker gif"></p>
 
     </div>
     <footer>
@@ -521,7 +490,7 @@ root@kali:~/Desktop/HTB/Bastion# ssh Administrator@10.10.10.134<br>
   
     and tagged <a rel="tag" href="/tags/ctf/">ctf</a>, <a rel="tag" href="/tags/htb/">htb</a>, <a rel="tag" href="/tags/john/">john</a>, <a rel="tag" href="/tags/nremoteng/">nRemoteNG</a>, <a rel="tag" href="/tags/smb/">smb</a> and <a rel="tag" href="/tags/windows/">windows</a>
   
-  using <span itemprop="wordCount">848</span> words.
+  using <span itemprop="wordCount">838</span> words.
 </p>
 
       

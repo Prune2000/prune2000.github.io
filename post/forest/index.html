@@ -21,7 +21,6 @@
 <meta property="og:description" content="Forest was retired on HackTheBox.eu so let&#39;s sum up what I learned while solving this Windows box." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://domain.example/post/forest/" />
-
 <meta property="og:image" content="https://prune2000.github.io/forest.png" />
 <meta property="article:published_time" content="2020-03-25T12:40:00+02:00" />
 <meta property="article:modified_time" content="2020-03-25T12:40:00+02:00" />
@@ -236,18 +235,14 @@ a[itemprop="url"]:hover {
   <article itemscope itemtype="https://schema.org/BlogPosting">
     <meta itemprop="name" content="HTB Write-up: Forest">
 <meta itemprop="description" content="Forest was retired on HackTheBox.eu so let&#39;s sum up what I learned while solving this Windows box.">
-
-
 <meta itemprop="datePublished" content="2020-03-25T12:40:00&#43;02:00" />
 <meta itemprop="dateModified" content="2020-03-25T12:40:00&#43;02:00" />
-<meta itemprop="wordCount" content="1296">
-
-  <meta itemprop="image" content="https://prune2000.github.io/forest.png">
+<meta itemprop="wordCount" content="1289">
+<meta itemprop="image" content="https://prune2000.github.io/forest.png">
 
 
 
 <meta itemprop="keywords" content="htb,ctf,windows,smb,bloodhound,john," />
-
     <header>
       <h1 itemprop="headline name">HTB Write-up: Forest</h1>
       <p class="muted">
@@ -275,14 +270,9 @@ a[itemprop="url"]:hover {
     
 
     <div itemprop="articleBody">
-      
-
-<p>The Forest Windows box retired this weekend on <a  target="_blank" rel="external noopener" href="https://www.hackthebox.eu/">HackTheBox</a>. Getting user was quite straight forward but escalating privileges was a little more compricated. We&rsquo;ll have a look at <a  target="_blank" rel="external noopener" href="https://github.com/BloodHoundAD/BloodHound">BloodHound</a> for that last step, it&rsquo;s an open source tool that I use a lot for work now and that I can&rsquo;t recommend enough.</p>
-
-<p><img src="/forest.png" alt="Forest badge" /></p>
-
+      <p>The Forest Windows box retired this weekend on <a  target="_blank" rel="external noopener" href="https://www.hackthebox.eu/">HackTheBox</a>. Getting user was quite straight forward but escalating privileges was a little more compricated. We&rsquo;ll have a look at <a  target="_blank" rel="external noopener" href="https://github.com/BloodHoundAD/BloodHound">BloodHound</a> for that last step, it&rsquo;s an open source tool that I use a lot for work now and that I can&rsquo;t recommend enough.</p>
+<p><img src="/forest.png" alt="Forest badge"></p>
 <h2 id="1-recon">1: Recon</h2>
-
 <p>First, I do the usual nmap scan I start with on all boxes:
 
 
@@ -323,9 +313,7 @@ Service Info: Host: FOREST; OS: Windows; CPE: cpe:/o:microsoft:windows
 </div>
 
 </p>
-
 <p>Looking at the open ports, we have a very standard windows box using Active Directory and that the domain is called &ldquo;htb.local&rdquo;. If you&rsquo;re starting to learn about Active Directory pen-testing, I highly recommend googling these services such as LDAP, RPC, and Kerberos.</p>
-
 <p>By design, Active Directory can be asked for a lot of public information without being authenticated, so let&rsquo;s just do that with one of nmap scripts (also possible with Metasploit&rsquo;s smb_enum_users):
 
 
@@ -355,7 +343,6 @@ Nmap done: 1 IP address (1 host up) scanned in 17.28 seconds
 </div>
 
 </p>
-
 <p>Sweet! We got a list of users! One of them pops out from all the others: svc-alfresco. The name &ldquo;svc&rdquo; would mean that it&rsquo;s a service account so we can check if it was misconfigured. There is this cool <a  target="_blank" rel="external noopener" href="https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a">cheatsheet</a> to learn how to use the widly recommended <a  target="_blank" rel="external noopener" href="https://github.com/SecureAuthCorp/impacket">Impacket</a>. Following the cheatsheet, we check if any of the users are vulnerable to <a  target="_blank" rel="external noopener" href="https://www.harmj0y.net/blog/activedirectory/roasting-as-reps/">ASREPRoast</a>:
 
 
@@ -378,13 +365,8 @@ $krb5asrep$23$svc-alfresco@HTB.LOCAL:8fc61bd2945c40654201cce35f6702c7$cc2d0b8f0d
 </div>
 
 </p>
-
 <p>As we expected, src-alfresco was misconfigured and did not require pre-authentication and we got the account&rsquo;s hash! Time to crack it!</p>
-
-<p><br></p>
-
-<h2 id="2-getting-a-shell">2: Getting a shell</h2>
-
+<!-- raw HTML omitted -->
 <p>Copy the hash to a text file called hash.txt, and run the following with john:
 
 
@@ -405,19 +387,11 @@ Session completed
 </div>
 
 </p>
-
 <p>Great! It took only 3 seconds, but not surprising with how bad the password was: s3rvice. Now we can get our shell with my favourite evil-winrm and get the user flag:</p>
-
-<p><img src="/user_owned.png" alt="evil-winrm shell" /></p>
-
-<p><br></p>
-
-<h2 id="3-priviledge-escalation">3: Priviledge Escalation</h2>
-
+<p><img src="/user_owned.png" alt="evil-winrm shell"></p>
+<!-- raw HTML omitted -->
 <p>In Active Directory, you can use <a  target="_blank" rel="external noopener" href="https://github.com/BloodHoundAD/BloodHound">BloodHound</a> to find relationships (between users, groups and computers) which can be used to escalate your privileges. It is very useful for the red team but also for the blue team in order to identify and mitigate the vulnerabilities and limit the paths to high value targets within your AD architecture.</p>
-
 <p>After downloading the lastest release of BloodHound, we can use our evil-winrm shell to upload it to the serve, run it there, and download back the results which will be in a zip format.</p>
-
 
 
 
@@ -439,13 +413,9 @@ Info: Download successful!
 </div>
 
 
-
 <p>If you&rsquo;ve done the BloodHound set up correctly following their GitHub guide, you should have neo4j (database) running and the bloodhound gui opened. Just dragged and dropped the zip file into the BloodHound gui and it will upload it to the database automatically. When it&rsquo;s finished, select the &ldquo;Shortest path to Domain Admin&rdquo; query and you&rsquo;ll see something like this:</p>
-
-<p><img src="/shortest_path.png" alt="Shortest path to DA" /></p>
-
+<p><img src="/shortest_path.png" alt="Shortest path to DA"></p>
 <p>We&rsquo;re interested in the svc-alresco path, and we see that we&rsquo;re member of a group called &ldquo;Exchange Windows Permission&rdquo; which has WriteDacl right on the entire domain. WriteDacl basically gives this group the ability to create any relationship they want. Bad news for the blue team, great team for us! Even better is that by clicking the WriteDacl relationship in BloodHound, it gives us a step-by-step guide on how to exploit it:</p>
-
 
 
 
@@ -462,11 +432,8 @@ Info: Download successful!
 </div>
 
 
-
 <p>Following BloodHound&rsquo;s instructions, we gave ourselves (svc-alfresco) the DCSync right. DCSync is &ldquo;a late-stage kill chain attack that allows an attacker to simulate the behavior of Domain Controller (DC) in order to retrieve password data via domain replication&rdquo; (source: <a  target="_blank" rel="external noopener" href="https://blog.stealthbits.com/what-is-dcsync-an-introduction/">this blog</a>).</p>
-
 <p>Thanks to this new right we&rsquo;ll be able to imitate the Domain Controller and identify ourselves as anyone else as long as we have their password hash. We don&rsquo;t even need their password! And a Domain Controller, we can now dump all the password hashes, how convenient:</p>
-
 
 
 
@@ -520,9 +487,7 @@ EXCH01$:1103:aad3b435b51404eeaad3b435b51404ee:050105bb043f5b8ffc3a9fa99b5ef7c1::
 </div>
 
 
-
 <p>Here is the Administrator password hash. One last Impacket script and we have a shell as Administrator:</p>
-
 
 
 
@@ -548,10 +513,8 @@ nt authority\system
 </div>
 
 
-
 <p>That was probably my favourite Windows box, and it&rsquo;s definitely not an easy one! I recommend it to anyone interested in Windows pen-testing.</p>
-
-<p><img src="/why.gif" alt="Why gif" /></p>
+<p><img src="/why.gif" alt="Why gif"></p>
 
     </div>
     <footer>
@@ -572,7 +535,7 @@ nt authority\system
   
     and tagged <a rel="tag" href="/tags/bloodhound/">bloodhound</a>, <a rel="tag" href="/tags/ctf/">ctf</a>, <a rel="tag" href="/tags/htb/">htb</a>, <a rel="tag" href="/tags/john/">john</a>, <a rel="tag" href="/tags/smb/">smb</a> and <a rel="tag" href="/tags/windows/">windows</a>
   
-  using <span itemprop="wordCount">1296</span> words.
+  using <span itemprop="wordCount">1289</span> words.
 </p>
 
       

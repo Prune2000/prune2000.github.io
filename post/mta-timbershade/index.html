@@ -21,7 +21,6 @@
 <meta property="og:description" content="I had already solved one exercise from @malware_traffic&#39;s website about network traffic related to malware infections. I have been slow to pick a new exercise from the very long list but I chose Timbershade and it was a lot of fun! Short one, but learned a lot once again." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://domain.example/post/mta-timbershade/" />
-
 <meta property="og:image" content="https://research.checkpoint.com/wp-content/uploads/2019/07/russia_1021x580.jpg" />
 <meta property="article:published_time" content="2019-10-27T01:00:00+02:00" />
 <meta property="article:modified_time" content="2019-10-27T01:00:00+02:00" />
@@ -236,18 +235,14 @@ a[itemprop="url"]:hover {
   <article itemscope itemtype="https://schema.org/BlogPosting">
     <meta itemprop="name" content="Writeup: Timbershade - TRAFFIC ANALYSIS EXERCISE">
 <meta itemprop="description" content="I had already solved one exercise from @malware_traffic&#39;s website about network traffic related to malware infections. I have been slow to pick a new exercise from the very long list but I chose Timbershade and it was a lot of fun! Short one, but learned a lot once again.">
-
-
 <meta itemprop="datePublished" content="2019-10-27T01:00:00&#43;02:00" />
 <meta itemprop="dateModified" content="2019-10-27T01:00:00&#43;02:00" />
-<meta itemprop="wordCount" content="541">
-
-  <meta itemprop="image" content="https://research.checkpoint.com/wp-content/uploads/2019/07/russia_1021x580.jpg">
+<meta itemprop="wordCount" content="522">
+<meta itemprop="image" content="https://research.checkpoint.com/wp-content/uploads/2019/07/russia_1021x580.jpg">
 
 
 
 <meta itemprop="keywords" content="forensic,malware,traffic analysis,wireshark," />
-
     <header>
       <h1 itemprop="headline name">Writeup: Timbershade - TRAFFIC ANALYSIS EXERCISE</h1>
       <p class="muted">
@@ -275,58 +270,43 @@ a[itemprop="url"]:hover {
     
 
     <div itemprop="articleBody">
-      
-
-<h2 id="malware-traffic-analysis">Malware Traffic Analysis</h2>
-
-<p><a href="https://twitter.com/malware_traffic" target="_blank">@malware_traffic</a> <a href="https://malware-traffic-analysis.net/" target="_blank">blog</a> has a lot of knowledge so I highly recommend to bookmark it somewhere. The real treasure is of course the amazing <a href="https://malware-traffic-analysis.net/training-exercises.html" target="_blank">exercises page</a>. Depending on the exercise, you get a pcap and other files. The pcap file is a traffic capture which we can analyse in Wireshark and find out where things went wrong!</p>
-
+      <h2 id="malware-traffic-analysis">Malware Traffic Analysis</h2>
+<p><!-- raw HTML omitted -->@malware_traffic<!-- raw HTML omitted --> <!-- raw HTML omitted -->blog<!-- raw HTML omitted --> has a lot of knowledge so I highly recommend to bookmark it somewhere. The real treasure is of course the amazing <!-- raw HTML omitted -->exercises page<!-- raw HTML omitted -->. Depending on the exercise, you get a pcap and other files. The pcap file is a traffic capture which we can analyse in Wireshark and find out where things went wrong!</p>
 <p>Being able to effectively analyse traffic is a very important skill for the security of any organisation. It helps the security team to find out where the problem happened and how to mitigate it. It is also super fun!</p>
-
-<p><br></p>
-
-<h2 id="timbershade">Timbershade</h2>
-
-<p>Today, I&rsquo;ll do one of the recent exercises <a href="https://malware-traffic-analysis.net/2019/01/28/index.html" target="_blank">&ldquo;2019-01-28 - TRAFFIC ANALYSIS EXERCISE - TIMBERSHADE&rdquo;</a>. This time we got two files: a pcap and a text file with Windows security alerts.</p>
-
+<!-- raw HTML omitted -->
+<p>Today, I&rsquo;ll do one of the recent exercises <!-- raw HTML omitted -->&quot;2019-01-28 - TRAFFIC ANALYSIS EXERCISE - TIMBERSHADE&quot;<!-- raw HTML omitted -->. This time we got two files: a pcap and a text file with Windows security alerts.</p>
 <p>QUESTIONS:</p>
-
-<p>• What is the IP address of the infected Windows host?<br>
-• What is the MAC address of the infected Windows host?<br>
-• What is the host name of the infected Windows host?<br>
-• What is the Windows user account name for the infected Windows host?<br>
-• What is the SHA256 file hash of the Windows executable file sent to the infected Windows host?<br>
-• Based on the IDS alerts, what type of infection is this?<br></p>
-
-<p><br></p>
-
-<h2 id="my-answers">My Answers</h2>
-
-<p>1) What is the IP address of the infected Windows host?<br></p>
-
-<p><img src="/timbershade/source-ip.png" alt="IP address" />
+<p>• What is the IP address of the infected Windows host?<!-- raw HTML omitted -->
+• What is the MAC address of the infected Windows host?<!-- raw HTML omitted -->
+• What is the host name of the infected Windows host?<!-- raw HTML omitted -->
+• What is the Windows user account name for the infected Windows host?<!-- raw HTML omitted -->
+• What is the SHA256 file hash of the Windows executable file sent to the infected Windows host?<!-- raw HTML omitted -->
+• Based on the IDS alerts, what type of infection is this?<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<ol>
+<li>What is the IP address of the infected Windows host?<!-- raw HTML omitted --></li>
+</ol>
+<p><img src="/timbershade/source-ip.png" alt="IP address">
 The IP of the infected Windows host is 172.17.8.109</p>
-
-<p>2) What is the MAC address of the infected Windows host?<br>
-3) What is the host name of the infected Windows host?<br></p>
-
+<ol start="2">
+<li>What is the MAC address of the infected Windows host?<!-- raw HTML omitted --></li>
+<li>What is the host name of the infected Windows host?<!-- raw HTML omitted --></li>
+</ol>
 <p>I&rsquo;ll answer both questions together because we can find the hostname and the MAC address quickly through different ways:
-<a href="https://unit42.paloaltonetworks.com/using-wireshark-identifying-hosts-and-users/">https://unit42.paloaltonetworks.com/using-wireshark-identifying-hosts-and-users/</a><br>
-In this case, we filter by “bootp” &gt; Go to Bootstrap Protocol and then in the options we find the hostname and MAC address:<br>
-<img src="/timbershade/mac-and-host.png" alt="Hostname and MAC" /></p>
-
-<p>4) What is the Windows user account name for the infected Windows host?<br></p>
-
+<!-- raw HTML omitted --><a href="https://unit42.paloaltonetworks.com/using-wireshark-identifying-hosts-and-users/">https://unit42.paloaltonetworks.com/using-wireshark-identifying-hosts-and-users/</a><!-- raw HTML omitted --><!-- raw HTML omitted -->
+In this case, we filter by “bootp” &gt; Go to Bootstrap Protocol and then in the options we find the hostname and MAC address:<!-- raw HTML omitted -->
+<img src="/timbershade/mac-and-host.png" alt="Hostname and MAC"></p>
+<ol start="4">
+<li>What is the Windows user account name for the infected Windows host?<!-- raw HTML omitted --></li>
+</ol>
 <p>To find this information we can look at the Kerberos traffic. To do that, filter the traffic by “kerberos.CNameString” select one of the frame with the source being our infected Windows host, navigate the frame details sections:
-<img src="/timbershade/username.png" alt="CNameString" /></p>
-
+<img src="/timbershade/username.png" alt="CNameString"></p>
 <p>This will add the CNameString to all the Kerberos request so we can find one of them with the username and not the hostname. CNameString values for hostnames always end with a $ (dollar sign), while user account names do not.
-<img src="/timbershade/username2.png" alt="Username" /></p>
-
+<img src="/timbershade/username2.png" alt="Username"></p>
 <p>The username is “margaret.dunn”.</p>
-
-<p>4) What is the SHA256 file hash of the Windows executable file sent to the infected Windows host?<br></p>
-
+<ol start="4">
+<li>What is the SHA256 file hash of the Windows executable file sent to the infected Windows host?<!-- raw HTML omitted --></li>
+</ol>
 <p>We can find the executable file in: File &gt; Export objects &gt; HTTP. I downloaded the .bin file and in my terminal, I checked its sha256:
 
 
@@ -340,9 +320,9 @@ root@kali:~# sha256sum actiV.bin <br>
 </div>
 
 </p>
-
-<p>5) Based on the IDS alerts, what type of infection is this?<br></p>
-
+<ol start="5">
+<li>Based on the IDS alerts, what type of infection is this?<!-- raw HTML omitted --></li>
+</ol>
 <p>Looking at the text file with all the alerts, we easily find several lines showing:
 
 
@@ -358,12 +338,9 @@ Protocol: 6 sport=3389 -> dport=49214
 </div>
 
 </p>
-
-<p>We can easily conclude that it was a Trojan.Dridex infection which is a banking trojan and spyware trageting Windows systems. You can read more about it in <a href="https://blog.malwarebytes.com/detections/trojan-dridex/" target="_blank">this article</a>.</p>
-
-<p>That&rsquo;s all for today! Go try some of his exercices and contact me on <a href="https://twitter.com/victor_theyknow" target="_blank">twitter</a> if you need help!</p>
-
-<p><img src="/city.gif" alt="Final gif" /></p>
+<p>We can easily conclude that it was a Trojan.Dridex infection which is a banking trojan and spyware trageting Windows systems. You can read more about it in <!-- raw HTML omitted -->this article<!-- raw HTML omitted -->.</p>
+<p>That&rsquo;s all for today! Go try some of his exercices and contact me on <!-- raw HTML omitted -->twitter<!-- raw HTML omitted --> if you need help!</p>
+<p><img src="/city.gif" alt="Final gif"></p>
 
     </div>
     <footer>
@@ -384,7 +361,7 @@ Protocol: 6 sport=3389 -> dport=49214
   
     and tagged <a rel="tag" href="/tags/forensic/">forensic</a>, <a rel="tag" href="/tags/malware/">malware</a>, <a rel="tag" href="/tags/traffic-analysis/">traffic analysis</a> and <a rel="tag" href="/tags/wireshark/">wireshark</a>
   
-  using <span itemprop="wordCount">541</span> words.
+  using <span itemprop="wordCount">522</span> words.
 </p>
 
       

